@@ -54,6 +54,7 @@ public class vehicle : MonoBehaviour
 		rotate();
 		accelerate();
 		aim();
+		anchor.transform.position = transform.position + new Vector3(0, 0.7f, 0);
 	}
 
 	public void OnSteer(InputAction.CallbackContext context)
@@ -107,7 +108,7 @@ public class vehicle : MonoBehaviour
 	private void rotate()
     {
 		vehicleRigidBody.transform.Rotate(0, rotationSpeed * steerInput * Time.deltaTime, 0);
-		anchor.transform.Rotate(0, -rotationSpeed * steerInput * Time.deltaTime, 0);
+		//anchor.transform.Rotate(0, -rotationSpeed * steerInput * Time.deltaTime, 0);
 	}
 
 	private void accelerate()
