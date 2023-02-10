@@ -179,4 +179,9 @@ public class vehicle : MonoBehaviour
     {
 		courseProgress++;
     }
+
+	public void DecrementProgress()
+	{
+		courseProgress--;
+	}
 }
