@@ -30,7 +30,8 @@ public class vehicle : MonoBehaviour
 	public float driftCompensation = 100.0f;
 	public float maxSpeed = 30.0f;
 	public float aimSpeed = 1500.0f;
-
+	public int courseProgress = 0;
+	public int playerID = 0;
 	private void Awake()
 	{
 		playerInput = GetComponent<PlayerInput>();
@@ -166,4 +167,9 @@ public class vehicle : MonoBehaviour
     {
 		SceneManager.LoadScene("Track2");
 	}
+
+	public void IncrementProgress()
+    {
+		courseProgress++;
+    }
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3210850100417622790}
   m_Layer: 0
   m_Name: VehicleObject
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -342,6 +342,8 @@ MonoBehaviour:
   driftCompensation: 100
   maxSpeed: 30
   aimSpeed: 1500
+  courseProgress: 0
+  playerID: 0
 --- !u!1 &3210850101133266494
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,7 +420,6 @@ GameObject:
   - component: {fileID: 3210850101425450137}
   - component: {fileID: 3210850101425450136}
   - component: {fileID: 3210850101425450139}
-  - component: {fileID: 3210850101425450138}
   m_Layer: 0
   m_Name: VehicleShape
   m_TagString: Untagged
@@ -505,29 +506,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3210850101425450138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3210850101425450140}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35aea11f59130626a8b059bb03684829, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  vehicleRigidBody: {fileID: 0}
-  anchor: {fileID: 0}
-  projectilePrefab: {fileID: 0}
-  obstaclePrefab: {fileID: 0}
-  rotationSpeed: 120
-  accelerationSpeed: 1000
-  decelerationEffectivity: 0.8
-  driftCompensation: 100
-  maxSpeed: 30
-  aimSpeed: 1500
 --- !u!1 &3210850101850118116
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,7 +742,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3210850101890551867}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
@@ -815,12 +793,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3210850101890551867}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da4c58346ec06f645b0b6a616233eec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Vehicle: {fileID: 3210850101020776385}
 --- !u!1 &3210850102206919337
 GameObject:
   m_ObjectHideFlags: 0
