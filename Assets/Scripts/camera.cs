@@ -5,7 +5,7 @@ using UnityEngine;
 public class camera : MonoBehaviour
 {
     //public GameObject Vehicle;
-
+    Vector3 positionVelocity = Vector3.zero;
     void LateUpdate()
     {
         //transform.position = Vehicle.transform.position + new Vector3(0, 50, -5);
@@ -19,6 +19,7 @@ public class camera : MonoBehaviour
             }
         }
 
-        transform.position = leadVehicle.transform.position + new Vector3(0, 50, -5);
+        //transform.position = leadVehicle.transform.position + new Vector3(0, 50, -5);
+        transform.position = Vector3.SmoothDamp(transform.position, leadVehicle.transform.position + new Vector3(0, 50, -5), ref positionVelocity, 0.2f);
     }
 }
