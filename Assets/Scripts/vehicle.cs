@@ -32,6 +32,8 @@ public class vehicle : MonoBehaviour
 	public float aimSpeed = 1500.0f;
 	public int courseProgress = 0;
 	public int playerID = 0;
+	public Vector3 startPos;
+
 	private void Awake()
 	{
 		playerInput = GetComponent<PlayerInput>();
@@ -39,7 +41,12 @@ public class vehicle : MonoBehaviour
 		playerControls = new PlayerControls();
 	}
 
-	private void OnEnable()
+    private void Start()
+    {
+		transform.position = startPos;
+    }
+
+    private void OnEnable()
 	{
 		playerControls.Enable();
 	}

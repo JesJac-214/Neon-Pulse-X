@@ -20,6 +20,6 @@ public class camera : MonoBehaviour
         }
 
         //transform.position = leadVehicle.transform.position + new Vector3(0, 50, -5);
-        transform.position = Vector3.SmoothDamp(transform.position, leadVehicle.transform.position + new Vector3(0, 50, -5), ref positionVelocity, 0.2f);
+        transform.position = Vector3.SmoothDamp(transform.position, leadVehicle.transform.position + new Vector3(0, 50, -15), ref positionVelocity, 0.2f);
     }
 }
