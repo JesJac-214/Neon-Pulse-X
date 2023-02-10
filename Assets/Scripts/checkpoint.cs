@@ -5,15 +5,19 @@ using UnityEngine;
 public class checkpoint : MonoBehaviour
 {
     Transform[] childArray;
-    // Start is called before the first frame update
+    slice[] slices;
     void Start()
     {
         childArray = GetComponentsInChildren<Transform>();
+        slices = FindObjectsOfType<slice>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void ResetCheckpoints(int playerID)
     {
-
+        Debug.Log("Collided with " + playerID);
+        foreach (slice slice in slices)
+        {
+            slice.collided[playerID] = false;
+        }
     }
 }

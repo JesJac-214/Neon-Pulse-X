@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class slice : MonoBehaviour
 {
-    bool[] collided = {false, false, false, false};
+    public bool[] collided = {false, false, false, false};
+
+    public bool test = false;
 
     void OnTriggerEnter(Collider other)
     {
