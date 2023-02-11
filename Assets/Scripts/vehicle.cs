@@ -160,7 +160,7 @@ public class vehicle : MonoBehaviour
 		if (context.ReadValue<float>() == 1)
         {
 			vehicleRigidBody.velocity = Vector3.zero;
-			transform.SetPositionAndRotation(new Vector3(0, 3, -20), Quaternion.Euler(0, -90, 0));
+			transform.SetPositionAndRotation(startPos, Quaternion.Euler(0, -90, 0));
 			anchor.transform.rotation = new Quaternion(0, 0, 0, 0);
         }
 	}
