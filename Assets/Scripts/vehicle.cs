@@ -60,18 +60,18 @@ public class vehicle : MonoBehaviour
 
     void Update()
     {
-		rotate();
-		accelerate();
-		aim();
-		
-	}
-	private void rotate()
-    {
-		vehicleRigidBody.transform.Rotate(0, rotationSpeed * steerInput * Time.deltaTime, 0);
-		//anchor.transform.Rotate(0, -rotationSpeed * steerInput * Time.deltaTime, 0);
+		Rotate();
+		Accelerate();
+		Aim();
 	}
 
-	private void accelerate()
+	private void Rotate()
+    {
+		vehicleRigidBody.transform.Rotate(0, rotationSpeed * steerInput * Time.deltaTime, 0);
+		//anchor.transform.Rotate(0, rotationSpeed * steerInput * Time.deltaTime, 0);
+	}
+
+	private void Accelerate()
     {
 		vehicleRigidBody.AddForce(accelerationSpeed * (accelerateInput - decelerationEffectivity * decelerateInput) * transform.forward * Time.deltaTime);
 		if (!drift)
@@ -82,20 +82,19 @@ public class vehicle : MonoBehaviour
 		vehicleRigidBody.velocity = Vector3.ClampMagnitude(vehicleRigidBody.velocity, maxSpeed);
 	}
 
-	private void aim()
+	private void Aim()
     {
 		anchor.transform.position = transform.position + new Vector3(0, 1f, 0);
+		Vector3 direction = Vector3.right * aimInput.x + Vector3.forward * aimInput.y;
 		if (isGamepad)
 		{
 			if (aimInput.x != 0 && aimInput.y != 0)
 			{
-				Vector3 direction = Vector3.right * aimInput.x + Vector3.forward * aimInput.y;
 				anchor.transform.rotation = Quaternion.RotateTowards(anchor.transform.rotation, Quaternion.LookRotation(direction), aimSpeed * Time.deltaTime);
 			}
 		}
 		else
 		{
-			Vector3 direction = Vector3.right * aimInput.x + Vector3.forward * aimInput.y;
 			if (direction != Vector3.zero)
 			{
 				anchor.transform.rotation = Quaternion.RotateTowards(anchor.transform.rotation, Quaternion.LookRotation(direction), aimSpeed * Time.deltaTime);
@@ -151,11 +150,6 @@ public class vehicle : MonoBehaviour
         }
     }
 
-	public void OnDeviceChange(PlayerInput pi)
-	{
-		isGamepad = pi.currentControlScheme.Equals("Gamepad") ? true : false;
-	}
-
 	public void OnRespawn(InputAction.CallbackContext context)
     {
 		if (context.ReadValue<float>() == 1)
@@ -169,11 +163,6 @@ public class vehicle : MonoBehaviour
 	public void OnQuitGame()
 	{
 		Application.Quit();
-	}
-
-	public void OnSwitchTrack()
-    {
-		SceneManager.LoadScene("Track2");
 	}
 
 	public void IncrementProgress()
