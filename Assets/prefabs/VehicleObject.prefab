@@ -339,7 +339,7 @@ MonoBehaviour:
   rotationSpeed: 120
   accelerationSpeed: 1000
   decelerationEffectivity: 0.8
-  driftCompensation: 100
+  frictionForce: 5
   maxSpeed: 30
   aimSpeed: 1500
   courseProgress: 0

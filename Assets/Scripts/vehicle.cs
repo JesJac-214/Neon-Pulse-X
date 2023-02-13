@@ -27,7 +27,7 @@ public class vehicle : MonoBehaviour
 	public float rotationSpeed = 120.0f;
 	public float accelerationSpeed = 1000.0f;
 	public float decelerationEffectivity = 0.8f;
-	public float driftCompensation = 100.0f;
+	public float frictionForce = 5f;
 	public float maxSpeed = 30.0f;
 	public float aimSpeed = 1500.0f;
 	public int courseProgress = 0;
@@ -63,7 +63,44 @@ public class vehicle : MonoBehaviour
 		rotate();
 		accelerate();
 		aim();
-		anchor.transform.position = transform.position + new Vector3(0, 0.7f, 0);
+		
+	}
+	private void rotate()
+    {
+		vehicleRigidBody.transform.Rotate(0, rotationSpeed * steerInput * Time.deltaTime, 0);
+		//anchor.transform.Rotate(0, -rotationSpeed * steerInput * Time.deltaTime, 0);
+	}
+
+	private void accelerate()
+    {
+		vehicleRigidBody.AddForce(accelerationSpeed * (accelerateInput - decelerationEffectivity * decelerateInput) * transform.forward * Time.deltaTime);
+		if (!drift)
+        {
+			vehicleRigidBody.velocity -= Vector3.Project(vehicleRigidBody.velocity, vehicleRigidBody.transform.right) * frictionForce * Time.deltaTime;
+
+		}
+		vehicleRigidBody.velocity = Vector3.ClampMagnitude(vehicleRigidBody.velocity, maxSpeed);
+	}
+
+	private void aim()
+    {
+		anchor.transform.position = transform.position + new Vector3(0, 1f, 0);
+		if (isGamepad)
+		{
+			if (aimInput.x != 0 && aimInput.y != 0)
+			{
+				Vector3 direction = Vector3.right * aimInput.x + Vector3.forward * aimInput.y;
+				anchor.transform.rotation = Quaternion.RotateTowards(anchor.transform.rotation, Quaternion.LookRotation(direction), aimSpeed * Time.deltaTime);
+			}
+		}
+		else
+		{
+			Vector3 direction = Vector3.right * aimInput.x + Vector3.forward * aimInput.y;
+			if (direction != Vector3.zero)
+			{
+				anchor.transform.rotation = Quaternion.RotateTowards(anchor.transform.rotation, Quaternion.LookRotation(direction), aimSpeed * Time.deltaTime);
+			}
+		}
 	}
 
 	public void OnSteer(InputAction.CallbackContext context)
@@ -113,43 +150,6 @@ public class vehicle : MonoBehaviour
 			drift = false;
         }
     }
-
-	private void rotate()
-    {
-		vehicleRigidBody.transform.Rotate(0, rotationSpeed * steerInput * Time.deltaTime, 0);
-		//anchor.transform.Rotate(0, -rotationSpeed * steerInput * Time.deltaTime, 0);
-	}
-
-	private void accelerate()
-    {
-		vehicleRigidBody.AddForce(accelerationSpeed * (accelerateInput - decelerationEffectivity * decelerateInput) * transform.forward * Time.deltaTime);
-		//vehicleRigidBody.AddForce(Vector3.Project(vehicleRigidBody.velocity, vehicleRigidBody.transform.right).magnitude * vehicleRigidBody.transform.forward * Time.deltaTime);
-		if (!drift)
-        {
-			vehicleRigidBody.AddForce(-Vector3.Project(vehicleRigidBody.velocity, vehicleRigidBody.transform.right) * driftCompensation * Time.deltaTime);
-        }
-		vehicleRigidBody.velocity = Vector3.ClampMagnitude(vehicleRigidBody.velocity, maxSpeed);
-	}
-
-	private void aim()
-    {
-		if (isGamepad)
-		{
-			if (aimInput.x != 0 && aimInput.y != 0)
-			{
-				Vector3 direction = Vector3.right * aimInput.x + Vector3.forward * aimInput.y;
-				anchor.transform.rotation = Quaternion.RotateTowards(anchor.transform.rotation, Quaternion.LookRotation(direction), aimSpeed * Time.deltaTime);
-			}
-		}
-		else
-		{
-			Vector3 direction = Vector3.right * aimInput.x + Vector3.forward * aimInput.y;
-			if (direction != Vector3.zero)
-			{
-				anchor.transform.rotation = Quaternion.RotateTowards(anchor.transform.rotation, Quaternion.LookRotation(direction), aimSpeed * Time.deltaTime);
-			}
-		}
-	}
 
 	public void OnDeviceChange(PlayerInput pi)
 	{
