@@ -8,7 +8,10 @@ Outrun, outgun, and outlive to outplay the competition
   - [ ] Add pickups
     - [ ] Weapons
     - [ ] Items
-- [ ] Make Start Screen
-- [ ] Make Main Menu
-- [ ] Make Player Select Screen
-  - [ ] Add multiple cars to select
+- [ ] Add Menus
+  - [ ] Make Start Screen
+  - [ ] Make Main Menu
+  - [ ] Make Player Select Screen
+    - [ ] Add multiple cars to select
+  - [ ] Make Track Select Screen
+    - [ ] Add multiple tracks to select
