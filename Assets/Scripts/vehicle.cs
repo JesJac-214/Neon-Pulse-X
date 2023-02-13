@@ -34,6 +34,7 @@ public class vehicle : MonoBehaviour
 	public int playerID = 0;
 	public Vector3 startPos;
 	public int laps = 0;
+	private bool grounded;
 
 	private void Awake()
 	{
@@ -60,9 +61,13 @@ public class vehicle : MonoBehaviour
 
     void Update()
     {
-		Rotate();
-		Accelerate();
+		if (grounded)
+		{
+			Rotate();
+			Accelerate();
+		}
 		Aim();
+		Debug.DrawRay(transform.position, vehicleRigidBody.velocity, Color.green);
 	}
 
 	private void Rotate()
@@ -173,5 +178,21 @@ public class vehicle : MonoBehaviour
 	public void DecrementProgress()
 	{
 		courseProgress--;
+	}
+
+	void OnCollisionStay(Collision collision)
+	{
+		if (collision.gameObject.tag == "Track")
+		{
+			grounded = true;
+		}
+	}
+
+	void OnCollisionExit(Collision collision)
+	{
+		if (collision.gameObject.tag == "Track")
+		{
+			grounded = false;
+		}
 	}
 }
