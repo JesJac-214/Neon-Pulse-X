@@ -10,17 +10,18 @@ public class checkpoint : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        int playerID = other.transform.parent.GetComponent<vehicle>().playerID;
+        Transform player = other.transform.parent;
+        int PlayerID = player.GetComponent<vehicle>().playerID;
         
-        if (!collided[playerID])
+        if (!collided[PlayerID])
         {
             // !!IMPORTANT!! This may be a bit wack so check back and fix it if it has to be fixed
-            other.transform.parent.BroadcastMessage("IncrementProgress");
+            player.BroadcastMessage("IncrementProgress");
         }
-        if (collided[playerID])
+        if (collided[PlayerID])
         {
-            other.transform.parent.BroadcastMessage("DecrementProgress");
+            player.BroadcastMessage("DecrementProgress");
         }
-        collided[playerID] = !collided[playerID];
+        collided[PlayerID] = !collided[PlayerID];
     }
 }
