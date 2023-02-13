@@ -4,31 +4,23 @@ using UnityEngine;
 
 public class checkpoint : MonoBehaviour
 {
-    //Transform[] childArray;
-    slice[] slices;
-    int totalCheckpoints;
-    void Start()
-    {
-        //childArray = GetComponentsInChildren<Transform>();
-        slices = FindObjectsOfType<slice>();
-        totalCheckpoints = slices.Length;
-    }
+    public bool[] collided = {false, false, false, false};
 
-    void ResetCheckpoints(int playerID)
+    public bool test = false;
+
+    void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("Collided with " + playerID);
-        int checkpointsCrossed = 0;
-        foreach (slice slice in slices)
-        {
-            if (slice.collided[playerID])
-            {
-                checkpointsCrossed++;
-            }
-        }
+        int playerID = other.transform.parent.GetComponent<vehicle>().playerID;
         
-        foreach (slice slice in slices)
+        if (!collided[playerID])
         {
-            slice.collided[playerID] = false;
+            // !!IMPORTANT!! This may be a bit wack so check back and fix it if it has to be fixed
+            other.transform.parent.BroadcastMessage("IncrementProgress");
         }
+        if (collided[playerID])
+        {
+            other.transform.parent.BroadcastMessage("DecrementProgress");
+        }
+        collided[playerID] = !collided[playerID];
     }
 }

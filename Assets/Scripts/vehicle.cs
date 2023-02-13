@@ -33,6 +33,7 @@ public class vehicle : MonoBehaviour
 	public int courseProgress = 0;
 	public int playerID = 0;
 	public Vector3 startPos;
+	public int laps = 0;
 
 	private void Awake()
 	{
