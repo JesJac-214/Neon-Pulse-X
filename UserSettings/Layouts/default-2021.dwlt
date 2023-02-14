@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 984
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Game
   m_RootView: {fileID: 8}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 80
+  controlID: 64
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -145,8 +145,8 @@ MonoBehaviour:
     y: 0
     width: 239
     height: 612
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -367,22 +367,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/prefabs
+    - Assets/Scripts
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/prefabs
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: /home/tage/Documents/RallyShooter
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: a2610000
-    m_LastClickedID: 24994
-    m_ExpandedIDs: 000000006661000000ca9a3bffffff7f
+    m_SelectedIDs: 14610000
+    m_LastClickedID: 24852
+    m_ExpandedIDs: 00000000d460000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -410,7 +410,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000066610000
+    m_ExpandedIDs: 00000000d4600000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -540,7 +540,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 7089ffffc089ffffde8bffffe28bffff4a8dffff9a8dffffb88fffffbc8fffff8693ffffd693fffff495fffff895ffff6897ffffb897ffffd299ffffd699ffffce9bffff1e9cffff3c9effff409effffb09fffff00a0ffff1ea2ffff22a2ffff86a3ffffd8a3fffff6a5fffffaa5ffff74a9ffffc6a9ffff84aaffff88aaffffc6acffff18adffffd6adffffdaadffff24b0ffff7ab0ffff94b2ffff98b2ffff72baffffdebdffff2ebeffff4cc0ffff50c0ffffd8c2ffff28c3ffff46c5ffff4ac5ffff4ce2ffff9ce2ffffbae4ffffbee4ffff46e6ffff98e6ffffbee8ffffc2e8ffff08fbffff
+      m_ExpandedIDs: 38e0ffff88e0ffffa6e2ffffaae2ffff40e6ffff90e6ffffaee8ffffb2e8ffff3eebffff8eebffffacedffffb0edffff14efffff64efffff82f1ffff86f1ffffdaf2ffff2af3ffff48f5ffff4cf5ffff98f6ffffe8f6ffff0af9ffff12f9ffff34fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -822,9 +822,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 18.307758, y: -10.7600765, z: -3.0616417}
+    m_Target: {x: -7.8991737, y: -9.57485, z: 14.737843}
     speed: 2
-    m_Value: {x: 18.307758, y: -10.7600765, z: -3.0616417}
+    m_Value: {x: -7.8991737, y: -9.57485, z: 14.737843}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -871,13 +871,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.19984154, y: 0.34037024, z: -0.07421669, w: 0.9158871}
+    m_Target: {x: 0.3020951, y: 0.21519323, z: -0.07015661, w: 0.9260969}
     speed: 2
-    m_Value: {x: 0.19982697, y: 0.3403454, z: -0.07421128, w: 0.9158203}
+    m_Value: {x: 0.3020729, y: 0.21517743, z: -0.07015146, w: 0.9260289}
   m_Size:
-    m_Target: 18.131855
+    m_Target: 53.07686
     speed: 2
-    m_Value: 18.131855
+    m_Value: 53.07686
   m_Ortho:
     m_Target: 0
     speed: 2

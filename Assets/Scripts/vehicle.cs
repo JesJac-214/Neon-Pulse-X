@@ -167,15 +167,17 @@ public class vehicle : MonoBehaviour
 
 	private void HandleTireFriction()
 	{
+		vehicleRigidBody.velocity -= 2 * Time.deltaTime * Vector3.Project(vehicleRigidBody.velocity, vehicleRigidBody.transform.right);
 		foreach (GameObject tire in tires)
 		{
-			/*Vector3 steeringDir = tire.transform.forward;
+			//vehicleRigidBody.velocity -= Time.deltaTime * Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward);
+			Vector3 steeringDir = tire.transform.forward;
 			Vector3 tireWorldVel = vehicleRigidBody.GetPointVelocity(tire.transform.position);
 			float steeringVel = Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward).magnitude;
 			float desiredVelChange = -steeringVel * tireGripFactor;
 			float desiredAccel = desiredVelChange / Time.fixedDeltaTime;
-			vehicleRigidBody.AddForceAtPosition(steeringDir * tireMass * desiredAccel, tire.transform.position);*/
-			vehicleRigidBody.AddForceAtPosition(tireMass*-Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward), tire.transform.position);
+			//vehicleRigidBody.AddForceAtPosition(steeringDir * tireMass * desiredAccel, tire.transform.position);
+			//vehicleRigidBody.AddForceAtPosition(tireMass*-Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward), tire.transform.position);
 			Debug.DrawRay(tire.transform.position, Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward), Color.red);
 		}
 	}
