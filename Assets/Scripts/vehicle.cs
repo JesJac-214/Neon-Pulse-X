@@ -35,6 +35,10 @@ public class vehicle : MonoBehaviour
 	public Vector3 startPos;
 	public int laps = 0;
 	private bool grounded;
+	public int totalWeaponAmmo = 5;
+	public int totalItemAmmo = 3;
+	private int weaponAmmo = 5;
+	private int itemAmmo = 3;
 
 	private void Awake()
 	{
@@ -129,17 +133,19 @@ public class vehicle : MonoBehaviour
 
 	public void OnShoot(InputAction.CallbackContext context)
     {
-		if (context.ReadValue<float>() == 1)
+		if (context.ReadValue<float>() == 0 && weaponAmmo > 0)
         {
 			Instantiate(projectilePrefab, transform.position + anchor.transform.forward * 2, anchor.transform.rotation);
+			weaponAmmo--;
         }
     }
 
 	public void OnUseItem(InputAction.CallbackContext context)
     {
-		if (context.ReadValue<float>() == 0)
+		if (context.ReadValue<float>() == 0 && itemAmmo > 0)
         {
 			Instantiate(obstaclePrefab, transform.position + anchor.transform.forward * 2, anchor.transform.rotation);
+			itemAmmo--;
         }
     }
 
@@ -179,6 +185,12 @@ public class vehicle : MonoBehaviour
 	{
 		courseProgress--;
 	}
+
+	public void ResetAmmo()
+    {
+		weaponAmmo = totalWeaponAmmo;
+		itemAmmo = totalItemAmmo;
+    }
 
 	void OnCollisionStay(Collision collision)
 	{
