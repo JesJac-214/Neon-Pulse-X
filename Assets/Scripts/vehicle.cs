@@ -40,6 +40,8 @@ public class vehicle : MonoBehaviour
 	private int weaponAmmo = 5;
 	private int itemAmmo = 3;
 
+	public GameObject[] tires;
+
 	private void Awake()
 	{
 		playerInput = GetComponent<PlayerInput>();
@@ -71,7 +73,7 @@ public class vehicle : MonoBehaviour
 			Accelerate();
 		}
 		Aim();
-		Debug.DrawRay(transform.position, vehicleRigidBody.velocity, Color.green);
+		HandleTires();
 	}
 
 	private void Rotate()
@@ -82,10 +84,10 @@ public class vehicle : MonoBehaviour
 
 	private void Accelerate()
     {
-		vehicleRigidBody.AddForce(accelerationSpeed * (accelerateInput - decelerationEffectivity * decelerateInput) * transform.forward * Time.deltaTime);
+		vehicleRigidBody.AddForce((accelerateInput - decelerationEffectivity * decelerateInput) * accelerationSpeed * Time.deltaTime * transform.forward);
 		if (!drift)
         {
-			vehicleRigidBody.velocity -= Vector3.Project(vehicleRigidBody.velocity, vehicleRigidBody.transform.right) * frictionForce * Time.deltaTime;
+			vehicleRigidBody.velocity -= frictionForce * Time.deltaTime * Vector3.Project(vehicleRigidBody.velocity, vehicleRigidBody.transform.right);
 
 		}
 		vehicleRigidBody.velocity = Vector3.ClampMagnitude(vehicleRigidBody.velocity, maxSpeed);
@@ -110,6 +112,20 @@ public class vehicle : MonoBehaviour
 			}
 		}
 	}
+
+	private void HandleTires()
+    {
+		foreach (GameObject tire in tires)
+        {
+			Ray ray = new Ray(tire.transform.position, -tire.transform.up);
+			if (Physics.Raycast(ray, out RaycastHit hit, 2))
+            {
+				Debug.Log("Hit!" + hit.collider);
+            }
+			Debug.DrawRay(tire.transform.position, 2 * -tire.transform.up, Color.red);
+			//vehicleRigidBody.AddForceAtPosition(tire.transform.up, tire.transform.position);
+        }
+    }
 
 	public void OnSteer(InputAction.CallbackContext context)
     {
