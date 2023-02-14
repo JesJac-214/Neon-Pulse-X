@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class obstacle : MonoBehaviour
 {
-    void Start()
+    public float destructionDelay = 0.2f;
+    private void OnCollisionEnter(Collision collision)
     {
-        Destroy(gameObject, 20);
+        if (collision.gameObject.tag == "Player")
+        {
+            Destroy(gameObject, destructionDelay);
+        }
     }
 }
