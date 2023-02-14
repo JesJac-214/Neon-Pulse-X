@@ -25,7 +25,7 @@ public class vehicle : MonoBehaviour
 	private Vector2 aimInput = Vector2.zero;
 
 	public float rotationSpeed = 120.0f;
-	public float accelerationSpeed = 1000000.0f;
+	public float accelerationSpeed = 10000.0f;
 	public float decelerationEffectivity = 0.8f;
 	public float frictionForce = 5f;
 	public float maxSpeed = 30.0f;
@@ -44,9 +44,11 @@ public class vehicle : MonoBehaviour
 	public GameObject[] tires;
 	public GameObject[] frontTires;
 	private float springStrength = 100.0f;
-	private float springDamper = 30.0f;
+	private float springDamper = 15.0f;
 	public float tireRotationSmoothing = 5.0f;
-	public float tireTiltAngle = 60.0f;
+	public float tireTiltAngle = 15.0f;
+	public float tireMass = 5.0f;
+	public float tireGripFactor = 1.0f;
 
 	private void Awake()
 	{
@@ -74,12 +76,13 @@ public class vehicle : MonoBehaviour
     void Update()
     {
 		HandleTireSuspension();
+		HandleTireRotation();
 		if (grounded)
 		{
-			Rotate();
-			//HandleTireRotation();
+			//Rotate();
 			//Accelerate();
 			HandleTireAcceleration();
+			HandleTireFriction();
 		}
 		Aim();
 	}
@@ -130,7 +133,7 @@ public class vehicle : MonoBehaviour
             {
 				float offset = 1f - hit.distance;
 				Vector3 springDir = tire.transform.up;
-				float vel = Vector3.Dot(springDir, tire.GetComponent<wheels>().velocity);
+				float vel = Vector3.Dot(springDir, vehicleRigidBody.GetPointVelocity(tire.transform.position));
 				float force = (offset * springStrength) - (vel * springDamper);
 				vehicleRigidBody.AddForceAtPosition(springDir * force, tire.transform.position);
 				grounded = true;
@@ -148,8 +151,8 @@ public class vehicle : MonoBehaviour
 		foreach (GameObject tire in frontTires)
         {
 			
-			Quaternion target = Quaternion.Euler(0, steerInput * tireTiltAngle, 0);
-			tire.transform.rotation = Quaternion.Slerp(tire.transform.rotation, target, Time.deltaTime * tireRotationSmoothing);;
+			Quaternion target = Quaternion.Euler(0, steerInput * tireTiltAngle, 0) * vehicleRigidBody.rotation * Quaternion.Euler(0,90,0);
+			tire.transform.rotation = target;
 			Debug.DrawRay(tire.transform.position, 2 * -tire.transform.right, Color.blue);
         }
     }
@@ -161,6 +164,21 @@ public class vehicle : MonoBehaviour
 			vehicleRigidBody.AddForceAtPosition(-tire.transform.right * accelerateInput * accelerationSpeed * Time.deltaTime, tire.transform.position);
         }
     }
+
+	private void HandleTireFriction()
+	{
+		foreach (GameObject tire in tires)
+		{
+			/*Vector3 steeringDir = tire.transform.forward;
+			Vector3 tireWorldVel = vehicleRigidBody.GetPointVelocity(tire.transform.position);
+			float steeringVel = Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward).magnitude;
+			float desiredVelChange = -steeringVel * tireGripFactor;
+			float desiredAccel = desiredVelChange / Time.fixedDeltaTime;
+			vehicleRigidBody.AddForceAtPosition(steeringDir * tireMass * desiredAccel, tire.transform.position);*/
+			vehicleRigidBody.AddForceAtPosition(tireMass*-Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward), tire.transform.position);
+			Debug.DrawRay(tire.transform.position, Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward), Color.red);
+		}
+	}
 
 	public void OnSteer(InputAction.CallbackContext context)
     {
