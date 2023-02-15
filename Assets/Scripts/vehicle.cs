@@ -37,12 +37,9 @@ public class vehicle : MonoBehaviour
 	public Vector3 startPos;
 	public int laps = 0;
 	private bool grounded;
-	//public int totalWeaponAmmo = 0;
-	//public int totalItemAmmo = 0;
+
     public int weaponAmmo;
     public int itemAmmo;
-
-    public GameObject[] tires;
 
 	private void Awake()
 	{
@@ -54,8 +51,6 @@ public class vehicle : MonoBehaviour
     private void Start()
     {
 		transform.position = startPos;
-        //int weaponAmmo = totalWeaponAmmo;
-        //int itemAmmo = totalItemAmmo;
     }
 
     private void OnEnable()
@@ -77,7 +72,7 @@ public class vehicle : MonoBehaviour
 			Accelerate();
 		}
 		Aim();
-		HandleTires();
+		//HandleTires();
 	}
 
 	private void Rotate()
@@ -116,20 +111,6 @@ public class vehicle : MonoBehaviour
 			}
 		}
 	}
-
-	private void HandleTires()
-    {
-		foreach (GameObject tire in tires)
-        {
-			Ray ray = new Ray(tire.transform.position, -tire.transform.up);
-			if (Physics.Raycast(ray, out RaycastHit hit, 2))
-            {
-				//Debug.Log("Hit!" + hit.collider);
-            }
-			Debug.DrawRay(tire.transform.position, 2 * -tire.transform.up, Color.red);
-			//vehicleRigidBody.AddForceAtPosition(tire.transform.up, tire.transform.position);
-        }
-    }
 
 	public void OnSteer(InputAction.CallbackContext context)
     {
@@ -205,12 +186,6 @@ public class vehicle : MonoBehaviour
 	{
 		courseProgress--;
 	}
-
-	public void ResetAmmo()
-    {
-		//weaponAmmo = totalWeaponAmmo;
-		//itemAmmo = totalItemAmmo;
-    }
 
 	void OnCollisionStay(Collision collision)
 	{
