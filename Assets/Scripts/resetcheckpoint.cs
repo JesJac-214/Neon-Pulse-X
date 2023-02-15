@@ -9,7 +9,6 @@ public class resetcheckpoint : MonoBehaviour
         if (other.name == "VehicleShape")
         {
             GameObject.Find("Checkpoint Manager").BroadcastMessage("ResetCheckpoints", other.transform.parent.GetComponent<vehicle>().playerID);
-            other.transform.parent.GetComponent<vehicle>().ResetAmmo();
         }
     }
 }
