@@ -18,6 +18,8 @@ public class vehicle : MonoBehaviour
 	public GameObject PrimaryPrefab;
     public GameObject SecondaryPrefab;
 
+	public GameObject gun;
+
     private bool isGamepad;
 	private bool drift = false;
 
@@ -73,6 +75,15 @@ public class vehicle : MonoBehaviour
 		}
 		Aim();
 		//HandleTires();
+		if (weaponAmmo == 0)
+        {
+			gun.GetComponent<MeshRenderer>().enabled = false;
+        }
+		else
+        {
+			gun.GetComponent<MeshRenderer>().enabled = true;
+		}
+
 	}
 
 	private void Rotate()
@@ -145,7 +156,7 @@ public class vehicle : MonoBehaviour
     {
 		if (context.ReadValue<float>() == 0 && itemAmmo > 0)
         {
-			Instantiate(SecondaryPrefab, transform.position + anchor.transform.forward * 2, anchor.transform.rotation);
+			Instantiate(SecondaryPrefab, transform.position - transform.forward * 2, transform.rotation);
 			itemAmmo--;
         }
     }

@@ -312,6 +312,7 @@ MonoBehaviour:
   anchor: {fileID: 3210850101133266494}
   PrimaryPrefab: {fileID: 0}
   SecondaryPrefab: {fileID: 0}
+  gun: {fileID: 3210850101850118116}
   rotationSpeed: 120
   accelerationSpeed: 1000
   decelerationEffectivity: 0.8
@@ -324,11 +325,6 @@ MonoBehaviour:
   laps: 0
   weaponAmmo: 0
   itemAmmo: 0
-  tires:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!1 &3210850101133266494
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,7 +634,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3210850101890500741}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
