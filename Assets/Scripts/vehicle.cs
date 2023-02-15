@@ -13,10 +13,12 @@ public class vehicle : MonoBehaviour
 	public Camera cam;
 	public Rigidbody vehicleRigidBody;
 	public GameObject anchor;
-	public GameObject projectilePrefab;
-	public GameObject obstaclePrefab;
+	//public GameObject projectilePrefab;
+	//public GameObject obstaclePrefab;
+	public GameObject PrimaryPrefab;
+    public GameObject SecondaryPrefab;
 
-	private bool isGamepad;
+    private bool isGamepad;
 	private bool drift = false;
 
 	private float steerInput = 0;
@@ -35,12 +37,12 @@ public class vehicle : MonoBehaviour
 	public Vector3 startPos;
 	public int laps = 0;
 	private bool grounded;
-	public int totalWeaponAmmo = 5;
-	public int totalItemAmmo = 3;
-	private int weaponAmmo = 5;
-	private int itemAmmo = 3;
+	//public int totalWeaponAmmo = 0;
+	//public int totalItemAmmo = 0;
+    public int weaponAmmo;
+    public int itemAmmo;
 
-	public GameObject[] tires;
+    public GameObject[] tires;
 
 	private void Awake()
 	{
@@ -52,6 +54,8 @@ public class vehicle : MonoBehaviour
     private void Start()
     {
 		transform.position = startPos;
+        //int weaponAmmo = totalWeaponAmmo;
+        //int itemAmmo = totalItemAmmo;
     }
 
     private void OnEnable()
@@ -120,7 +124,7 @@ public class vehicle : MonoBehaviour
 			Ray ray = new Ray(tire.transform.position, -tire.transform.up);
 			if (Physics.Raycast(ray, out RaycastHit hit, 2))
             {
-				Debug.Log("Hit!" + hit.collider);
+				//Debug.Log("Hit!" + hit.collider);
             }
 			Debug.DrawRay(tire.transform.position, 2 * -tire.transform.up, Color.red);
 			//vehicleRigidBody.AddForceAtPosition(tire.transform.up, tire.transform.position);
@@ -151,7 +155,7 @@ public class vehicle : MonoBehaviour
     {
 		if (context.ReadValue<float>() == 0 && weaponAmmo > 0)
         {
-			Instantiate(projectilePrefab, transform.position + anchor.transform.forward * 2, anchor.transform.rotation);
+			Instantiate(PrimaryPrefab, transform.position + anchor.transform.forward * 2, anchor.transform.rotation);
 			weaponAmmo--;
         }
     }
@@ -160,7 +164,7 @@ public class vehicle : MonoBehaviour
     {
 		if (context.ReadValue<float>() == 0 && itemAmmo > 0)
         {
-			Instantiate(obstaclePrefab, transform.position + anchor.transform.forward * 2, anchor.transform.rotation);
+			Instantiate(SecondaryPrefab, transform.position + anchor.transform.forward * 2, anchor.transform.rotation);
 			itemAmmo--;
         }
     }
@@ -204,8 +208,8 @@ public class vehicle : MonoBehaviour
 
 	public void ResetAmmo()
     {
-		weaponAmmo = totalWeaponAmmo;
-		itemAmmo = totalItemAmmo;
+		//weaponAmmo = totalWeaponAmmo;
+		//itemAmmo = totalItemAmmo;
     }
 
 	void OnCollisionStay(Collision collision)
