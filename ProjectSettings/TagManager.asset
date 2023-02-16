@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Track
   - Vehicle Body
+  - SpeedBoost
   layers:
   - Default
   - TransparentFX

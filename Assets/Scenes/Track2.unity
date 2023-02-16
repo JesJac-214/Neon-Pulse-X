@@ -272,6 +272,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VehicleObject (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3210850101020776398, guid: 89da7491d56a98e49b77b4b745779773, type: 3}
+      propertyPath: speedCoolDown
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89da7491d56a98e49b77b4b745779773, type: 3}
 --- !u!1 &296811220
@@ -738,6 +742,10 @@ PrefabInstance:
     - target: {fileID: 3210850100417622841, guid: 89da7491d56a98e49b77b4b745779773, type: 3}
       propertyPath: m_Name
       value: VehicleObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 3210850101020776398, guid: 89da7491d56a98e49b77b4b745779773, type: 3}
+      propertyPath: speedCoolDown
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89da7491d56a98e49b77b4b745779773, type: 3}

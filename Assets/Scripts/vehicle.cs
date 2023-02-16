@@ -33,6 +33,9 @@ public class vehicle : MonoBehaviour
 	public float decelerationEffectivity = 0.8f;
 	public float frictionForce = 5f;
 	public float maxSpeed = 30.0f;
+	//public float boostedMaxSpeed = 60.0f;
+	//public float boostedAccelerationSpeed = 2000.0f;
+	public float speedCoolDown = 1;
 	public float aimSpeed = 1500.0f;
 	public int courseProgress = 0;
 	public int playerID = 0;
@@ -43,7 +46,7 @@ public class vehicle : MonoBehaviour
     public int weaponAmmo;
     public int itemAmmo;
 
-	private void Awake()
+    private void Awake()
 	{
 		playerInput = GetComponent<PlayerInput>();
 		controller = GetComponent<CharacterController>();
@@ -213,4 +216,27 @@ public class vehicle : MonoBehaviour
 			grounded = false;
 		}
 	}
+
+    void OnTriggerEnter(Collider other)
+	{
+        if (other.gameObject.tag == "SpeedBoost")
+		{
+			maxSpeed = maxSpeed + 30.0f;
+			accelerationSpeed = accelerationSpeed + 1000.0f;
+			StartCoroutine("SpeedDuration");
+			Debug.Log("Vehicle boost");
+
+        }
+
+    }
+
+	IEnumerator SpeedDuration ()
+	{
+		yield return new WaitForSeconds(speedCoolDown);
+		maxSpeed = maxSpeed - 30.0f;
+		accelerationSpeed = accelerationSpeed - 1000.0f;
+		Debug.Log("slowdown");
+	}
+
+
 }
