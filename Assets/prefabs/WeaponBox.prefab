@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6005820112518727934}
   - component: {fileID: 3573374786043389130}
   - component: {fileID: -4376272230248404604}
+  - component: {fileID: 9017256909829166778}
   m_Layer: 0
   m_Name: WeaponBox
   m_TagString: Untagged
@@ -113,3 +114,15 @@ MonoBehaviour:
   weaponEquipmentArray:
   - {fileID: 3484231644899251866, guid: bff66119371eedf44bd33f4c3c6cc322, type: 3}
   - {fileID: 3484231644899251866, guid: f7e9d59f744495848ad64e4a2ed25a46, type: 3}
+--- !u!114 &9017256909829166778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8621985157886561025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 564d7b6c78e3da642b6dbb323439024d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

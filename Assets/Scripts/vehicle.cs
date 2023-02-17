@@ -201,7 +201,7 @@ public class vehicle : MonoBehaviour
 		courseProgress--;
 	}
 
-	void OnCollisionStay(Collision collision)
+    void OnCollisionStay(Collision collision)
 	{
 		if (collision.gameObject.tag == "Track")
 		{

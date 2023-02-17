@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1610716059232324826}
   - component: {fileID: 1610716059232324827}
   - component: {fileID: 1610716059232324824}
+  - component: {fileID: 3206906822457338789}
   m_Layer: 0
   m_Name: ItemBox
   m_TagString: Untagged
@@ -113,3 +114,15 @@ MonoBehaviour:
   ItemEquipmentArray:
   - {fileID: 7081105307886475574, guid: cef074304914a404f9ceb93b92d806d8, type: 3}
   - {fileID: 5174173754135415632, guid: 38297c545d5955743aab7ac31924722b, type: 3}
+--- !u!114 &3206906822457338789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610716059232324825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 564d7b6c78e3da642b6dbb323439024d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

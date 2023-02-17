@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 8259391309296167539}
   - component: {fileID: 2993714388359758889}
   - component: {fileID: 6072859561710168211}
-  - component: {fileID: 2873118532891967185}
+  - component: {fileID: 7848733935884101303}
+  - component: {fileID: 8273784182266559361}
+  - component: {fileID: 345036686409110606}
   m_Layer: 0
   m_Name: DoubleBox (1)
   m_TagString: Untagged
@@ -98,7 +100,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2873118532891967185
+--- !u!114 &7848733935884101303
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,6 +109,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 9159864965745952776}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c396966f4bc3c0242812765b197e6be7, type: 3}
+  m_Script: {fileID: 11500000, guid: 66de50af744b4844680bcdd322f93467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ItemEquipmentArray:
+  - {fileID: 7081105307886475574, guid: cef074304914a404f9ceb93b92d806d8, type: 3}
+  - {fileID: 5174173754135415632, guid: 38297c545d5955743aab7ac31924722b, type: 3}
+--- !u!114 &8273784182266559361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9159864965745952776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 693110c436bf5a240b4c2dc1b94e2247, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponEquipmentArray:
+  - {fileID: 3484231644899251866, guid: f7e9d59f744495848ad64e4a2ed25a46, type: 3}
+  - {fileID: 3484231644899251866, guid: bff66119371eedf44bd33f4c3c6cc322, type: 3}
+--- !u!114 &345036686409110606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9159864965745952776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 564d7b6c78e3da642b6dbb323439024d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 120
