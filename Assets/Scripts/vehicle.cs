@@ -33,8 +33,8 @@ public class vehicle : MonoBehaviour
 	public float decelerationEffectivity = 0.8f;
 	public float frictionForce = 5f;
 	public float maxSpeed = 30.0f;
-	//public float boostedMaxSpeed = 60.0f;
-	//public float boostedAccelerationSpeed = 2000.0f;
+	public float boostedSpeedValue = 30.0f;
+	public float boostedAccelerationValue = 1000.0f;
 	public float speedCoolDown = 1;
 	public float aimSpeed = 1500.0f;
 	public int courseProgress = 0;
@@ -221,8 +221,8 @@ public class vehicle : MonoBehaviour
 	{
         if (other.gameObject.tag == "SpeedBoost")
 		{
-			maxSpeed = maxSpeed + 30.0f;
-			accelerationSpeed = accelerationSpeed + 1000.0f;
+			maxSpeed = maxSpeed + boostedSpeedValue;
+			accelerationSpeed = accelerationSpeed + boostedAccelerationValue;
 			StartCoroutine("SpeedDuration");
 			Debug.Log("Vehicle boost");
 
@@ -233,8 +233,8 @@ public class vehicle : MonoBehaviour
 	IEnumerator SpeedDuration ()
 	{
 		yield return new WaitForSeconds(speedCoolDown);
-		maxSpeed = maxSpeed - 30.0f;
-		accelerationSpeed = accelerationSpeed - 1000.0f;
+        maxSpeed = maxSpeed - boostedSpeedValue;
+        accelerationSpeed = accelerationSpeed - boostedAccelerationValue;
 		Debug.Log("slowdown");
 	}
 
