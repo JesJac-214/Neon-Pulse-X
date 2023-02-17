@@ -16,11 +16,11 @@ public class vehicle : MonoBehaviour
 	//public GameObject projectilePrefab;
 	//public GameObject obstaclePrefab;
 	public GameObject PrimaryPrefab;
-    public GameObject SecondaryPrefab;
+	public GameObject SecondaryPrefab;
 
 	public GameObject gun;
 
-    private bool isGamepad;
+	private bool isGamepad;
 	private bool drift = false;
 
 	private float steerInput = 0;
@@ -43,22 +43,24 @@ public class vehicle : MonoBehaviour
 	public int laps = 0;
 	private bool grounded;
 
-    public int weaponAmmo;
-    public int itemAmmo;
+	public int weaponAmmo;
+	public int itemAmmo;
 
-    private void Awake()
+	public int lives = 3;
+
+	private void Awake()
 	{
 		playerInput = GetComponent<PlayerInput>();
 		controller = GetComponent<CharacterController>();
 		playerControls = new PlayerControls();
 	}
 
-    private void Start()
-    {
+	private void Start()
+	{
 		transform.position = startPos;
-    }
+	}
 
-    private void OnEnable()
+	private void OnEnable()
 	{
 		playerControls.Enable();
 	}
@@ -69,8 +71,8 @@ public class vehicle : MonoBehaviour
 	}
 
 
-    void Update()
-    {
+	void Update()
+	{
 		if (grounded)
 		{
 			Rotate();
@@ -79,27 +81,27 @@ public class vehicle : MonoBehaviour
 		Aim();
 		//HandleTires();
 		if (weaponAmmo == 0)
-        {
+		{
 			gun.GetComponent<MeshRenderer>().enabled = false;
-        }
+		}
 		else
-        {
+		{
 			gun.GetComponent<MeshRenderer>().enabled = true;
 		}
 
 	}
 
 	private void Rotate()
-    {
+	{
 		vehicleRigidBody.transform.Rotate(0, rotationSpeed * steerInput * Time.deltaTime, 0);
 		//anchor.transform.Rotate(0, rotationSpeed * steerInput * Time.deltaTime, 0);
 	}
 
 	private void Accelerate()
-    {
+	{
 		vehicleRigidBody.AddForce((accelerateInput - decelerationEffectivity * decelerateInput) * accelerationSpeed * Time.deltaTime * transform.forward);
 		if (!drift)
-        {
+		{
 			vehicleRigidBody.velocity -= frictionForce * Time.deltaTime * Vector3.Project(vehicleRigidBody.velocity, vehicleRigidBody.transform.right);
 
 		}
@@ -107,7 +109,7 @@ public class vehicle : MonoBehaviour
 	}
 
 	private void Aim()
-    {
+	{
 		anchor.transform.position = transform.position + new Vector3(0, 1f, 0);
 		Vector3 direction = Vector3.right * aimInput.x + Vector3.forward * aimInput.y;
 		if (isGamepad)
@@ -127,7 +129,7 @@ public class vehicle : MonoBehaviour
 	}
 
 	public void OnSteer(InputAction.CallbackContext context)
-    {
+	{
 		steerInput = context.ReadValue<float>();
 	}
 
@@ -147,43 +149,43 @@ public class vehicle : MonoBehaviour
 	}
 
 	public void OnShoot(InputAction.CallbackContext context)
-    {
+	{
 		if (context.ReadValue<float>() == 0 && weaponAmmo > 0)
-        {
+		{
 			Instantiate(PrimaryPrefab, transform.position + anchor.transform.forward * 2, anchor.transform.rotation);
 			weaponAmmo--;
-        }
-    }
+		}
+	}
 
 	public void OnUseItem(InputAction.CallbackContext context)
-    {
+	{
 		if (context.ReadValue<float>() == 0 && itemAmmo > 0)
-        {
+		{
 			Instantiate(SecondaryPrefab, transform.position - transform.forward * 2, transform.rotation);
 			itemAmmo--;
-        }
-    }
+		}
+	}
 
 	public void OnDrift(InputAction.CallbackContext context)
-    {
+	{
 		if (context.ReadValue<float>() == 1)
-        {
+		{
 			drift = true;
-        }
+		}
 		else
-        {
+		{
 			drift = false;
-        }
-    }
+		}
+	}
 
 	public void OnRespawn(InputAction.CallbackContext context)
-    {
+	{
 		if (context.ReadValue<float>() == 1)
-        {
+		{
 			vehicleRigidBody.velocity = Vector3.zero;
 			transform.SetPositionAndRotation(startPos, Quaternion.Euler(0, -90, 0));
 			anchor.transform.rotation = new Quaternion(0, 0, 0, 0);
-        }
+		}
 	}
 
 	public void OnQuitGame()
@@ -192,16 +194,16 @@ public class vehicle : MonoBehaviour
 	}
 
 	public void IncrementProgress()
-    {
+	{
 		courseProgress++;
-    }
+	}
 
 	public void DecrementProgress()
 	{
 		courseProgress--;
 	}
 
-    void OnCollisionStay(Collision collision)
+	void OnCollisionStay(Collision collision)
 	{
 		if (collision.gameObject.tag == "Track")
 		{
@@ -217,18 +219,18 @@ public class vehicle : MonoBehaviour
 		}
 	}
 
-    void OnTriggerEnter(Collider other)
+	void OnTriggerEnter(Collider other)
 	{
-        if (other.gameObject.tag == "SpeedBoost")
+		if (other.gameObject.tag == "SpeedBoost")
 		{
 			maxSpeed = maxSpeed + 30.0f;
 			accelerationSpeed = accelerationSpeed + 1000.0f;
 			StartCoroutine("SpeedDuration");
 			Debug.Log("Vehicle boost");
 
-        }
+		}
 
-    }
+	}
 
 	IEnumerator SpeedDuration ()
 	{

@@ -27,11 +27,31 @@ public class TargetManagement : MonoBehaviour
         GameObject[] vehicles = GameObject.FindGameObjectsWithTag("Player");
         if (vehicles.Length > 0)
         {
+            GameObject leadVehicle = vehicles[0];
+            foreach (GameObject vehicle in vehicles)
+            {
+                if (vehicle.GetComponent<vehicle>().courseProgress > leadVehicle.GetComponent<vehicle>().courseProgress)
+                {
+                    leadVehicle = vehicle;
+                }
+            }
+
             foreach (GameObject vehicle in vehicles)
             {
                 if (!IsVisible(cam, vehicle))
                 {
-                    vehicle.transform.position = cam.transform.position - new Vector3(0, 50, -20);
+                    if (vehicle.GetComponent<vehicle>().lives > 0)
+                    {
+                        vehicle.GetComponent<vehicle>().lives--;
+                        vehicle.transform.position = cam.transform.position - new Vector3(0, 50, -20);
+                        vehicle.GetComponent<vehicle>().courseProgress = leadVehicle.GetComponent<vehicle>().courseProgress;
+                        vehicle.transform.rotation = leadVehicle.transform.rotation;
+                    }
+                    else
+                    {
+                        vehicle.transform.position = new Vector3(0, -50, 0);
+                        vehicle.GetComponent<vehicle>().courseProgress = 0;
+                    }
                     Debug.Log(vehicle.GetComponent<vehicle>().playerID);
                 }
             }
