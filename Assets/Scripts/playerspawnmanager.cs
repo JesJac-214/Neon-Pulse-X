@@ -8,7 +8,7 @@ public class playerspawnmanager : MonoBehaviour
     public Transform[] spawnLocations;
     public void OnPlayerJoined(PlayerInput playerInput)
     {
-        playerInput.gameObject.GetComponent<vehicle>().playerID = playerInput.playerIndex;
-        playerInput.gameObject.GetComponent<vehicle>().startPos = spawnLocations[playerInput.playerIndex].position;
+        playerInput.gameObject.GetComponent<VehicleData>().playerID = playerInput.playerIndex;
+        playerInput.gameObject.GetComponent<VehicleData>().startPos = spawnLocations[playerInput.playerIndex].position;
     }
 }

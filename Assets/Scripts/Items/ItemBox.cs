@@ -11,10 +11,10 @@ public class ItemBox : MonoBehaviour
    
         if (other.gameObject.tag == "Vehicle Body")
         {
-            if (other.transform.parent.GetComponent<vehicle>().itemAmmo == 0)
+            if (other.transform.parent.GetComponent<WeaponItemLogic>().itemAmmo == 0)
             {
-                other.transform.parent.GetComponent<vehicle>().SecondaryPrefab = ItemEquipmentArray[Random.Range(0, ItemEquipmentArray.Length)];
-                other.transform.parent.GetComponent<vehicle>().itemAmmo = 3;
+                other.transform.parent.GetComponent<WeaponItemLogic>().SecondaryPrefab = ItemEquipmentArray[Random.Range(0, ItemEquipmentArray.Length)];
+                other.transform.parent.GetComponent<WeaponItemLogic>().itemAmmo = 3;
             }
             StartCoroutine("itemDisappear");
             GetComponent<MeshRenderer>().enabled = false;

@@ -30,7 +30,7 @@ public class TargetManagement : MonoBehaviour
             GameObject leadVehicle = vehicles[0];
             foreach (GameObject vehicle in vehicles)
             {
-                if (vehicle.GetComponent<vehicle>().courseProgress > leadVehicle.GetComponent<vehicle>().courseProgress)
+                if (vehicle.GetComponent<VehicleData>().courseProgress > leadVehicle.GetComponent<VehicleData>().courseProgress)
                 {
                     leadVehicle = vehicle;
                 }
@@ -40,19 +40,19 @@ public class TargetManagement : MonoBehaviour
             {
                 if (!IsVisible(cam, vehicle))
                 {
-                    if (vehicle.GetComponent<vehicle>().lives > 0)
+                    if (vehicle.GetComponent<VehicleData>().lives > 0)
                     {
-                        vehicle.GetComponent<vehicle>().lives--;
+                        vehicle.GetComponent<VehicleData>().lives--;
                         vehicle.transform.position = cam.transform.position - new Vector3(0, 50, -20);
-                        vehicle.GetComponent<vehicle>().courseProgress = leadVehicle.GetComponent<vehicle>().courseProgress;
+                        vehicle.GetComponent<VehicleData>().courseProgress = leadVehicle.GetComponent<VehicleData>().courseProgress;
                         vehicle.transform.rotation = leadVehicle.transform.rotation;
                     }
                     else
                     {
                         vehicle.transform.position = new Vector3(0, -50, 0);
-                        vehicle.GetComponent<vehicle>().courseProgress = 0;
+                        vehicle.GetComponent<VehicleData>().courseProgress = 0;
                     }
-                    Debug.Log(vehicle.GetComponent<vehicle>().playerID);
+                    Debug.Log(vehicle.GetComponent<VehicleData>().playerID);
                 }
             }
         }

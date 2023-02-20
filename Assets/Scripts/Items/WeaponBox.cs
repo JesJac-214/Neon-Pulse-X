@@ -9,10 +9,10 @@ public class WeaponBox : MonoBehaviour
     {
         if (other.gameObject.tag == "Vehicle Body")
         {
-            if (other.transform.parent.GetComponent<vehicle>().weaponAmmo == 0)
+            if (other.transform.parent.GetComponent<WeaponItemLogic>().weaponAmmo == 0)
             {
-                other.transform.parent.GetComponent<vehicle>().PrimaryPrefab = weaponEquipmentArray[Random.Range(0, weaponEquipmentArray.Length)];
-                other.transform.parent.GetComponent<vehicle>().weaponAmmo = 10;
+                other.transform.parent.GetComponent<WeaponItemLogic>().PrimaryPrefab = weaponEquipmentArray[Random.Range(0, weaponEquipmentArray.Length)];
+                other.transform.parent.GetComponent<WeaponItemLogic>().weaponAmmo = 10;
             }
         }
         StartCoroutine("itemDisappear");

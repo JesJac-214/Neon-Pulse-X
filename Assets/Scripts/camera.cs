@@ -13,7 +13,7 @@ public class camera : MonoBehaviour
             GameObject leadVehicle = vehicles[0];
             foreach (GameObject vehicle in vehicles)
             {
-                if (vehicle.GetComponent<vehicle>().courseProgress > leadVehicle.GetComponent<vehicle>().courseProgress)
+                if (vehicle.GetComponent<VehicleData>().courseProgress > leadVehicle.GetComponent<VehicleData>().courseProgress)
                 {
                     leadVehicle = vehicle;
                 }
