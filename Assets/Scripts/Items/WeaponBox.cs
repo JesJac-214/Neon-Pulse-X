@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WeaponBox : MonoBehaviour
 {
+    
     public GameObject[] weaponEquipmentArray;
     private void OnTriggerEnter(Collider other)
     {
@@ -14,10 +15,10 @@ public class WeaponBox : MonoBehaviour
                 other.transform.parent.GetComponent<WeaponItemLogic>().PrimaryPrefab = weaponEquipmentArray[Random.Range(0, weaponEquipmentArray.Length)];
                 other.transform.parent.GetComponent<WeaponItemLogic>().weaponAmmo = 10;
             }
+            StartCoroutine("itemDisappear");
+            GetComponent<MeshRenderer>().enabled = false;
+            GetComponent<BoxCollider>().enabled = false;
         }
-        StartCoroutine("itemDisappear");
-        GetComponent<MeshRenderer>().enabled = false;
-        GetComponent<BoxCollider>().enabled = false;
     }
 
     IEnumerator itemDisappear()
