@@ -33,7 +33,7 @@ public class SpeedBoost : EquipmentBase
     {
         if (ammo > 0)
         {
-            vehicle.GetComponent<WeaponItemLogic>().SpeedBoost();
+            vehicle.GetComponent<VehicleWeaponItemLogic>().SpeedBoost();
             ammo--;
         }
     }
@@ -49,7 +49,7 @@ public class CannonBall : EquipmentBase
     {
         if (ammo > 0)
         {
-            vehicle.GetComponent<WeaponItemLogic>().SpawnCannonBall();
+            vehicle.GetComponent<VehicleWeaponItemLogic>().SpawnCannonBall();
             ammo--;
         }
     }
@@ -66,7 +66,7 @@ public class Wall : EquipmentBase
     {
         if (ammo > 0)
         {
-            vehicle.GetComponent<WeaponItemLogic>().SpawnWall();
+            vehicle.GetComponent<VehicleWeaponItemLogic>().SpawnWall();
             ammo--;
         }
     }
