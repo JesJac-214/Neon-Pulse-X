@@ -10,7 +10,6 @@ public class VehicleData : MonoBehaviour
 	public int courseProgress = 0;
 	public int laps = 0;
 	public int lives = 3;
-
 	public void OnQuitGame()
 	{
 		Application.Quit();

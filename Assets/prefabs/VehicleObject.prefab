@@ -325,9 +325,9 @@ MonoBehaviour:
   anchor: {fileID: 3210850101133266494}
   PrimaryPrefab: {fileID: 0}
   SecondaryPrefab: {fileID: 0}
+  WallPrefab: {fileID: 5174173754135415632, guid: 38297c545d5955743aab7ac31924722b, type: 3}
+  CannonBallPrefab: {fileID: 3484231644899251866, guid: f7e9d59f744495848ad64e4a2ed25a46, type: 3}
   gun: {fileID: 3210850101850118116}
-  weaponAmmo: 0
-  itemAmmo: 0
   boostedSpeedValue: 30
   boostedAccelerationValue: 1000
   speedCoolDown: 1

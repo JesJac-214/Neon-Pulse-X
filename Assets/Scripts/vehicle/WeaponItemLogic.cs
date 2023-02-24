@@ -6,14 +6,14 @@ using UnityEngine.InputSystem;
 public class WeaponItemLogic : MonoBehaviour
 {
 	public GameObject anchor;
-	
-	public GameObject PrimaryPrefab;
-	public GameObject SecondaryPrefab;
+
+	public GameObject WallPrefab;
+	public GameObject CannonBallPrefab;
 
 	public GameObject gun;
 
-	public int weaponAmmo;
-	public int itemAmmo;
+	public EquipmentBase Weapon = new EquipmentBase();
+	public EquipmentBase Item = new EquipmentBase();
 
 	public float boostedSpeedValue = 30.0f;
 	public float boostedAccelerationValue = 1000.0f;
@@ -21,7 +21,7 @@ public class WeaponItemLogic : MonoBehaviour
 
 	void Update()
 	{
-		if (weaponAmmo == 0)
+		if (Weapon.ammo == 0)
 		{
 			gun.GetComponent<MeshRenderer>().enabled = false;
 		}
@@ -32,41 +32,52 @@ public class WeaponItemLogic : MonoBehaviour
 
 	}
 
-	public void OnShoot(InputAction.CallbackContext context)
+		public void OnShoot(InputAction.CallbackContext context)
 	{
-		if (context.ReadValue<float>() == 0 && weaponAmmo > 0)
+		if (context.ReadValue<float>() == 0)
 		{
-			Instantiate(PrimaryPrefab, transform.position + anchor.transform.forward * 2, anchor.transform.rotation);
-			weaponAmmo--;
+			Weapon.Use(gameObject);
 		}
 	}
 
 	public void OnUseItem(InputAction.CallbackContext context)
 	{
-		if (context.ReadValue<float>() == 0 && itemAmmo > 0)
+		if (context.ReadValue<float>() == 0)
 		{
-			Instantiate(SecondaryPrefab, transform.position - transform.forward * 2, transform.rotation);
-			itemAmmo--;
+			Item.Use(gameObject);
 		}
 	}
 
-	void OnTriggerEnter(Collider other)
+	public void SpeedBoost()
 	{
-		if (other.gameObject.tag == "SpeedBoost")
-		{
-			transform.GetComponent<DrivingAimingLogic>().maxSpeed += boostedSpeedValue;
-			transform.GetComponent<DrivingAimingLogic>().accelerationSpeed += boostedAccelerationValue;
-			StartCoroutine("SpeedDuration");
-			Debug.Log("Vehicle boost");
-		}
-
-	}
-
-	IEnumerator SpeedDuration()
+		transform.GetComponent<DrivingAimingLogic>().maxSpeed += boostedSpeedValue;
+        transform.GetComponent<DrivingAimingLogic>().accelerationSpeed += boostedAccelerationValue;
+        StartCoroutine("SpeedDuration");
+    }
+    IEnumerator SpeedDuration()
 	{
 		yield return new WaitForSeconds(speedCoolDown);
 		transform.GetComponent<DrivingAimingLogic>().maxSpeed -= boostedSpeedValue;
 		transform.GetComponent<DrivingAimingLogic>().accelerationSpeed -= boostedAccelerationValue;
-		Debug.Log("slowdown");
+	}
+	
+	public void SpawnWall()
+	{
+        Instantiate(WallPrefab, transform.position - transform.forward * 2, transform.rotation);
+    }
+
+	public void SpawnCannonBall()
+	{
+        Instantiate(CannonBallPrefab, transform.position + anchor.transform.forward * 5, anchor.transform.rotation);
+    }
+
+	public void Freeze()
+	{
+
+	}
+
+	public void Invert()
+	{
+
 	}
 }
