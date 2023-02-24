@@ -12,6 +12,7 @@ Outrun, outgun, and outlive to outplay the competition
   - [x] Add life tracking
   - [ ] End Game when all other players have 0 lives
 - [ ] UI
+  - [ ] Make Pause Screen
   - [ ] Make Start Screen
   - [ ] Make Main Menu
   - [ ] Make Player Select Screen
