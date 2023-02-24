@@ -210,8 +210,8 @@ MonoBehaviour:
     m_ActionName: Driving/Decelerate[/Gamepad/leftTrigger,/Keyboard/s]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1916270233854305615}
-        m_TargetAssemblyTypeName: DrivingAimingLogic, Assembly-CSharp
+      - m_Target: {fileID: 8565532749757640430}
+        m_TargetAssemblyTypeName: VehicleData, Assembly-CSharp
         m_MethodName: OnQuitGame
         m_Mode: 1
         m_Arguments:
