@@ -5,13 +5,14 @@ Outrun, outgun, and outlive to outplay the competition
 - [ ] Create core game loop
   - [x] Create a system that tracks player positions
   - [x] Make players who fall off screen teleport/bullet bill back into the fray
-    - [ ] Solve checkpoint problem
+    - [x] Solve checkpoint problem 
   - [x] Add pickups
     - [x] Weapons
     - [x] Items
   - [x] Add life tracking
   - [ ] End Game when all other players have 0 lives
 - [ ] UI
+  - [ ] Make Pause Screen
   - [ ] Make Start Screen
   - [ ] Make Main Menu
   - [ ] Make Player Select Screen
