@@ -30,10 +30,10 @@ public class checkpointManager : MonoBehaviour
         {
             foreach (GameObject player in players)
             {
-                if (player.GetComponent<vehicle>().playerID == playerID)
+                if (player.GetComponent<VehicleData>().playerID == playerID)
                 {
-                    player.GetComponent<vehicle>().courseProgress += (totalCheckpoints - checkpointsCrossed);
-                    player.GetComponent<vehicle>().laps++;
+                    player.GetComponent<VehicleData>().courseProgress += (totalCheckpoints - checkpointsCrossed);
+                    player.GetComponent<VehicleData>().laps++;
                 }
             }
             foreach (checkpoint checkpoint in checkpoints)
