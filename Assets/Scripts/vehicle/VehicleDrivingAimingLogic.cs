@@ -73,7 +73,11 @@ public class VehicleDrivingAimingLogic : MonoBehaviour
 		if (!drift)
 		{
 			vehicleRigidBody.velocity -= frictionForce * Time.deltaTime * Vector3.Project(vehicleRigidBody.velocity, vehicleRigidBody.transform.right);
-
+		}
+		else
+        {
+			vehicleRigidBody.AddForce((accelerateInput - decelerationEffectivity * decelerateInput) * 0.02f * accelerationSpeed * Time.deltaTime * transform.forward);
+			vehicleRigidBody.velocity -= 0.1f * frictionForce * Time.deltaTime * Vector3.Project(vehicleRigidBody.velocity, vehicleRigidBody.transform.right);
 		}
 		vehicleRigidBody.velocity = Vector3.ClampMagnitude(vehicleRigidBody.velocity, maxSpeed);
 	}

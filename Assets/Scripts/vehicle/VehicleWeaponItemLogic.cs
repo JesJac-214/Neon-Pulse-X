@@ -12,8 +12,8 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 
 	public GameObject gun;
 
-	public EquipmentBase Weapon = new EquipmentBase();
-	public EquipmentBase Item = new EquipmentBase();
+	public EquipmentBase Weapon = new();
+	public EquipmentBase Item = new();
 
 	public float boostedSpeedValue = 30.0f;
 	public float boostedAccelerationValue = 1000.0f;

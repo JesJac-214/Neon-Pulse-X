@@ -83,11 +83,9 @@ public class IceBeam : EquipmentBase
 
     public override void Use(GameObject vehicle)
     {
-
-        ammo--;
-        if(ammo <= 0)
+        if(ammo > 0)
         {
-
+            ammo--;
         }
     }
 }
@@ -101,11 +99,9 @@ public class BeamOfLight : EquipmentBase
 
     public override void Use(GameObject vehicle)
     {
-
-        ammo--;
-        if (ammo <= 0) 
+        if (ammo > 0) 
         {
-           
+            ammo--;
         }
     }
 }
