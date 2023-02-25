@@ -10,15 +10,22 @@ public class VehicleData : MonoBehaviour
 	public int courseProgress = 0;
 	public int laps = 0;
 	public int lives = 3;
-	public void OnPauseGame()
+	public GameManager gameManager;
+
+    private void Start()
+    {
+		gameManager = GameObject.FindWithTag("Game Manager").GetComponent<GameManager>();
+    }
+
+    public void OnPauseGame()
 	{
-		if (Time.timeScale == 0)
+		if (!gameManager.IsPaused)
         {
-			Time.timeScale = 1;
+			gameManager.PauseGame();
         }
 		else
         {
-			Time.timeScale = 0;
+			gameManager.UnpauseGame();
         }
 	}
 

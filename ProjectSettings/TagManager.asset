@@ -8,6 +8,7 @@ TagManager:
   - Vehicle Body
   - SpeedBoost
   - iceBeam
+  - Game Manager
   layers:
   - Default
   - TransparentFX
