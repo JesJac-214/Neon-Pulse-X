@@ -34,7 +34,7 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 
 		public void OnShoot(InputAction.CallbackContext context)
 	{
-		if (context.ReadValue<float>() == 0)
+		if (context.ReadValue<float>() == 0 && !gameObject.GetComponent<VehicleData>().gameManager.IsPaused)
 		{
 			Weapon.Use(gameObject);
 		}
@@ -42,7 +42,7 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 
 	public void OnUseItem(InputAction.CallbackContext context)
 	{
-		if (context.ReadValue<float>() == 0)
+		if (context.ReadValue<float>() == 0 && !gameObject.GetComponent<VehicleData>().gameManager.IsPaused)
 		{
 			Item.Use(gameObject);
 		}
