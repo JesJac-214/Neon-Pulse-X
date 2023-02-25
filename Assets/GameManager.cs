@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         IsPaused = false;
+        Cursor.visible = false;
         pauseMenu.SetActive(false);
     }
 
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour
     {
         IsPaused = true;
         Time.timeScale = 0;
+        Cursor.visible = true;
         pauseMenu.SetActive(true);
     }
 
@@ -26,6 +28,7 @@ public class GameManager : MonoBehaviour
     {
         IsPaused = false;
         Time.timeScale = 1;
+        Cursor.visible = false;
         pauseMenu.SetActive(false);
     }
 
