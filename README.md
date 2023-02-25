@@ -1,4 +1,4 @@
-# RallyShooter
+# Neon Pulse X
 Outrun, outgun, and outlive to outplay the competition
 
 ## TODO
