@@ -10,9 +10,16 @@ public class VehicleData : MonoBehaviour
 	public int courseProgress = 0;
 	public int laps = 0;
 	public int lives = 3;
-	public void OnQuitGame()
+	public void OnPauseGame()
 	{
-		Application.Quit();
+		if (Time.timeScale == 0)
+        {
+			Time.timeScale = 1;
+        }
+		else
+        {
+			Time.timeScale = 0;
+        }
 	}
 
 	public void IncrementProgress()

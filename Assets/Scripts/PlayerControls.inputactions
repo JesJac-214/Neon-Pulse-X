@@ -42,7 +42,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "QuitGame",
+                    "name": "PauseGame",
                     "type": "Button",
                     "id": "1761a2ef-505f-4181-978c-bab68a1a34e2",
                     "expectedControlType": "Button",
@@ -309,11 +309,11 @@
                 {
                     "name": "",
                     "id": "a02a12b0-8de9-4a11-9846-fcfa756417f2",
-                    "path": "<Keyboard>/q",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "KBM",
-                    "action": "QuitGame",
+                    "action": "PauseGame",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -324,7 +324,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "QuitGame",
+                    "action": "PauseGame",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
