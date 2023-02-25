@@ -14,7 +14,7 @@ Outrun, outgun, and outlive to outplay the competition
 - [ ] UI
   - [ ] Make Pause Screen
   - [ ] Make Start Screen
-  - [ ] Make Main Menu
+  - [x] Make Main Menu
   - [ ] Make Player Select Screen
     - [ ] Add multiple cars to select
   - [ ] Make Track Select Screen
