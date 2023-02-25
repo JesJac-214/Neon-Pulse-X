@@ -19,7 +19,7 @@ Outrun, outgun, and outlive to outplay the competition
     - [ ] Add multiple cars to select
   - [ ] Make Track Select Screen
     - [ ] Add multiple tracks to select
-  - [ ] Show players what and how many Weapons and Items they have
+  - [x] Player HUD for ammo
 - [ ] Add Weapons
   - [x] Cannon Ball
   - [ ] Beam of Light
