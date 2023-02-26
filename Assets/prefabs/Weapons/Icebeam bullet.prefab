@@ -13,10 +13,9 @@ GameObject:
   - component: {fileID: 2168606997472780757}
   - component: {fileID: 4537237262747966597}
   - component: {fileID: -3790313724549142986}
-  - component: {fileID: 1335412733506549917}
   m_Layer: 0
   m_Name: Icebeam bullet
-  m_TagString: iceBeam
+  m_TagString: Ice
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 485f9e28bee675f449ea14a456aaa7bc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -110,18 +109,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d8493d4b74f4bf4d818e1ff4797879e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  test: 3
---- !u!114 &1335412733506549917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4593396209296259223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17c0c0615eb7f1944a81159ef3d86788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -27,7 +27,7 @@ public class SpeedBoost : EquipmentBase
 {
     public override void Initialize()
     {
-        ammo = 3;
+        ammo = 2;
     }
     public override void Use(GameObject vehicle)
     {
@@ -78,13 +78,14 @@ public class IceBeam : EquipmentBase
 {
     public override void Initialize()
     {
-        ammo = 3;
+        ammo = 2;
     }
 
     public override void Use(GameObject vehicle)
     {
         if(ammo > 0)
         {
+            vehicle.GetComponent<VehicleWeaponItemLogic>().SpawnIcebeamBullet();
             ammo--;
         }
     }

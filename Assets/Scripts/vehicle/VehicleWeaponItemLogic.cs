@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,8 +10,9 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 
 	public GameObject WallPrefab;
 	public GameObject CannonBallPrefab;
+	public GameObject IcebeamPrefab;
 
-	public GameObject gun;
+    public GameObject gun;
 
 	public EquipmentBase Weapon = new();
 	public EquipmentBase Item = new();
@@ -18,6 +20,8 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 	public float boostedSpeedValue = 30.0f;
 	public float boostedAccelerationValue = 1000.0f;
 	public float speedCoolDown = 1;
+	public float frozenfriction = 5;
+	public float frozenCoolDown = 2;
 
 	void Update()
 	{
@@ -72,12 +76,31 @@ public class VehicleWeaponItemLogic : MonoBehaviour
         Instantiate(CannonBallPrefab, transform.position + anchor.transform.forward * 5, anchor.transform.rotation);
     }
 
-	public void Freeze()
+    public void SpawnIcebeamBullet()
+    {
+        Instantiate(IcebeamPrefab, transform.position + anchor.transform.forward * 5, anchor.transform.rotation);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Ice")
+		{
+			Freeze();
+            Debug.Log("Frozen");
+		}
+    }
+    public void Freeze()
 	{
+		gameObject.GetComponent<VehicleDrivingAimingLogic>().frictionForce -= frozenfriction;
+        StartCoroutine("FrozenDuration");
+    }
+    IEnumerator FrozenDuration()
+	{
+		yield return new WaitForSeconds(frozenCoolDown);
+        gameObject.GetComponent<VehicleDrivingAimingLogic>().frictionForce += frozenfriction;
+    }
 
-	}
-
-	public void Invert()
+    public void Invert()
 	{
 
 	}

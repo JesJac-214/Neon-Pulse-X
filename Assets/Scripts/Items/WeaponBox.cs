@@ -8,7 +8,8 @@ public class WeaponBox : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        EquipmentBase[] weapons = { new CannonBall() };
+        EquipmentBase[] weapons = { new CannonBall(), new IceBeam() };
+
         if (other.gameObject.tag == "Vehicle Body")
         {
             if (other.transform.parent.GetComponent<VehicleWeaponItemLogic>().Weapon.ammo == 0)
