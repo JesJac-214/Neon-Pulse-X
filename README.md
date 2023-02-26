@@ -25,7 +25,7 @@ Outrun, outgun, and outlive to outplay the competition
   - [ ] Beam of Light
   - [ ] EMP Grenade
   - [ ] Sound Wave
-  - [ ] Ice Beam
+  - [x] Ice Beam
 - [ ] Add Items
   - [x] Speed Boost
   - [x] Wall
