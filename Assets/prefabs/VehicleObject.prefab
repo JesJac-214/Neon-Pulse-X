@@ -212,7 +212,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8565532749757640430}
         m_TargetAssemblyTypeName: VehicleData, Assembly-CSharp
-        m_MethodName: OnQuitGame
+        m_MethodName: OnPauseGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -261,7 +261,19 @@ MonoBehaviour:
     m_ActionId: eed8d8ec-573a-4d66-8179-cab599a4dc1e
     m_ActionName: Driving/UseItem[/XInputControllerWindows/leftShoulder,/Keyboard/f]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1916270233854305615}
+        m_TargetAssemblyTypeName: VehicleDrivingAimingLogic, Assembly-CSharp
+        m_MethodName: OnDrift
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: a723a531-4881-475f-bc4d-ffabcf595013
     m_ActionName: Driving/Drift[/XInputControllerWindows/buttonEast,/Keyboard/shift]
   - m_PersistentCalls:
@@ -310,6 +322,7 @@ MonoBehaviour:
   courseProgress: 0
   laps: 0
   lives: 3
+  gameManager: {fileID: 0}
 --- !u!114 &4124154686109981263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,14 +336,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anchor: {fileID: 3210850101133266494}
-  PrimaryPrefab: {fileID: 0}
-  SecondaryPrefab: {fileID: 0}
+  WallPrefab: {fileID: 5174173754135415632, guid: 38297c545d5955743aab7ac31924722b, type: 3}
+  CannonBallPrefab: {fileID: 3484231644899251866, guid: f7e9d59f744495848ad64e4a2ed25a46, type: 3}
+  IcebeamPrefab: {fileID: 4593396209296259223, guid: 5de1262eff03b7d43a93225f6274359c, type: 3}
   gun: {fileID: 3210850101850118116}
-  weaponAmmo: 0
-  itemAmmo: 0
   boostedSpeedValue: 30
   boostedAccelerationValue: 1000
   speedCoolDown: 1
+  frozenfriction: 5
+  frozenCoolDown: 10
 --- !u!1 &3210850101133266494
 GameObject:
   m_ObjectHideFlags: 0

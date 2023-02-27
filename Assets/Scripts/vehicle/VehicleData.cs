@@ -10,10 +10,23 @@ public class VehicleData : MonoBehaviour
 	public int courseProgress = 0;
 	public int laps = 0;
 	public int lives = 3;
+	public GameManager gameManager;
 
-	public void OnQuitGame()
+    private void Start()
+    {
+		gameManager = GameObject.FindWithTag("Game Manager").GetComponent<GameManager>();
+    }
+
+    public void OnPauseGame()
 	{
-		Application.Quit();
+		if (!gameManager.IsPaused)
+        {
+			gameManager.PauseGame();
+        }
+		else
+        {
+			gameManager.UnpauseGame();
+        }
 	}
 
 	public void IncrementProgress()
