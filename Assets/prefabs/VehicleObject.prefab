@@ -343,7 +343,8 @@ MonoBehaviour:
   boostedSpeedValue: 30
   boostedAccelerationValue: 1000
   speedCoolDown: 1
-  iceFriction: 5
+  frozenfriction: 5
+  frozenCoolDown: 10
 --- !u!1 &3210850101133266494
 GameObject:
   m_ObjectHideFlags: 0
