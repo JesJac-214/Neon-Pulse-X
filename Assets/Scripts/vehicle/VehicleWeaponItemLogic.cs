@@ -11,6 +11,7 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 	public GameObject WallPrefab;
 	public GameObject CannonBallPrefab;
 	public GameObject IcebeamPrefab;
+	public GameObject MinePrefab;
 
     public GameObject gun;
 
@@ -71,7 +72,12 @@ public class VehicleWeaponItemLogic : MonoBehaviour
         Instantiate(WallPrefab, transform.position - transform.forward * 2, transform.rotation);
     }
 
-	public void SpawnCannonBall()
+    public void SpawnMine()
+    {
+        Instantiate(MinePrefab, transform.position - transform.forward * 2, transform.rotation);
+    }
+
+    public void SpawnCannonBall()
 	{
         Instantiate(CannonBallPrefab, transform.position + anchor.transform.forward * 5, anchor.transform.rotation);
     }
@@ -83,10 +89,9 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Ice")
+        if(other.gameObject.CompareTag("Ice"))
 		{
 			Freeze();
-            Debug.Log("Frozen");
 		}
     }
     public void Freeze()

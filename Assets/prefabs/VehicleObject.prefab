@@ -339,11 +339,13 @@ MonoBehaviour:
   WallPrefab: {fileID: 5174173754135415632, guid: 38297c545d5955743aab7ac31924722b, type: 3}
   CannonBallPrefab: {fileID: 3484231644899251866, guid: f7e9d59f744495848ad64e4a2ed25a46, type: 3}
   IcebeamPrefab: {fileID: 4593396209296259223, guid: 5de1262eff03b7d43a93225f6274359c, type: 3}
+  MinePrefab: {fileID: 6292075117650778145, guid: a8abfbb0e34ee294f97acf668b7e4f50, type: 3}
   gun: {fileID: 3210850101850118116}
   boostedSpeedValue: 30
   boostedAccelerationValue: 1000
   speedCoolDown: 1
-  iceFriction: 5
+  frozenfriction: 5
+  frozenCoolDown: 2
 --- !u!1 &3210850101133266494
 GameObject:
   m_ObjectHideFlags: 0

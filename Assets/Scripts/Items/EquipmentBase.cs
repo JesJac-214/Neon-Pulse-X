@@ -91,7 +91,7 @@ public class IceBeam : EquipmentBase
     }
 }
 
-public class BeamOfLight : EquipmentBase
+public class Mine : EquipmentBase
 {
     public override void Initialize()
     {
@@ -102,6 +102,7 @@ public class BeamOfLight : EquipmentBase
     {
         if (ammo > 0) 
         {
+            vehicle.GetComponent<VehicleWeaponItemLogic>().SpawnMine();
             ammo--;
         }
     }
