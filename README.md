@@ -2,15 +2,15 @@
 Outrun, outgun, and outlive to outplay the competition
 
 ## TODO
-- [ ] Create core game loop
+- [x] Create core game loop
   - [x] Create a system that tracks player positions
   - [x] Make players who fall off screen teleport/bullet bill back into the fray
-    - [x] Solve checkpoint problem 
+    - [x] Solve checkpoint problem (pretty much)
   - [x] Add pickups
     - [x] Weapons
     - [x] Items
   - [x] Add life tracking
-  - [ ] End Game when all other players have 0 lives
+  - [x] End Game when all other players have 0 lives (sort of)
 - [ ] UI
   - [x] Make Pause Screen
   - [ ] Make Start Screen
@@ -25,7 +25,7 @@ Outrun, outgun, and outlive to outplay the competition
   - [ ] Beam of Light
   - [ ] EMP Grenade
   - [ ] Sound Wave
-  - [ ] Ice Beam
+  - [x] Ice Beam
 - [ ] Add Items
   - [x] Speed Boost
   - [x] Wall

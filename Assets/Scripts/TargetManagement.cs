@@ -51,8 +51,8 @@ public class TargetManagement : MonoBehaviour
                     {
                         vehicle.transform.position = new Vector3(0, -50, 0);
                         vehicle.GetComponent<VehicleData>().courseProgress = 0;
+                        vehicle.GetComponent<VehicleData>().isDead = true;
                     }
-                    Debug.Log(vehicle.GetComponent<VehicleData>().playerID);
                 }
             }
         }

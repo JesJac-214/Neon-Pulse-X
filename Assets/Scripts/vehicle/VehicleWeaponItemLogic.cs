@@ -22,7 +22,7 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 	public float boostedAccelerationValue = 1000.0f;
 	public float speedCoolDown = 1;
 	public float frozenfriction = 5;
-	public float frozenCoolDown = 2;
+	public float frozenCoolDown = 10;
 
 	void Update()
 	{
