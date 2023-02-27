@@ -7,6 +7,8 @@ TagManager:
   - Track
   - Vehicle Body
   - SpeedBoost
+  - Game Manager
+  - Ice
   layers:
   - Default
   - TransparentFX

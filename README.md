@@ -1,4 +1,4 @@
-# RallyShooter
+# Neon Pulse X
 Outrun, outgun, and outlive to outplay the competition
 
 ## TODO
@@ -12,20 +12,20 @@ Outrun, outgun, and outlive to outplay the competition
   - [x] Add life tracking
   - [ ] End Game when all other players have 0 lives
 - [ ] UI
-  - [ ] Make Pause Screen
+  - [x] Make Pause Screen
   - [ ] Make Start Screen
-  - [ ] Make Main Menu
+  - [x] Make Main Menu
   - [ ] Make Player Select Screen
     - [ ] Add multiple cars to select
   - [ ] Make Track Select Screen
     - [ ] Add multiple tracks to select
-  - [ ] Show players what and how many Weapons and Items they have
+  - [x] Player HUD for ammo
 - [ ] Add Weapons
   - [x] Cannon Ball
   - [ ] Beam of Light
   - [ ] EMP Grenade
   - [ ] Sound Wave
-  - [ ] Ice Beam
+  - [x] Ice Beam
 - [ ] Add Items
   - [x] Speed Boost
   - [x] Wall

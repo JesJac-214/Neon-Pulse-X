@@ -64,7 +64,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""QuitGame"",
+                    ""name"": ""PauseGame"",
                     ""type"": ""Button"",
                     ""id"": ""1761a2ef-505f-4181-978c-bab68a1a34e2"",
                     ""expectedControlType"": ""Button"",
@@ -331,11 +331,11 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""a02a12b0-8de9-4a11-9846-fcfa756417f2"",
-                    ""path"": ""<Keyboard>/q"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KBM"",
-                    ""action"": ""QuitGame"",
+                    ""action"": ""PauseGame"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -346,7 +346,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""QuitGame"",
+                    ""action"": ""PauseGame"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -499,7 +499,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Driving_Aim = m_Driving.FindAction("Aim", throwIfNotFound: true);
         m_Driving_Accelerate = m_Driving.FindAction("Accelerate", throwIfNotFound: true);
         m_Driving_Decelerate = m_Driving.FindAction("Decelerate", throwIfNotFound: true);
-        m_Driving_QuitGame = m_Driving.FindAction("QuitGame", throwIfNotFound: true);
+        m_Driving_PauseGame = m_Driving.FindAction("PauseGame", throwIfNotFound: true);
         m_Driving_Shoot = m_Driving.FindAction("Shoot", throwIfNotFound: true);
         m_Driving_Respawn = m_Driving.FindAction("Respawn", throwIfNotFound: true);
         m_Driving_UseItem = m_Driving.FindAction("UseItem", throwIfNotFound: true);
@@ -568,7 +568,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Driving_Aim;
     private readonly InputAction m_Driving_Accelerate;
     private readonly InputAction m_Driving_Decelerate;
-    private readonly InputAction m_Driving_QuitGame;
+    private readonly InputAction m_Driving_PauseGame;
     private readonly InputAction m_Driving_Shoot;
     private readonly InputAction m_Driving_Respawn;
     private readonly InputAction m_Driving_UseItem;
@@ -582,7 +582,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Aim => m_Wrapper.m_Driving_Aim;
         public InputAction @Accelerate => m_Wrapper.m_Driving_Accelerate;
         public InputAction @Decelerate => m_Wrapper.m_Driving_Decelerate;
-        public InputAction @QuitGame => m_Wrapper.m_Driving_QuitGame;
+        public InputAction @PauseGame => m_Wrapper.m_Driving_PauseGame;
         public InputAction @Shoot => m_Wrapper.m_Driving_Shoot;
         public InputAction @Respawn => m_Wrapper.m_Driving_Respawn;
         public InputAction @UseItem => m_Wrapper.m_Driving_UseItem;
@@ -609,9 +609,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Decelerate.started -= m_Wrapper.m_DrivingActionsCallbackInterface.OnDecelerate;
                 @Decelerate.performed -= m_Wrapper.m_DrivingActionsCallbackInterface.OnDecelerate;
                 @Decelerate.canceled -= m_Wrapper.m_DrivingActionsCallbackInterface.OnDecelerate;
-                @QuitGame.started -= m_Wrapper.m_DrivingActionsCallbackInterface.OnQuitGame;
-                @QuitGame.performed -= m_Wrapper.m_DrivingActionsCallbackInterface.OnQuitGame;
-                @QuitGame.canceled -= m_Wrapper.m_DrivingActionsCallbackInterface.OnQuitGame;
+                @PauseGame.started -= m_Wrapper.m_DrivingActionsCallbackInterface.OnPauseGame;
+                @PauseGame.performed -= m_Wrapper.m_DrivingActionsCallbackInterface.OnPauseGame;
+                @PauseGame.canceled -= m_Wrapper.m_DrivingActionsCallbackInterface.OnPauseGame;
                 @Shoot.started -= m_Wrapper.m_DrivingActionsCallbackInterface.OnShoot;
                 @Shoot.performed -= m_Wrapper.m_DrivingActionsCallbackInterface.OnShoot;
                 @Shoot.canceled -= m_Wrapper.m_DrivingActionsCallbackInterface.OnShoot;
@@ -643,9 +643,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Decelerate.started += instance.OnDecelerate;
                 @Decelerate.performed += instance.OnDecelerate;
                 @Decelerate.canceled += instance.OnDecelerate;
-                @QuitGame.started += instance.OnQuitGame;
-                @QuitGame.performed += instance.OnQuitGame;
-                @QuitGame.canceled += instance.OnQuitGame;
+                @PauseGame.started += instance.OnPauseGame;
+                @PauseGame.performed += instance.OnPauseGame;
+                @PauseGame.canceled += instance.OnPauseGame;
                 @Shoot.started += instance.OnShoot;
                 @Shoot.performed += instance.OnShoot;
                 @Shoot.canceled += instance.OnShoot;
@@ -689,7 +689,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnAim(InputAction.CallbackContext context);
         void OnAccelerate(InputAction.CallbackContext context);
         void OnDecelerate(InputAction.CallbackContext context);
-        void OnQuitGame(InputAction.CallbackContext context);
+        void OnPauseGame(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnRespawn(InputAction.CallbackContext context);
         void OnUseItem(InputAction.CallbackContext context);

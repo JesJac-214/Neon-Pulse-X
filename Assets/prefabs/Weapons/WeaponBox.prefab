@@ -112,7 +112,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponEquipmentArray:
-  - {fileID: 3484231644899251866, guid: bff66119371eedf44bd33f4c3c6cc322, type: 3}
   - {fileID: 3484231644899251866, guid: f7e9d59f744495848ad64e4a2ed25a46, type: 3}
 --- !u!114 &9017256909829166778
 MonoBehaviour:
@@ -126,3 +125,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 564d7b6c78e3da642b6dbb323439024d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 120

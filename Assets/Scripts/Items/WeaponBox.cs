@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class WeaponBox : MonoBehaviour
 {
-    
-    public GameObject[] weaponEquipmentArray;
+    public EquipmentBase[] weapons;
+
     private void OnTriggerEnter(Collider other)
     {
+        EquipmentBase[] weapons = { new CannonBall(), new IceBeam() };
+
         if (other.gameObject.tag == "Vehicle Body")
         {
-            if (other.transform.parent.GetComponent<WeaponItemLogic>().weaponAmmo == 0)
+            if (other.transform.parent.GetComponent<VehicleWeaponItemLogic>().Weapon.ammo == 0)
             {
-                other.transform.parent.GetComponent<WeaponItemLogic>().PrimaryPrefab = weaponEquipmentArray[Random.Range(0, weaponEquipmentArray.Length)];
-                other.transform.parent.GetComponent<WeaponItemLogic>().weaponAmmo = 10;
+                other.transform.parent.GetComponent<VehicleWeaponItemLogic>().Weapon = weapons[Random.Range(0, weapons.Length)];
             }
             StartCoroutine("itemDisappear");
             GetComponent<MeshRenderer>().enabled = false;
@@ -23,7 +24,7 @@ public class WeaponBox : MonoBehaviour
 
     IEnumerator itemDisappear()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(1);
         GetComponent<MeshRenderer>().enabled = true;
         GetComponent<BoxCollider>().enabled = true;
     }
