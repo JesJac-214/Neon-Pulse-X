@@ -86,7 +86,6 @@ public class VehicleWeaponItemLogic : MonoBehaviour
         if(other.gameObject.tag == "Ice")
 		{
 			Freeze();
-            Debug.Log("Frozen");
 		}
     }
     public void Freeze()
