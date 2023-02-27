@@ -10,6 +10,7 @@ public class VehicleData : MonoBehaviour
 	public int courseProgress = 0;
 	public int laps = 0;
 	public int lives = 3;
+	public bool isDead = false;
 	public GameManager gameManager;
 
     private void Start()
