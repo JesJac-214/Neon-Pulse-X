@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 4324956908010294332}
   m_Layer: 0
   m_Name: SM_90_Turn
-  m_TagString: Untagged
+  m_TagString: Track
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

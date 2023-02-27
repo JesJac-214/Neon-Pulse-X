@@ -50,9 +50,10 @@ GameObject:
   - component: {fileID: 8772282439649539844}
   - component: {fileID: 4341070357003071111}
   - component: {fileID: 5755045510774178675}
+  - component: {fileID: 3131989007578733209}
   m_Layer: 0
   m_Name: SM_45_Turn
-  m_TagString: Untagged
+  m_TagString: Track
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,6 +123,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3131989007578733209
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3915461960350917657}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1671205005359667196, guid: a07b80c0cc5f18249a708f8c5d9615b3, type: 3}
 --- !u!1001 &1043451697519172721
 PrefabInstance:
   m_ObjectHideFlags: 0
