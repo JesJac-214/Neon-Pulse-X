@@ -2,7 +2,7 @@
 Outrun, outgun, and outlive to outplay the competition
 
 ## TODO
-- [ ] Create core game loop
+- [x] Create core game loop
   - [x] Create a system that tracks player positions
   - [x] Make players who fall off screen teleport/bullet bill back into the fray
     - [x] Solve checkpoint problem (pretty much)
