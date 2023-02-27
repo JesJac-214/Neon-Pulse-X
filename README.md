@@ -29,6 +29,6 @@ Outrun, outgun, and outlive to outplay the competition
 - [ ] Add Items
   - [x] Speed Boost
   - [x] Wall
-  - [ ] Mine
+  - [x] Mine
   - [ ] Ghost
   - [ ] Counter Shield
