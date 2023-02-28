@@ -4,19 +4,21 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class vehicle : MonoBehaviour
+public class DemoVehicle : MonoBehaviour
 {
-	private PlayerInput playerInput;
-	private CharacterController controller;
-	private PlayerControls playerControls;
+	public enum DemoMode
+	{
+    	Acceleration,
+    	Steering
+	}
 
-	public Camera cam;
+	public DemoMode mode;
+
 	public Rigidbody vehicleRigidBody;
 	public GameObject anchor;
 	public GameObject projectilePrefab;
 	public GameObject obstaclePrefab;
 
-	private bool isGamepad;
 	private bool drift = false;
 
 	private float steerInput = 0;
@@ -37,11 +39,6 @@ public class vehicle : MonoBehaviour
 	public int laps = 0;
 	private bool grounded;
 
-	public int totalWeaponAmmo = 5;
-	public int totalItemAmmo = 3;
-	private int weaponAmmo = 5;
-	private int itemAmmo = 3;
-
 	public GameObject[] tires;
 	public GameObject[] frontTires;
 	public GameObject[] backTires;
@@ -54,31 +51,35 @@ public class vehicle : MonoBehaviour
 	public float tireMass = 5.0f;
 	public float tireGripFactor = 1.0f;
 
-	private void Awake()
-	{
-		playerInput = GetComponent<PlayerInput>();
-		controller = GetComponent<CharacterController>();
-		playerControls = new PlayerControls();
-	}
 
     private void Start()
     {
-		transform.position = startPos;
+		if (mode == DemoMode.Acceleration)
+		{
+			accelerateInput = 1;
+		}
+		if (mode == DemoMode.Steering)
+		{
+			accelerateInput = 1;
+		}
+		startPos = transform.position;
     }
-
-    private void OnEnable()
-	{
-		playerControls.Enable();
-	}
-
-	private void OnDisable()
-	{
-		playerControls.Disable();
-	}
 
 
     void Update()
     {
+		if (transform.position.x < -25 && mode == DemoMode.Acceleration)
+		{
+			Destroy(gameObject.transform.parent.gameObject);
+		}
+		if (mode == DemoMode.Steering)
+		{
+			steerInput = Mathf.Sin(Time.time);
+			if (!grounded)
+			{
+				transform.SetPositionAndRotation(startPos, Quaternion.Euler(0, -90, 0));
+			}
+		}
 		HandleTireSuspension();
 		HandleTireRotation();
 		if (grounded)
@@ -110,20 +111,20 @@ public class vehicle : MonoBehaviour
     {
 		anchor.transform.position = transform.position + new Vector3(0, 1f, 0);
 		Vector3 direction = Vector3.right * aimInput.x + Vector3.forward * aimInput.y;
-		if (isGamepad)
-		{
-			if (aimInput.x != 0 && aimInput.y != 0)
-			{
-				anchor.transform.rotation = Quaternion.RotateTowards(anchor.transform.rotation, Quaternion.LookRotation(direction), aimSpeed * Time.deltaTime);
-			}
-		}
-		else
-		{
-			if (direction != Vector3.zero)
-			{
-				anchor.transform.rotation = Quaternion.RotateTowards(anchor.transform.rotation, Quaternion.LookRotation(direction), aimSpeed * Time.deltaTime);
-			}
-		}
+		// if (isGamepad)
+		// {
+		// 	if (aimInput.x != 0 && aimInput.y != 0)
+		// 	{
+		// 		anchor.transform.rotation = Quaternion.RotateTowards(anchor.transform.rotation, Quaternion.LookRotation(direction), aimSpeed * Time.deltaTime);
+		// 	}
+		// }
+		// else
+		// {
+		// 	if (direction != Vector3.zero)
+		// 	{
+		// 		anchor.transform.rotation = Quaternion.RotateTowards(anchor.transform.rotation, Quaternion.LookRotation(direction), aimSpeed * Time.deltaTime);
+		// 	}
+		// }
 	}
 
 	private void HandleTireSuspension()
@@ -148,7 +149,6 @@ public class vehicle : MonoBehaviour
 					grounded = false;
 	            }
             }
-			Debug.DrawRay(tire.transform.position, 2 * -tire.transform.up, Color.green);
         }
     }
 
@@ -158,7 +158,6 @@ public class vehicle : MonoBehaviour
         {
             Quaternion target = Quaternion.Euler(0, steerInput * tireTiltAngle, 0) * vehicleRigidBody.rotation * Quaternion.Euler(0, 90, 0);
 			tire.transform.rotation = target;
-			Debug.DrawRay(tire.transform.position, 2 * -tire.transform.right, Color.blue);
         }
     }
 
@@ -167,7 +166,6 @@ public class vehicle : MonoBehaviour
 		foreach (GameObject tire in backTires)
         {
 			vehicleRigidBody.AddForceAtPosition(-tire.transform.right * (accelerateInput - decelerateInput * decelerationEffectivity) * accelerationSpeed * Time.deltaTime, tire.transform.position, ForceMode.VelocityChange);
-            Debug.DrawRay(tire.transform.position, accelerateInput * accelerationSpeed * Time.deltaTime * -tire.transform.right);
         }
     }
 
@@ -175,17 +173,11 @@ public class vehicle : MonoBehaviour
 	{
 		foreach (GameObject tire in tires)
 		{
-			//Adding a velocity to prevent the tire sliding sideways
 			vehicleRigidBody.AddForceAtPosition(-Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward) * Time.deltaTime, tire.transform.position, ForceMode.VelocityChange);
-			Debug.DrawRay(tire.transform.position, Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward), Color.red);
-
-			//Adding a velocity in the tires rotation direction to act as friction
 			vehicleRigidBody.AddForceAtPosition(-Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.right) * 0.2f * Time.deltaTime, tire.transform.position, ForceMode.VelocityChange);
-			Debug.DrawRay(tire.transform.position, -Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.right), Color.black);
 		}
 		foreach (GameObject tire in frontTires)
         {
-			//Giving a little boost in turns to keep your momentum
 			vehicleRigidBody.AddForceAtPosition(Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward).magnitude * -tire.transform.right * 0.8f * Time.deltaTime, tire.transform.position, ForceMode.VelocityChange);
         }
 	}
@@ -212,19 +204,17 @@ public class vehicle : MonoBehaviour
 
 	public void OnShoot(InputAction.CallbackContext context)
     {
-		if (context.ReadValue<float>() == 0 && weaponAmmo > 0)
+		if (context.ReadValue<float>() == 0)
         {
 			Instantiate(projectilePrefab, transform.position + anchor.transform.forward * 2, anchor.transform.rotation);
-			weaponAmmo--;
         }
     }
 
 	public void OnUseItem(InputAction.CallbackContext context)
     {
-		if (context.ReadValue<float>() == 0 && itemAmmo > 0)
+		if (context.ReadValue<float>() == 0)
         {
 			Instantiate(obstaclePrefab, transform.position + anchor.transform.forward * 2, anchor.transform.rotation);
-			itemAmmo--;
         }
     }
 
@@ -249,25 +239,4 @@ public class vehicle : MonoBehaviour
 			anchor.transform.rotation = new Quaternion(0, 0, 0, 0);
         }
 	}
-
-	public void OnQuitGame()
-	{
-		Application.Quit();
-	}
-
-	public void IncrementProgress()
-    {
-		courseProgress++;
-    }
-
-	public void DecrementProgress()
-	{
-		courseProgress--;
-	}
-
-	public void ResetAmmo()
-    {
-		weaponAmmo = totalWeaponAmmo;
-		itemAmmo = totalItemAmmo;
-    }
 }
