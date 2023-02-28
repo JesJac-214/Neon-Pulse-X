@@ -367,7 +367,7 @@ MonoBehaviour:
   - {fileID: 8122959414087469645}
   - {fileID: 5091558601265241971}
   tireRotationSmoothing: 1
-  tireTiltAngle: 15
+  tireTiltAngle: 30
   tireMass: 5
   tireGripFactor: 1
 --- !u!1 &3210850101133266494

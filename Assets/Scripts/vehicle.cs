@@ -25,7 +25,8 @@ public class vehicle : MonoBehaviour
 	private Vector2 aimInput = Vector2.zero;
 
 	public float rotationSpeed = 120.0f;
-	public float accelerationSpeed = 2000.0f;
+	[SerializeField]
+	private float accelerationSpeed = 2000.0f;
 	public float decelerationEffectivity = 0.8f;
 	public float frictionForce = 5f;
 	public float maxSpeed = 30.0f;
@@ -48,7 +49,8 @@ public class vehicle : MonoBehaviour
 	private float springStrength = 100.0f;
 	private float springDamper = 15.0f;
 	public float tireRotationSmoothing = 5.0f;
-	public float tireTiltAngle = 30.0f;
+	[SerializeField]
+	private float tireTiltAngle = 30f;
 	public float tireMass = 5.0f;
 	public float tireGripFactor = 1.0f;
 
@@ -155,8 +157,7 @@ public class vehicle : MonoBehaviour
     {
 		foreach (GameObject tire in frontTires)
         {
-			
-			Quaternion target = Quaternion.Euler(0, steerInput * tireTiltAngle, 0) * vehicleRigidBody.rotation * Quaternion.Euler(0,90,0);
+            Quaternion target = Quaternion.Euler(0, steerInput * tireTiltAngle, 0) * vehicleRigidBody.rotation * Quaternion.Euler(0, 90, 0);
 			tire.transform.rotation = target;
 			Debug.DrawRay(tire.transform.position, 2 * -tire.transform.right, Color.blue);
         }
@@ -167,29 +168,19 @@ public class vehicle : MonoBehaviour
 		foreach (GameObject tire in backTires)
         {
 			vehicleRigidBody.AddForceAtPosition(-tire.transform.right * accelerateInput * accelerationSpeed * Time.deltaTime, tire.transform.position);
-			Debug.DrawRay(tire.transform.position, -tire.transform.right * accelerateInput * accelerationSpeed * Time.deltaTime);
+            Debug.DrawRay(tire.transform.position, accelerateInput * accelerationSpeed * Time.deltaTime * -tire.transform.right);
         }
     }
 
 	private void HandleTireFriction()
 	{
-		foreach (GameObject tire in frontTires)
-        {
-			vehicleRigidBody.AddForceAtPosition(-Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward) * Time.deltaTime * 75, tire.transform.position);
-		}
 		foreach (GameObject tire in tires)
 		{
-			//vehicleRigidBody.velocity -= Time.deltaTime * Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward);
-			//Vector3 steeringDir = -tire.transform.forward;
-			//Vector3 tireWorldVel = vehicleRigidBody.GetPointVelocity(tire.transform.position);
-			//float steeringVel = Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward).magnitude;
-			//float desiredVelChange = -steeringVel * tireGripFactor;
-			//float desiredAccel = desiredVelChange / Time.fixedDeltaTime;
-			vehicleRigidBody.AddForceAtPosition(-Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward) * Time.deltaTime * 125, tire.transform.position);
-			//vehicleRigidBody.AddForceAtPosition(tireMass*-Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward), tire.transform.position);
+			vehicleRigidBody.AddForceAtPosition(-Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward) * Time.deltaTime * 400, tire.transform.position);
 			Debug.DrawRay(tire.transform.position, Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward), Color.red);
+			vehicleRigidBody.AddForceAtPosition(-Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.right) * Time.deltaTime * 15, tire.transform.position);
+			Debug.DrawRay(tire.transform.position, -Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.right), Color.black);
 		}
-		//vehicleRigidBody.velocity -= 2 * Time.deltaTime * Vector3.Project(vehicleRigidBody.velocity, vehicleRigidBody.transform.right);
 	}
 
 	public void OnSteer(InputAction.CallbackContext context)
@@ -272,20 +263,4 @@ public class vehicle : MonoBehaviour
 		weaponAmmo = totalWeaponAmmo;
 		itemAmmo = totalItemAmmo;
     }
-
-	void OnCollisionStay(Collision collision)
-	{
-		if (collision.gameObject.tag == "Track")
-		{
-			//grounded = true;
-		}
-	}
-
-	void OnCollisionExit(Collision collision)
-	{
-		if (collision.gameObject.tag == "Track")
-		{
-			//grounded = false;
-		}
-	}
 }
