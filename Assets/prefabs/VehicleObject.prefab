@@ -344,7 +344,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 3484231644899251866, guid: f7e9d59f744495848ad64e4a2ed25a46, type: 3}
   obstaclePrefab: {fileID: 5174173754135415632, guid: 38297c545d5955743aab7ac31924722b, type: 3}
   rotationSpeed: 120
-  accelerationSpeed: 1000
+  accelerationSpeed: 2000
   decelerationEffectivity: 0.8
   frictionForce: 5
   maxSpeed: 30
@@ -363,8 +363,13 @@ MonoBehaviour:
   frontTires:
   - {fileID: 324512184222213047}
   - {fileID: 7911237179140102626}
-  tireRotationSmoothing: 5
-  tireTiltAngle: 60
+  backTires:
+  - {fileID: 8122959414087469645}
+  - {fileID: 5091558601265241971}
+  tireRotationSmoothing: 1
+  tireTiltAngle: 15
+  tireMass: 5
+  tireGripFactor: 1
 --- !u!1 &3210850101133266494
 GameObject:
   m_ObjectHideFlags: 0

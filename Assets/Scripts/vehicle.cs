@@ -25,7 +25,7 @@ public class vehicle : MonoBehaviour
 	private Vector2 aimInput = Vector2.zero;
 
 	public float rotationSpeed = 120.0f;
-	public float accelerationSpeed = 10000.0f;
+	public float accelerationSpeed = 2000.0f;
 	public float decelerationEffectivity = 0.8f;
 	public float frictionForce = 5f;
 	public float maxSpeed = 30.0f;
@@ -43,10 +43,12 @@ public class vehicle : MonoBehaviour
 
 	public GameObject[] tires;
 	public GameObject[] frontTires;
+	public GameObject[] backTires;
+
 	private float springStrength = 100.0f;
 	private float springDamper = 15.0f;
 	public float tireRotationSmoothing = 5.0f;
-	public float tireTiltAngle = 15.0f;
+	public float tireTiltAngle = 30.0f;
 	public float tireMass = 5.0f;
 	public float tireGripFactor = 1.0f;
 
@@ -131,16 +133,19 @@ public class vehicle : MonoBehaviour
 			Ray ray = new Ray(tire.transform.position, -tire.transform.up);
 			if (Physics.Raycast(ray, out RaycastHit hit, 2))
             {
-				float offset = 1f - hit.distance;
-				Vector3 springDir = tire.transform.up;
-				float vel = Vector3.Dot(springDir, vehicleRigidBody.GetPointVelocity(tire.transform.position));
-				float force = (offset * springStrength) - (vel * springDamper);
-				vehicleRigidBody.AddForceAtPosition(springDir * force, tire.transform.position);
-				grounded = true;
-            }
-			else
-            {
-				grounded = false;
+				if (hit.collider.CompareTag("Track"))
+                {
+					float offset = 1f - hit.distance;
+					Vector3 springDir = tire.transform.up;
+					float vel = Vector3.Dot(springDir, vehicleRigidBody.GetPointVelocity(tire.transform.position));
+					float force = (offset * springStrength) - (vel * springDamper);
+					vehicleRigidBody.AddForceAtPosition(springDir * force, tire.transform.position);
+					grounded = true;
+                }
+				else
+			    {
+					grounded = false;
+	            }
             }
 			Debug.DrawRay(tire.transform.position, 2 * -tire.transform.up, Color.green);
         }
@@ -159,27 +164,32 @@ public class vehicle : MonoBehaviour
 
 	private void HandleTireAcceleration()
     {
-		foreach (GameObject tire in frontTires)
+		foreach (GameObject tire in backTires)
         {
 			vehicleRigidBody.AddForceAtPosition(-tire.transform.right * accelerateInput * accelerationSpeed * Time.deltaTime, tire.transform.position);
+			Debug.DrawRay(tire.transform.position, -tire.transform.right * accelerateInput * accelerationSpeed * Time.deltaTime);
         }
     }
 
 	private void HandleTireFriction()
 	{
-		vehicleRigidBody.velocity -= 2 * Time.deltaTime * Vector3.Project(vehicleRigidBody.velocity, vehicleRigidBody.transform.right);
+		foreach (GameObject tire in frontTires)
+        {
+			vehicleRigidBody.AddForceAtPosition(-Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward) * Time.deltaTime * 75, tire.transform.position);
+		}
 		foreach (GameObject tire in tires)
 		{
 			//vehicleRigidBody.velocity -= Time.deltaTime * Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward);
-			Vector3 steeringDir = tire.transform.forward;
-			Vector3 tireWorldVel = vehicleRigidBody.GetPointVelocity(tire.transform.position);
-			float steeringVel = Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward).magnitude;
-			float desiredVelChange = -steeringVel * tireGripFactor;
-			float desiredAccel = desiredVelChange / Time.fixedDeltaTime;
-			//vehicleRigidBody.AddForceAtPosition(steeringDir * tireMass * desiredAccel, tire.transform.position);
+			//Vector3 steeringDir = -tire.transform.forward;
+			//Vector3 tireWorldVel = vehicleRigidBody.GetPointVelocity(tire.transform.position);
+			//float steeringVel = Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward).magnitude;
+			//float desiredVelChange = -steeringVel * tireGripFactor;
+			//float desiredAccel = desiredVelChange / Time.fixedDeltaTime;
+			vehicleRigidBody.AddForceAtPosition(-Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward) * Time.deltaTime * 125, tire.transform.position);
 			//vehicleRigidBody.AddForceAtPosition(tireMass*-Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward), tire.transform.position);
 			Debug.DrawRay(tire.transform.position, Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward), Color.red);
 		}
+		//vehicleRigidBody.velocity -= 2 * Time.deltaTime * Vector3.Project(vehicleRigidBody.velocity, vehicleRigidBody.transform.right);
 	}
 
 	public void OnSteer(InputAction.CallbackContext context)
