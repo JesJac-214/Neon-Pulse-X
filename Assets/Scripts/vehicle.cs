@@ -143,6 +143,7 @@ public class vehicle : MonoBehaviour
 					float force = (offset * springStrength) - (vel * springDamper);
 					vehicleRigidBody.AddForceAtPosition(springDir * force, tire.transform.position);
 					grounded = true;
+					tire.transform.GetChild(0).position = hit.point + new Vector3(0,0.5f,0);
                 }
 				else
 			    {

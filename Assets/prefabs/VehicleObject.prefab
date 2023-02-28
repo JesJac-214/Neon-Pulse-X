@@ -59,7 +59,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1496777122068924528}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 0.100000046, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -443,7 +443,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 3484231644899251866, guid: f7e9d59f744495848ad64e4a2ed25a46, type: 3}
   obstaclePrefab: {fileID: 5174173754135415632, guid: 38297c545d5955743aab7ac31924722b, type: 3}
   rotationSpeed: 120
-  accelerationSpeed: 2000
+  accelerationSpeed: 3000
   decelerationEffectivity: 0.8
   frictionForce: 5
   maxSpeed: 30
@@ -466,7 +466,7 @@ MonoBehaviour:
   - {fileID: 8122959414087469645}
   - {fileID: 5091558601265241971}
   tireRotationSmoothing: 1
-  tireTiltAngle: 30
+  tireTiltAngle: 40
   tireMass: 5
   tireGripFactor: 1
 --- !u!1 &3210850101133266494
@@ -1080,7 +1080,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5816215508049999626}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 0.10000003, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1178,7 +1178,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6144273141260751658}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1276,7 +1276,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6166535931868320994}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 0.10000002, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
