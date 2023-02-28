@@ -9,7 +9,8 @@ public class DemoVehicle : MonoBehaviour
 	public enum DemoMode
 	{
     	Acceleration,
-    	Steering
+    	Steering,
+		Still
 	}
 
 	public DemoMode mode;
@@ -43,8 +44,8 @@ public class DemoVehicle : MonoBehaviour
 	public GameObject[] frontTires;
 	public GameObject[] backTires;
 
-	private float springStrength = 100.0f;
-	private float springDamper = 15.0f;
+	public float springStrength = 100.0f;
+	public float springDamper = 15.0f;
 	public float tireRotationSmoothing = 5.0f;
 	[SerializeField]
 	private float tireTiltAngle = 30f;
@@ -140,7 +141,7 @@ public class DemoVehicle : MonoBehaviour
 					Vector3 springDir = tire.transform.up;
 					float vel = Vector3.Dot(springDir, vehicleRigidBody.GetPointVelocity(tire.transform.position));
 					float force = (offset * springStrength) - (vel * springDamper);
-					vehicleRigidBody.AddForceAtPosition(springDir * force, tire.transform.position);
+					vehicleRigidBody.AddForceAtPosition(springDir * force * Time.deltaTime, tire.transform.position, ForceMode.VelocityChange);
 					tire.transform.GetChild(0).position = hit.point + new Vector3(0,0.5f,0);
 					grounded = true;
                 }

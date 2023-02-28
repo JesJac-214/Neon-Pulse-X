@@ -46,8 +46,8 @@ public class vehicle : MonoBehaviour
 	public GameObject[] frontTires;
 	public GameObject[] backTires;
 
-	private float springStrength = 100.0f;
-	private float springDamper = 15.0f;
+	public float springStrength = 100.0f;
+	public float springDamper = 15.0f;
 	public float tireRotationSmoothing = 5.0f;
 	[SerializeField]
 	private float tireTiltAngle = 30f;
