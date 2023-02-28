@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 9159864965745952776}
   m_LocalRotation: {x: -0, y: -0, z: -0.70141137, w: 0.71275675}
   m_LocalPosition: {x: -40.125656, y: 0.51702744, z: -11.21246}
-  m_LocalScale: {x: 1, y: 2.1308246, z: 1}
+  m_LocalScale: {x: 0.84974, y: 1.8106469, z: 0.84974}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -112,9 +112,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66de50af744b4844680bcdd322f93467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemEquipmentArray:
-  - {fileID: 7081105307886475574, guid: cef074304914a404f9ceb93b92d806d8, type: 3}
-  - {fileID: 5174173754135415632, guid: 38297c545d5955743aab7ac31924722b, type: 3}
 --- !u!114 &8273784182266559361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,9 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 693110c436bf5a240b4c2dc1b94e2247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponEquipmentArray:
-  - {fileID: 3484231644899251866, guid: f7e9d59f744495848ad64e4a2ed25a46, type: 3}
-  - {fileID: 3484231644899251866, guid: bff66119371eedf44bd33f4c3c6cc322, type: 3}
 --- !u!114 &345036686409110606
 MonoBehaviour:
   m_ObjectHideFlags: 0
