@@ -465,8 +465,10 @@ MonoBehaviour:
   backTires:
   - {fileID: 8122959414087469645}
   - {fileID: 5091558601265241971}
+  springStrength: 100
+  springDamper: 15
   tireRotationSmoothing: 1
-  tireTiltAngle: 30
+  tireTiltAngle: 20
   tireMass: 5
   tireGripFactor: 1
 --- !u!1 &3210850101133266494

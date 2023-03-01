@@ -132,6 +132,7 @@ public class DemoVehicle : MonoBehaviour
     {
 		foreach (GameObject tire in tires)
         {
+			tire.transform.GetChild(0).position = tire.transform.position - new Vector3(0, 1f, 0);
 			Ray ray = new Ray(tire.transform.position, -tire.transform.up);
 			if (Physics.Raycast(ray, out RaycastHit hit, 2))
             {
@@ -141,8 +142,11 @@ public class DemoVehicle : MonoBehaviour
 					Vector3 springDir = tire.transform.up;
 					float vel = Vector3.Dot(springDir, vehicleRigidBody.GetPointVelocity(tire.transform.position));
 					float force = (offset * springStrength) - (vel * springDamper);
-					vehicleRigidBody.AddForceAtPosition(springDir * force * Time.deltaTime, tire.transform.position, ForceMode.VelocityChange);
-					tire.transform.GetChild(0).position = hit.point + new Vector3(0,0.5f,0);
+					vehicleRigidBody.AddForceAtPosition(springDir * force, tire.transform.position);
+					if (hit.distance < 1.5f)
+					{
+						tire.transform.GetChild(0).position = hit.point + new Vector3(0, 0.5f, 0);
+					}
 					grounded = true;
                 }
 				else

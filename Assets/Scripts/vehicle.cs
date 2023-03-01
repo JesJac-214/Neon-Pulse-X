@@ -76,8 +76,7 @@ public class vehicle : MonoBehaviour
 		playerControls.Disable();
 	}
 
-
-    void Update()
+    private void FixedUpdate()
     {
 		HandleTireSuspension();
 		HandleTireRotation();
@@ -86,6 +85,9 @@ public class vehicle : MonoBehaviour
 			HandleTireAcceleration();
 			HandleTireFriction();
 		}
+	}
+    void Update()
+    {
 		Aim();
 	}
 
@@ -140,7 +142,10 @@ public class vehicle : MonoBehaviour
 					float vel = Vector3.Dot(springDir, vehicleRigidBody.GetPointVelocity(tire.transform.position));
 					float force = (offset * springStrength) - (vel * springDamper);
 					vehicleRigidBody.AddForceAtPosition(springDir * force, tire.transform.position);
-					tire.transform.GetChild(0).position = hit.point + new Vector3(0,0.5f,0);
+					if (hit.distance < 1.5f)
+                    {
+						tire.transform.GetChild(0).position = hit.point + new Vector3(0,0.5f,0);
+                    }
 					grounded = true;
                 }
 				else
@@ -148,6 +153,7 @@ public class vehicle : MonoBehaviour
 					grounded = false;
 	            }
             }
+            
 			Debug.DrawRay(tire.transform.position, 2 * -tire.transform.up, Color.green);
         }
     }

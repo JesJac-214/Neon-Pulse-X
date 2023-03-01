@@ -462,8 +462,8 @@ MonoBehaviour:
   backTires:
   - {fileID: 8122959414087469645}
   - {fileID: 5091558601265241971}
-  springStrength: 8
-  springDamper: 2
+  springStrength: 100
+  springDamper: 15
   tireRotationSmoothing: 5
   tireTiltAngle: 30
   tireMass: 5
