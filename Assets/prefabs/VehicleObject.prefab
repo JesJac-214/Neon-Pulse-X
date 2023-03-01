@@ -431,7 +431,7 @@ MonoBehaviour:
   accelerationSpeed: 20
   decelerationEffectivity: 0.8
   frictionForce: 5
-  maxSpeed: 30
+  maxSpeed: 40
   aimSpeed: 1500
   tires:
   - {fileID: 2573416420867566705}

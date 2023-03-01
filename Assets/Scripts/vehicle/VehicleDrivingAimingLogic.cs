@@ -82,6 +82,7 @@ public class VehicleDrivingAimingLogic : MonoBehaviour
 
 	private void HandleTireSuspension()
 	{
+		grounded = false;
 		foreach (GameObject tire in tires)
 		{
 			Ray ray = new Ray(tire.transform.position, -tire.transform.up);
@@ -94,17 +95,12 @@ public class VehicleDrivingAimingLogic : MonoBehaviour
 					float vel = Vector3.Dot(springDir, vehicleRigidBody.GetPointVelocity(tire.transform.position));
 					float force = (offset * springStrength) - (vel * springDamper);
 					vehicleRigidBody.AddForceAtPosition(force * springDir * Time.fixedDeltaTime, tire.transform.position);
-					Debug.DrawRay(tire.transform.position, 4*-springDir, Color.green);
+					Debug.DrawRay(tire.transform.position, 2*-springDir, Color.green);
 					Debug.DrawRay(tire.transform.position, force * springDir, Color.cyan);
 					Debug.Log("Offset: " + offset + "\nForce: " + force);
 					grounded = true;
 				}
-				else
-				{
-					grounded = false;
-				}
 			}
-
 		}
 	}
 
