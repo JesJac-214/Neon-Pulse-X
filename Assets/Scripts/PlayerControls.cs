@@ -109,9 +109,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""SwitchTrack"",
+                    ""name"": ""Ready Up"",
                     ""type"": ""Button"",
-                    ""id"": ""6fef471b-57d4-406e-b53c-42898e643e4e"",
+                    ""id"": ""dc33bc1e-c7d2-4307-b326-6b046f290dc6"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -440,23 +440,23 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""3bca17ae-2991-480b-8cf2-00570bfae543"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""id"": ""e7e02033-56a9-4775-896c-fc69085a8922"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""SwitchTrack"",
+                    ""action"": ""Ready Up"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""593ede31-729e-4463-b188-7cda20744027"",
-                    ""path"": ""<Keyboard>/n"",
+                    ""id"": ""f8348e2e-9c22-44b2-b256-0a1df2315312"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KBM"",
-                    ""action"": ""SwitchTrack"",
+                    ""action"": ""Ready Up"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -504,7 +504,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Driving_Respawn = m_Driving.FindAction("Respawn", throwIfNotFound: true);
         m_Driving_UseItem = m_Driving.FindAction("UseItem", throwIfNotFound: true);
         m_Driving_Drift = m_Driving.FindAction("Drift", throwIfNotFound: true);
-        m_Driving_SwitchTrack = m_Driving.FindAction("SwitchTrack", throwIfNotFound: true);
+        m_Driving_ReadyUp = m_Driving.FindAction("Ready Up", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -573,7 +573,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Driving_Respawn;
     private readonly InputAction m_Driving_UseItem;
     private readonly InputAction m_Driving_Drift;
-    private readonly InputAction m_Driving_SwitchTrack;
+    private readonly InputAction m_Driving_ReadyUp;
     public struct DrivingActions
     {
         private @PlayerControls m_Wrapper;
@@ -587,7 +587,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Respawn => m_Wrapper.m_Driving_Respawn;
         public InputAction @UseItem => m_Wrapper.m_Driving_UseItem;
         public InputAction @Drift => m_Wrapper.m_Driving_Drift;
-        public InputAction @SwitchTrack => m_Wrapper.m_Driving_SwitchTrack;
+        public InputAction @ReadyUp => m_Wrapper.m_Driving_ReadyUp;
         public InputActionMap Get() { return m_Wrapper.m_Driving; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -624,9 +624,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Drift.started -= m_Wrapper.m_DrivingActionsCallbackInterface.OnDrift;
                 @Drift.performed -= m_Wrapper.m_DrivingActionsCallbackInterface.OnDrift;
                 @Drift.canceled -= m_Wrapper.m_DrivingActionsCallbackInterface.OnDrift;
-                @SwitchTrack.started -= m_Wrapper.m_DrivingActionsCallbackInterface.OnSwitchTrack;
-                @SwitchTrack.performed -= m_Wrapper.m_DrivingActionsCallbackInterface.OnSwitchTrack;
-                @SwitchTrack.canceled -= m_Wrapper.m_DrivingActionsCallbackInterface.OnSwitchTrack;
+                @ReadyUp.started -= m_Wrapper.m_DrivingActionsCallbackInterface.OnReadyUp;
+                @ReadyUp.performed -= m_Wrapper.m_DrivingActionsCallbackInterface.OnReadyUp;
+                @ReadyUp.canceled -= m_Wrapper.m_DrivingActionsCallbackInterface.OnReadyUp;
             }
             m_Wrapper.m_DrivingActionsCallbackInterface = instance;
             if (instance != null)
@@ -658,9 +658,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Drift.started += instance.OnDrift;
                 @Drift.performed += instance.OnDrift;
                 @Drift.canceled += instance.OnDrift;
-                @SwitchTrack.started += instance.OnSwitchTrack;
-                @SwitchTrack.performed += instance.OnSwitchTrack;
-                @SwitchTrack.canceled += instance.OnSwitchTrack;
+                @ReadyUp.started += instance.OnReadyUp;
+                @ReadyUp.performed += instance.OnReadyUp;
+                @ReadyUp.canceled += instance.OnReadyUp;
             }
         }
     }
@@ -694,6 +694,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnRespawn(InputAction.CallbackContext context);
         void OnUseItem(InputAction.CallbackContext context);
         void OnDrift(InputAction.CallbackContext context);
-        void OnSwitchTrack(InputAction.CallbackContext context);
+        void OnReadyUp(InputAction.CallbackContext context);
     }
 }

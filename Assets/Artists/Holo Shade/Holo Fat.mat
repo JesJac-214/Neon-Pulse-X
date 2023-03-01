@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Holo Fat
+  m_Shader: {fileID: -6465566751694194690, guid: fa513eabd7c45b34fb900779898dc1c7, type: 3}
+  m_ValidKeywords:
+  - _SURFACE_TYPE_TRANSPARENT
+  m_InvalidKeywords: []
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap:
+    RenderType: Transparent
+  disabledShaderPasses:
+  - DepthOnly
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _HologramScanlines:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_ac094e5b461b4815abd7f5be6b419e7e_Texture_1:
+        m_Texture: {fileID: 2800000, guid: cb36c56d4bde2af42921a979b88fd8f7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_e7fd27b447f34f22a24cb05f590eaf61_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 263229005e1fc0648af47920d043fb77, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaClip: 0
+    - _Blend: 0
+    - _CastShadows: 1
+    - _Cull: 2
+    - _DstBlend: 10
+    - _Float: 0.05
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _ReceiveShadows: 1
+    - _SrcBlend: 5
+    - _Surface: 1
+    - _WorkflowMode: 1
+    - _ZTest: 4
+    - _ZWrite: 0
+    - _ZWriteControl: 0
+    m_Colors:
+    - _FresnelColor: {r: 0, g: 40.156864, b: 766.9961, a: 0}
+    - _HologramTiling: {r: 64, g: 2.3, b: 0, a: 0}
+    - _MainColor: {r: 0, g: 0.04418309, b: 2.1208208, a: 0}
+  m_BuildTextureStacks: []
+--- !u!114 &5695341431249550267
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
