@@ -87,9 +87,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "SwitchTrack",
+                    "name": "Ready Up",
                     "type": "Button",
-                    "id": "6fef471b-57d4-406e-b53c-42898e643e4e",
+                    "id": "dc33bc1e-c7d2-4307-b326-6b046f290dc6",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -418,23 +418,23 @@
                 },
                 {
                     "name": "",
-                    "id": "3bca17ae-2991-480b-8cf2-00570bfae543",
-                    "path": "<Gamepad>/buttonNorth",
+                    "id": "e7e02033-56a9-4775-896c-fc69085a8922",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "SwitchTrack",
+                    "action": "Ready Up",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "593ede31-729e-4463-b188-7cda20744027",
-                    "path": "<Keyboard>/n",
+                    "id": "f8348e2e-9c22-44b2-b256-0a1df2315312",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "KBM",
-                    "action": "SwitchTrack",
+                    "action": "Ready Up",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
