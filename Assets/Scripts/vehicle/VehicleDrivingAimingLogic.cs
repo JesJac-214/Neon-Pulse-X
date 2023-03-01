@@ -97,7 +97,6 @@ public class VehicleDrivingAimingLogic : MonoBehaviour
 					vehicleRigidBody.AddForceAtPosition(force * springDir * Time.fixedDeltaTime, tire.transform.position);
 					Debug.DrawRay(tire.transform.position, 2*-springDir, Color.green);
 					Debug.DrawRay(tire.transform.position, force * springDir, Color.cyan);
-					Debug.Log("Offset: " + offset + "\nForce: " + force);
 					grounded = true;
 				}
 			}

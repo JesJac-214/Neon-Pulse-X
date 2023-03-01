@@ -405,9 +405,21 @@ MonoBehaviour:
     m_ActionId: a723a531-4881-475f-bc4d-ffabcf595013
     m_ActionName: Driving/Drift[/XInputControllerWindows/buttonEast,/Keyboard/shift]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 6fef471b-57d4-406e-b53c-42898e643e4e
-    m_ActionName: Driving/SwitchTrack[/XInputControllerWindows/buttonNorth,/Keyboard/n]
+      m_Calls:
+      - m_Target: {fileID: 8565532749757640430}
+        m_TargetAssemblyTypeName: VehicleData, Assembly-CSharp
+        m_MethodName: OnReadyUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: dc33bc1e-c7d2-4307-b326-6b046f290dc6
+    m_ActionName: Driving/Ready Up[/XInputControllerWindows/buttonSouth,/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Driving
@@ -466,6 +478,7 @@ MonoBehaviour:
   laps: 0
   lives: 3
   isDead: 0
+  isReady: 0
   gameManager: {fileID: 0}
 --- !u!114 &4124154686109981263
 MonoBehaviour:
