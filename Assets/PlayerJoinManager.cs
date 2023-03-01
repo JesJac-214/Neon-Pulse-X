@@ -37,7 +37,6 @@ public class PlayerJoinManager : MonoBehaviour
                     readyPlayers++;
                 }
             }
-            Debug.Log(vehicles.Length + " players\n" + readyPlayers + " ready!");
             if (readyPlayers == vehicles.Length)
             {
                 foreach (GameObject vehicle in vehicles)
