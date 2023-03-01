@@ -124,6 +124,7 @@ public class VehicleDrivingAimingLogic : MonoBehaviour
 		{
 			vehicleRigidBody.AddForceAtPosition(-tire.transform.right * (accelerateInput - decelerateInput * decelerationEffectivity) * accelerationSpeed * Time.fixedDeltaTime, tire.transform.position, ForceMode.VelocityChange);
 			Debug.DrawRay(tire.transform.position, -tire.transform.right * (accelerateInput - decelerateInput * decelerationEffectivity) * accelerationSpeed, Color.white);
+			vehicleRigidBody.velocity = Vector3.ClampMagnitude(vehicleRigidBody.velocity, maxSpeed);
 		}
 	}
 
@@ -131,7 +132,15 @@ public class VehicleDrivingAimingLogic : MonoBehaviour
 	{
 		foreach (GameObject tire in tires)
 		{
-			vehicleRigidBody.AddForceAtPosition(-Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward) * Time.fixedDeltaTime, tire.transform.position, ForceMode.VelocityChange);
+			if (!drift)
+            {
+				vehicleRigidBody.AddForceAtPosition(-Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward) * Time.fixedDeltaTime, tire.transform.position, ForceMode.VelocityChange);
+            }
+			else
+            {
+				vehicleRigidBody.AddForceAtPosition(-Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward) * Time.fixedDeltaTime * 0.2f, tire.transform.position, ForceMode.VelocityChange);
+				Debug.Log("Drifting!");
+			}
 			vehicleRigidBody.AddForceAtPosition(-Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.right) * 0.2f * Time.fixedDeltaTime, tire.transform.position, ForceMode.VelocityChange);
 		}
 		foreach (GameObject tire in frontTires)
