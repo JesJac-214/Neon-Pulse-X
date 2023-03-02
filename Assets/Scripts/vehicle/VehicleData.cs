@@ -21,6 +21,7 @@ public class VehicleData : MonoBehaviour
 
     public void OnPauseGame()
 	{
+		gameManager = GameObject.FindWithTag("Game Manager").GetComponent<GameManager>();
 		if (!gameManager.IsPaused)
         {
 			gameManager.PauseGame();

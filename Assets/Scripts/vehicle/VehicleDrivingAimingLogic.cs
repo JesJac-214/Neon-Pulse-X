@@ -28,6 +28,9 @@ public class VehicleDrivingAimingLogic : MonoBehaviour
 	public float aimSpeed = 1500.0f;
 	private bool grounded;
 
+	public bool canAccel = true;
+	public bool hasFriction = true;
+	
 	public GameObject[] tires;
 	public GameObject[] frontTires;
 	public GameObject[] backTires;
@@ -69,14 +72,20 @@ public class VehicleDrivingAimingLogic : MonoBehaviour
 		HandleTireRotation();
 		if (grounded)
 		{
-			HandleTireAcceleration();
-			HandleTireFriction();
+			if (canAccel)
+			{
+				HandleTireAcceleration();
+			}
+			if(hasFriction)
+			{
+				HandleTireFriction();
+			}
+
 		}
 	}
 
 	void Update()
-	{
-		
+    {
 		Aim();
 	}
 
@@ -134,7 +143,6 @@ public class VehicleDrivingAimingLogic : MonoBehaviour
 			else
             {
 				vehicleRigidBody.AddForceAtPosition(-Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward) * Time.fixedDeltaTime * 0.2f, tire.transform.position, ForceMode.VelocityChange);
-				Debug.Log("Drifting!");
 			}
 			vehicleRigidBody.AddForceAtPosition(-Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.right) * 0.2f * Time.fixedDeltaTime, tire.transform.position, ForceMode.VelocityChange);
 		}
