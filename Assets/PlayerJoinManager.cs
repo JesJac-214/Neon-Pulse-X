@@ -43,7 +43,7 @@ public class PlayerJoinManager : MonoBehaviour
                 {
                     DontDestroyOnLoad(vehicle.transform.parent.gameObject);
                 }
-                SceneManager.LoadScene("Track2");
+                SceneManager.LoadScene("Real_track 2");
             }
         }
     }
