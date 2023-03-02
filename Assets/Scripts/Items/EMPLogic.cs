@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class EMPLogic : MonoBehaviour
 {
-    [SerializeField] private float explosionRadius = 7;
+    [SerializeField] private float explosionRadius = 15;
     [SerializeField] private float launchVelocity = 10f;
-    private float EMPEffect = 30.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,10 +21,9 @@ public class EMPLogic : MonoBehaviour
             var surroundingObjects = Physics.OverlapSphere(transform.position, explosionRadius);
             foreach (var obj in surroundingObjects)
             {
-                if (CompareTag("Player"))
+                if (obj.CompareTag("Vehicle Body"))
                 {
-                    Debug.Log(collision.gameObject);
-                    //Debug.Log("EMP");
+                    obj.transform.parent.GetComponent<VehicleWeaponItemLogic>().EMPEffect();
                 }
 
             }
