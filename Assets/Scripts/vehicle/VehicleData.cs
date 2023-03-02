@@ -11,6 +11,7 @@ public class VehicleData : MonoBehaviour
 	public int laps = 0;
 	public int lives = 3;
 	public bool isDead = false;
+	public bool isReady = false;
 	public GameManager gameManager;
 
     private void Start()
@@ -39,4 +40,10 @@ public class VehicleData : MonoBehaviour
 	{
 		courseProgress--;
 	}
+
+	public void OnReadyUp()
+    {
+		Debug.Log("Player " + (playerID + 1) +" Ready!");
+		isReady = true;
+    }
 }
