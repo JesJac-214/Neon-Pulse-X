@@ -43,6 +43,7 @@ public class VehicleData : MonoBehaviour
 
 	public void OnReadyUp()
     {
+		Debug.Log("Player " + (playerID + 1) +" Ready!");
 		isReady = true;
     }
 }
