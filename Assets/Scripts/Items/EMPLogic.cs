@@ -6,11 +6,26 @@ public class EMPLogic : MonoBehaviour
 {
     [SerializeField] private float explosionRadius = 15;
     [SerializeField] private float launchVelocity = 10f;
+    private float timer = 3;
+
     // Start is called before the first frame update
     void Start()
     {
         GetComponent<Rigidbody>().velocity = transform.forward * launchVelocity;
-        Destroy(gameObject, 5);
+        StartCoroutine("DelayedExplosion");
+    }
+    IEnumerator DelayedExplosion()
+    {
+        yield return new WaitForSeconds(timer);
+        var surroundingObjects = Physics.OverlapSphere(transform.position, explosionRadius);
+        foreach (var obj in surroundingObjects)
+        {
+             if (obj.CompareTag("Vehicle Body"))
+             {
+                  obj.transform.parent.GetComponent<VehicleWeaponItemLogic>().EMPEffect();
+             }
+        }
+        Destroy(gameObject);
     }
 
 
