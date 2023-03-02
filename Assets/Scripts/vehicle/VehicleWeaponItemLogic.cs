@@ -12,6 +12,7 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 	public GameObject CannonBallPrefab;
 	public GameObject IcebeamPrefab;
 	public GameObject MinePrefab;
+	public GameObject EMPPrefab;
 
     public GameObject gun;
 
@@ -22,9 +23,10 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 	public float boostedAccelerationValue = 1000.0f;
 	public float speedCoolDown = 1;
 	public float frozenfriction = 5;
-	public float frozenCoolDown = 10;
+	public float frozenCoolDown = 4;
+	public float EMPCoolDown = 5; 
 
-	void Update()
+    void Update()
 	{
 		if (Weapon.ammo == 0)
 		{
@@ -82,6 +84,11 @@ public class VehicleWeaponItemLogic : MonoBehaviour
         Instantiate(CannonBallPrefab, transform.position + anchor.transform.forward * 5, anchor.transform.rotation);
     }
 
+    public void SpawnEMP()
+    {
+        Instantiate(EMPPrefab, transform.position + anchor.transform.forward * 3, anchor.transform.rotation);
+    }
+
     public void SpawnIcebeamBullet()
     {
         Instantiate(IcebeamPrefab, transform.position + anchor.transform.forward * 5, anchor.transform.rotation);
@@ -96,17 +103,23 @@ public class VehicleWeaponItemLogic : MonoBehaviour
     }
     public void Freeze()
 	{
-		gameObject.GetComponent<VehicleDrivingAimingLogic>().frictionForce -= frozenfriction;
+        GetComponent<VehicleDrivingAimingLogic>().hasFriction = false;
         StartCoroutine("FrozenDuration");
     }
     IEnumerator FrozenDuration()
 	{
 		yield return new WaitForSeconds(frozenCoolDown);
-        gameObject.GetComponent<VehicleDrivingAimingLogic>().frictionForce += frozenfriction;
+        GetComponent<VehicleDrivingAimingLogic>().hasFriction = true;
     }
 
-    public void Invert()
+    public void EMPEffect()
 	{
-
-	}
+		GetComponent<VehicleDrivingAimingLogic>().canAccel = false;
+        StartCoroutine("EMPDuration");
+    }
+    IEnumerator EMPDuration()
+    {
+        yield return new WaitForSeconds(EMPCoolDown);
+        GetComponent<VehicleDrivingAimingLogic>().canAccel = true;
+    }
 }

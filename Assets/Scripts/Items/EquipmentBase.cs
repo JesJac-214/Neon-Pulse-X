@@ -107,3 +107,19 @@ public class Mine : EquipmentBase
         }
     }
 }
+public class EMP : EquipmentBase
+{
+    public override void Initialize()
+    {
+        ammo = 3;
+    }
+
+    public override void Use(GameObject vehicle)
+    {
+        if (ammo > 0)
+        {
+            vehicle.GetComponent<VehicleWeaponItemLogic>().SpawnEMP();
+            ammo--;
+        }
+    }
+}
