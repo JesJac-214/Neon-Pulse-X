@@ -75,8 +75,7 @@ public class VehicleDrivingAimingLogic : MonoBehaviour
 	}
 
 	void Update()
-	{
-		
+    {
 		Aim();
 	}
 
@@ -134,7 +133,6 @@ public class VehicleDrivingAimingLogic : MonoBehaviour
 			else
             {
 				vehicleRigidBody.AddForceAtPosition(-Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward) * Time.fixedDeltaTime * 0.2f, tire.transform.position, ForceMode.VelocityChange);
-				Debug.Log("Drifting!");
 			}
 			vehicleRigidBody.AddForceAtPosition(-Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.right) * 0.2f * Time.fixedDeltaTime, tire.transform.position, ForceMode.VelocityChange);
 		}
