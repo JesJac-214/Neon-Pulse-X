@@ -23,7 +23,7 @@ Outrun, outgun, and outlive to outplay the competition
 - [ ] Add Weapons
   - [x] Cannon Ball
   - [ ] Beam of Light
-  - [ ] EMP Grenade
+  - [x] EMP Grenade
   - [ ] Sound Wave
   - [x] Ice Beam
 - [ ] Add Items
