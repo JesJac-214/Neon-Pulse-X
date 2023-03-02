@@ -8,21 +8,21 @@ public class WeaponBox : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        EquipmentBase[] weapons = { new CannonBall(), new IceBeam() };
+        EquipmentBase[] weapons = { /*new CannonBall(), new IceBeam(),*/ new EMP() };
 
-        if (other.gameObject.tag == "Vehicle Body")
+        if (other.gameObject.CompareTag("Vehicle Body"))
         {
             if (other.transform.parent.GetComponent<VehicleWeaponItemLogic>().Weapon.ammo == 0)
             {
                 other.transform.parent.GetComponent<VehicleWeaponItemLogic>().Weapon = weapons[Random.Range(0, weapons.Length)];
             }
-            StartCoroutine("itemDisappear");
+            StartCoroutine("ItemDisappear");
             GetComponent<MeshRenderer>().enabled = false;
             GetComponent<BoxCollider>().enabled = false;
         }
     }
 
-    IEnumerator itemDisappear()
+    IEnumerator ItemDisappear()
     {
         yield return new WaitForSeconds(1);
         GetComponent<MeshRenderer>().enabled = true;

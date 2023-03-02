@@ -12,6 +12,7 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 	public GameObject CannonBallPrefab;
 	public GameObject IcebeamPrefab;
 	public GameObject MinePrefab;
+	public GameObject EMPPrefab;
 
     public GameObject gun;
 
@@ -80,6 +81,11 @@ public class VehicleWeaponItemLogic : MonoBehaviour
     public void SpawnCannonBall()
 	{
         Instantiate(CannonBallPrefab, transform.position + anchor.transform.forward * 5, anchor.transform.rotation);
+    }
+
+    public void SpawnEMP()
+    {
+        Instantiate(EMPPrefab, transform.position + anchor.transform.forward * 3, anchor.transform.rotation);
     }
 
     public void SpawnIcebeamBullet()
