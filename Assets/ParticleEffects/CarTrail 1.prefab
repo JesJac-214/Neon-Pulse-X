@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5785737138936336570}
   m_Layer: 0
-  m_Name: CarTrail
+  m_Name: CarTrail 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -257,7 +257,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.4745098, b: 0.85490197, a: 1}
+      maxColor: {r: 0, g: 0.8777206, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5078,7 +5078,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.7688679, b: 0.9613947, a: 1}
+      maxColor: {r: 0.76862746, g: 0.9352988, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -9729,7 +9729,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6c376aa725d838b4094ee24e9f8887a5, type: 2}
+  - {fileID: 2100000, guid: 71799f8230a8e294781597f3af17d57e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
