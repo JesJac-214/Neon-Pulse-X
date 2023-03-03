@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 387693048185654388}
   - component: {fileID: 1342294120497553650}
   - component: {fileID: -7445804632147070013}
+  - component: {fileID: 2682157324984609836}
   m_Layer: 0
   m_Name: PF_Weapon_box
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2189207596421950881}
   m_LocalRotation: {x: 0.35355338, y: -0.1464466, z: 0.35355338, w: 0.8535535}
   m_LocalPosition: {x: -79.403, y: 238.7, z: -112.48}
-  m_LocalScale: {x: 1.5656999, y: 1.5355195, z: 1.5355195}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4440786716216256076}
@@ -119,6 +120,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 693110c436bf5a240b4c2dc1b94e2247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &2682157324984609836
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2189207596421950881}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0.27, y: 0.28, z: -0.46}
 --- !u!1001 &4191283899422900647
 PrefabInstance:
   m_ObjectHideFlags: 0
