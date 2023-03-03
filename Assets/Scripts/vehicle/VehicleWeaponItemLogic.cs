@@ -39,7 +39,7 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 
 	}
 
-		public void OnShoot(InputAction.CallbackContext context)
+	public void OnShoot(InputAction.CallbackContext context)
 	{
 		if (context.ReadValue<float>() == 0 && !gameObject.GetComponent<VehicleData>().gameManager.IsPaused)
 		{
@@ -71,12 +71,12 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 	
 	public void SpawnWall()
 	{
-        Instantiate(WallPrefab, transform.position - transform.forward * 2, transform.rotation);
+        Instantiate(WallPrefab, transform.position - transform.forward * 3, transform.rotation);
     }
 
     public void SpawnMine()
     {
-        Instantiate(MinePrefab, transform.position - transform.forward * 2, transform.rotation);
+        Instantiate(MinePrefab, transform.position - transform.forward * 3, transform.rotation);
     }
 
     public void SpawnCannonBall()

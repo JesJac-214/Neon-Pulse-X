@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         Cursor.visible = true;
         pauseMenu.SetActive(true);
         pauseText.gameObject.SetActive(true);
-        resumeButton.gameObject.SetActive(true);
+        //resumeButton.gameObject.SetActive(true);
     }
 
     public void UnpauseGame()

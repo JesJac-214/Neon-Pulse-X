@@ -6,6 +6,12 @@ public class ItemBox : MonoBehaviour
 {
     public EquipmentBase[] items;
 
+    private MeshRenderer[] meshRenderers;
+
+    private void Start()
+    {
+        meshRenderers = gameObject.GetComponentsInChildren<MeshRenderer>();
+    }
     private void OnTriggerEnter(Collider other)
     {
         EquipmentBase[] items = { new SpeedBoost(), new Wall(), new Mine() };
@@ -17,14 +23,20 @@ public class ItemBox : MonoBehaviour
                 other.transform.parent.GetComponent<VehicleWeaponItemLogic>().Item = items[Random.Range(0, items.Length)];
             }
             StartCoroutine("ItemDisappear");
-            GetComponent<MeshRenderer>().enabled = false;
+            foreach (MeshRenderer meshRenderer in meshRenderers)
+            {
+                meshRenderer.enabled = false;
+            }
             GetComponent<BoxCollider>().enabled = false;
         }
     }
     IEnumerator ItemDisappear()
     {
         yield return new WaitForSeconds(1);
-        GetComponent<MeshRenderer>().enabled = true;
+        foreach (MeshRenderer meshRenderer in meshRenderers)
+        {
+            meshRenderer.enabled = false;
+        }
         GetComponent<BoxCollider>().enabled = true;
     }
 }
