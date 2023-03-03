@@ -52,9 +52,23 @@ public class TargetManagement : MonoBehaviour
                         vehicle.transform.position = new Vector3(0, -50, 0);
                         vehicle.GetComponent<VehicleData>().courseProgress = 0;
                         vehicle.GetComponent<VehicleData>().isDead = true;
+                        int aliveCount = 0;
+                        foreach (GameObject car in vehicles)
+                        {
+                            if (!car.GetComponent<VehicleData>().isDead)
+                            {
+                                aliveCount++;
+                            }
+                        }
+                        if (vehicle.GetComponent<VehicleData>().placement == 0)
+                        { 
+                            vehicle.GetComponent<VehicleData>().placement = aliveCount;
+                        }
                     }
                 }
             }
+
+            
         }
     }
 }

@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/PlayerJoin.unity
+    guid: 6463be9f22583cf479fd9f69209f3bef
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: f3236811957d4ac4d93384071c21c1f6
   - enabled: 1
@@ -15,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Track2.unity
     guid: 40a2fcefd8bd3dd4fa176a98f44b135b
   - enabled: 1
-    path: Assets/Scenes/PlayerJoin.unity
-    guid: 6463be9f22583cf479fd9f69209f3bef
+    path: Assets/Scenes/Real_track 2.unity
+    guid: 8e761415cf24f4541bc5687dad163e21
+  - enabled: 1
+    path: Assets/Scenes/VictoryPodium.unity
+    guid: d9de1cb6a00eb7a4aab6c44533583fae
   m_configObjects: {}
