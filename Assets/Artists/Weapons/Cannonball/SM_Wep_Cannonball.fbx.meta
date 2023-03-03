@@ -3,7 +3,27 @@ guid: 495d713c0e9a5b94d984659ab9d89d28
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Barrel
+    second: {fileID: 2100000, guid: 22cf365a347ee2e48b6e43bcece79114, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Body
+    second: {fileID: 2100000, guid: 9192d84ba16a96e44ab73b9db2ee6ad6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Cannon_Side
+    second: {fileID: 2100000, guid: b9e4055fee6c04e48aa66db02d19f9d6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Emission
+    second: {fileID: 2100000, guid: 25c7159d36bab8a458f0d36a216f53c4, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
