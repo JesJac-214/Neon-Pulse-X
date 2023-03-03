@@ -450,10 +450,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 348215331}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50bab68103b86c943a78c410ebff66ba, type: 3}
+  m_Script: {fileID: 11500000, guid: 0521bc98a47a625458c9610aad65d95d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minPlayers: 1
+  minPlayers: 2
   ReadyTexts:
   - {fileID: 1450044113}
   - {fileID: 188059928}
@@ -463,7 +463,7 @@ MonoBehaviour:
   - {fileID: 1759511611}
   - {fileID: 1342276273}
   - {fileID: 2072553342}
-  - {fileID: 3017841}
+  - {fileID: 1745255732}
 --- !u!4 &348215333
 Transform:
   m_ObjectHideFlags: 0
