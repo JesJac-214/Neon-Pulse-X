@@ -21,10 +21,10 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Ballong
-  m_Shader: {fileID: -6465566751694194690, guid: d4fa094734df999488bb7b6ce6dff862, type: 3}
+  m_Shader: {fileID: 0}
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 2
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -32,30 +32,8 @@ Material:
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs:
-    - _Pattern:
-        m_Texture: {fileID: 2800000, guid: 91aa344be4aadfc40ad990d63950ef6d, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+    m_TexEnvs: []
     m_Ints: []
-    m_Floats:
-    - _FresnelPower: 6
-    - _Offset: 0.6
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    - _Scrollspeed: 0.05
-    m_Colors:
-    - _Emission: {r: 9.8481045, g: 3.0075142, b: 10.806661, a: 0}
+    m_Floats: []
+    m_Colors: []
   m_BuildTextureStacks: []
