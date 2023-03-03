@@ -3,7 +3,37 @@ guid: a67d0a3539869204e84aa037c6257e04
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Body
+    second: {fileID: 2100000, guid: d68431670d19fcd479f6e0a19ad5d4c7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_CD
+    second: {fileID: 2100000, guid: 75cad2939ba3c6b43b60faa3d48f092e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Emissive
+    second: {fileID: 2100000, guid: d92f1f1227ff0cb45a0c721e41b86851, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Speaker
+    second: {fileID: 2100000, guid: 9e194a8641559114db68e0b6fba4839d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Speaker_Front
+    second: {fileID: 2100000, guid: efd4213e54edcab42ae6490e43043b90, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Speaker_Internals
+    second: {fileID: 2100000, guid: e60fa9d0f1a315441992f5ba1c98ee1b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
