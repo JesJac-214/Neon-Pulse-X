@@ -61,6 +61,12 @@ public class GameManager : MonoBehaviour
     {
         IsPaused = false;
         Time.timeScale = 1;
+        GameObject[] vehicles = GameObject.FindGameObjectsWithTag("Player");
+
+        foreach (GameObject vehicle in vehicles)
+        {
+            Destroy(vehicle.transform.parent.gameObject);
+        }
         SceneManager.LoadScene("MainMenu");
     }
 

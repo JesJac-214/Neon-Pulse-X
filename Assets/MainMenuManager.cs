@@ -14,6 +14,7 @@ public class MainMenuManager : MonoBehaviour
     public GameObject menu;
 
     private bool move = false;
+
     void Update()
     {
         if (!move)
@@ -22,11 +23,14 @@ public class MainMenuManager : MonoBehaviour
         }
         if (move)
         {
-            cam.transform.position = Vector3.Lerp(cam.transform.position, BillboardTransform.position, 0.01f);
-            cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation, BillboardTransform.rotation, 0.01f);
-            if ((BillboardTransform.position.z + 0.2f > cam.transform.position.z && cam.transform.position.z > BillboardTransform.position.z - 0.2f) && (BillboardTransform.position.y + 0.2f > cam.transform.position.y && cam.transform.position.y > BillboardTransform.position.y - 0.2f) && (BillboardTransform.position.x + 0.2f > cam.transform.position.x && cam.transform.position.x > BillboardTransform.position.x - 0.2f))
+            cam.transform.position = Vector3.Lerp(cam.transform.position, BillboardTransform.position, 4f * Time.deltaTime);
+            cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation, BillboardTransform.rotation, 8f * Time.deltaTime);
+            if ((cam.transform.position - BillboardTransform.position).magnitude < 50f)
             {
                 menu.SetActive(true);
+            }
+            if ((cam.transform.position - BillboardTransform.position).magnitude < 0.1f)
+            {
                 enabled = false;
             }
         }
@@ -34,6 +38,7 @@ public class MainMenuManager : MonoBehaviour
 
     void MoveCameraToMainMenu()
     {
+        PressAnyButton.SetActive(false);
         move = true;
     }
 
@@ -44,6 +49,6 @@ public class MainMenuManager : MonoBehaviour
 
     public void OnQuit()
     {
-        Debug.Log("Quit");
+        Application.Quit();
     }
 }
