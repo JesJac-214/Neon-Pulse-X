@@ -453,7 +453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50bab68103b86c943a78c410ebff66ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minPlayers: 2
+  minPlayers: 1
   ReadyTexts:
   - {fileID: 1450044113}
   - {fileID: 188059928}
