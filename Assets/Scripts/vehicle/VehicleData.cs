@@ -21,6 +21,7 @@ public class VehicleData : MonoBehaviour
 
     public void OnPauseGame()
 	{
+		gameManager = GameObject.FindWithTag("Game Manager").GetComponent<GameManager>();
 		if (!gameManager.IsPaused)
         {
 			gameManager.PauseGame();
@@ -43,7 +44,6 @@ public class VehicleData : MonoBehaviour
 
 	public void OnReadyUp()
     {
-		Debug.Log("Player " + (playerID + 1) +" Ready!");
 		isReady = true;
     }
 }
