@@ -55,12 +55,12 @@ public class TargetManagement : MonoBehaviour
                         int aliveCount = 0;
                         foreach (GameObject car in vehicles)
                         {
-                            if (!vehicle.GetComponent<VehicleData>().isDead)
+                            if (!car.GetComponent<VehicleData>().isDead)
                             {
                                 aliveCount++;
                             }
+                            car.GetComponent<VehicleData>().placement = aliveCount;
                         }
-                        vehicle.GetComponent<VehicleData>().placement = aliveCount;
                     }
                 }
             }
