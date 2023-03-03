@@ -59,11 +59,16 @@ public class TargetManagement : MonoBehaviour
                             {
                                 aliveCount++;
                             }
-                            car.GetComponent<VehicleData>().placement = aliveCount;
+                        }
+                        if (vehicle.GetComponent<VehicleData>().placement == 0)
+                        { 
+                            vehicle.GetComponent<VehicleData>().placement = aliveCount;
                         }
                     }
                 }
             }
+
+            
         }
     }
 }
