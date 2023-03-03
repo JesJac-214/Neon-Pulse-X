@@ -3,7 +3,32 @@ guid: fdab0bf88c7cae74da092f55e778d548
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body
+    second: {fileID: 2100000, guid: 64bc1d79569161e4591ee88f41712d53, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cockpit
+    second: {fileID: 2100000, guid: fc20833eb613c7249ad033046e32ab2d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal rim
+    second: {fileID: 2100000, guid: 46f32a757bc7b9f4db1511e09f3fc208, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rubber_Tire
+    second: {fileID: 2100000, guid: 45ee4e53dfe974640a68d2e2670e7396, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Spoiler
+    second: {fileID: 2100000, guid: f5f76047f718ebc46a374b35c46f8184, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
