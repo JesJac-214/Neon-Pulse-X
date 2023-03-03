@@ -14,6 +14,7 @@ public class TESTSCRIPTDELETETHIS : MonoBehaviour
     public GameObject menu;
 
     private bool move = false;
+
     void Update()
     {
         if (!move)
@@ -27,7 +28,6 @@ public class TESTSCRIPTDELETETHIS : MonoBehaviour
             if ((goal.position.z + 0.2f > cam.transform.position.z && cam.transform.position.z > goal.position.z - 0.2f) && (goal.position.y + 0.2f > cam.transform.position.y && cam.transform.position.y > goal.position.y - 0.2f) && (goal.position.x + 0.2f > cam.transform.position.x && cam.transform.position.x > goal.position.x - 0.2f))
             {
                 menu.SetActive(true);
-                enabled = false;
             }
         }
     }

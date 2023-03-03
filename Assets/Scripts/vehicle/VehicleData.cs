@@ -13,6 +13,7 @@ public class VehicleData : MonoBehaviour
 	public bool isDead = false;
 	public bool isReady = false;
 	public GameManager gameManager;
+	public int placement = 0;
 
     private void Start()
     {

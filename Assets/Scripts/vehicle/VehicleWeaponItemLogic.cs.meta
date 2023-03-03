@@ -3,7 +3,14 @@ guid: b10fe7d649da2b246b0b678f75ebd1e5
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - anchor: {instanceID: 0}
+  - WallPrefab: {instanceID: 0}
+  - CannonBallPrefab: {instanceID: 0}
+  - IcebeamPrefab: {instanceID: 0}
+  - MinePrefab: {instanceID: 0}
+  - EMPPrefab: {instanceID: 0}
+  - gun: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

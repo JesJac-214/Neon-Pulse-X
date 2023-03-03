@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
     {
         winScreen.SetActive(true);
         winnerDeclaration.text = "Player " + ID + " wins";
+        SceneManager.LoadScene("VictoryPodium");
     }
 
     public void OnQuitGame()
