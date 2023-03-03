@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.SceneManagement;
 public class VehicleData : MonoBehaviour
 {
 	public int playerID = 0;
@@ -13,14 +13,31 @@ public class VehicleData : MonoBehaviour
 	public bool isDead = false;
 	public bool isReady = false;
 	public GameManager gameManager;
+	public int placement = 0;
 
-    private void Start()
+	//private void Start()
+	//{
+	//	gameManager = GameObject.FindWithTag("Game Manager").GetComponent<GameManager>();
+	//}
+    private void OnEnable()
     {
-		gameManager = GameObject.FindWithTag("Game Manager").GetComponent<GameManager>();
+		SceneManager.sceneLoaded += OnGameStart;
     }
 
+    private void OnDisable()
+    {
+		SceneManager.sceneLoaded -= OnGameStart;
+	}
+    private void OnGameStart(Scene scene, LoadSceneMode mode)
+    {
+		if (scene.name == "Real_track 2")
+        {
+			gameManager = GameObject.FindWithTag("Game Manager").GetComponent<GameManager>();
+		}
+    }
     public void OnPauseGame()
 	{
+		//gameManager = GameObject.FindWithTag("Game Manager").GetComponent<GameManager>();
 		if (!gameManager.IsPaused)
         {
 			gameManager.PauseGame();
@@ -43,7 +60,6 @@ public class VehicleData : MonoBehaviour
 
 	public void OnReadyUp()
     {
-		Debug.Log("Player " + (playerID + 1) +" Ready!");
 		isReady = true;
     }
 }

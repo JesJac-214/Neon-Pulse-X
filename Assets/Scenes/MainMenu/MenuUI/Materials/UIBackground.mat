@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: UIBackground
-  m_Shader: {fileID: -6465566751694194690, guid: 48f0d189a3e3f2b4aaa82334bf5cb579, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: cc21a34d6bc9bfa47bf1917a576940b4, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -61,7 +61,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Pattern:
-        m_Texture: {fileID: 2800000, guid: 8580bcd6794746f449f29d82837a1b40, type: 3}
+        m_Texture: {fileID: 2800000, guid: 65e9e7c4fc88e3f4fbef168f82f8fbb0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -115,7 +115,7 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Emission: {r: 1.4142135, g: 0.07901695, b: 0, a: 1}
+    - _Emission: {r: 0.2038594, g: 0, b: 15.49331, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []

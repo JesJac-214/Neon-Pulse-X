@@ -5,6 +5,12 @@ using UnityEngine;
 public class WeaponBox : MonoBehaviour
 {
     public EquipmentBase[] weapons;
+    private MeshRenderer[] meshRenderers;
+
+    private void Start()
+    {
+        meshRenderers = gameObject.GetComponentsInChildren<MeshRenderer>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,7 +23,10 @@ public class WeaponBox : MonoBehaviour
                 other.transform.parent.GetComponent<VehicleWeaponItemLogic>().Weapon = weapons[Random.Range(0, weapons.Length)];
             }
             StartCoroutine("ItemDisappear");
-            GetComponent<MeshRenderer>().enabled = false;
+            foreach (MeshRenderer meshRenderer in meshRenderers)
+            {
+                meshRenderer.enabled = false;
+            }
             GetComponent<BoxCollider>().enabled = false;
         }
     }
@@ -25,7 +34,10 @@ public class WeaponBox : MonoBehaviour
     IEnumerator ItemDisappear()
     {
         yield return new WaitForSeconds(1);
-        GetComponent<MeshRenderer>().enabled = true;
+        foreach (MeshRenderer meshRenderer in meshRenderers)
+        {
+            meshRenderer.enabled = true;
+        }
         GetComponent<BoxCollider>().enabled = true;
     }
 }
