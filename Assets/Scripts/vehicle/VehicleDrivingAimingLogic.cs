@@ -44,6 +44,8 @@ public class VehicleDrivingAimingLogic : MonoBehaviour
 	[SerializeField]
 	private float tireTiltAngle = 30f;
 
+	
+
 	private void Awake()
 	{
 		playerInput = GetComponent<PlayerInput>();
@@ -70,6 +72,7 @@ public class VehicleDrivingAimingLogic : MonoBehaviour
 	{
 		HandleTireSuspension();
 		HandleTireRotation();
+		HandleUprightForce();
 		if (grounded)
 		{
 			if (canAccel)
@@ -152,6 +155,21 @@ public class VehicleDrivingAimingLogic : MonoBehaviour
 		}
 	}
 
+	private void HandleUprightForce()
+	{
+		Quaternion vehicleCurrent = transform.rotation;
+		Quaternion toGoal = transform.rotation * new Quaternion(0,/*-0.707106829f*/0,0,0.707106829f) * Quaternion.Inverse(vehicleCurrent);
+
+		Vector3 rotAxis;
+		float rotDegrees;
+
+		toGoal.ToAngleAxis(out rotDegrees, out rotAxis);
+		rotAxis.Normalize();
+
+		float rotRadians = rotDegrees * Mathf.Deg2Rad;
+
+		vehicleRigidBody.AddTorque((rotAxis * (rotRadians * 200)) - (vehicleRigidBody.angularVelocity * 20));
+	}
 
 	private void Aim()
 	{
@@ -195,11 +213,11 @@ public class VehicleDrivingAimingLogic : MonoBehaviour
 
 	public void OnDrift(InputAction.CallbackContext context)
 	{
-		if (context.ReadValue<float>() == 1)
+		if (context.started)
 		{
 			drift = true;
 		}
-		else
+		else if (context.canceled)
 		{
 			drift = false;
 		}
