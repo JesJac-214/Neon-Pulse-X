@@ -42,6 +42,7 @@ public class PlayerJoinManager : MonoBehaviour
                 foreach (GameObject vehicle in vehicles)
                 {
                     DontDestroyOnLoad(vehicle.transform.parent.gameObject);
+                    vehicle.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 }
                 SceneManager.LoadScene("Real_track 2");
             }
