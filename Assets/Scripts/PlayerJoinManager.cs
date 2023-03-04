@@ -27,6 +27,10 @@ public class PlayerJoinManager : MonoBehaviour
             {
                 ReadyTexts[vehicle.GetComponent<VehicleData>().playerID].text = "Ready!";
             }
+            else
+            {
+                ReadyTexts[vehicle.GetComponent<VehicleData>().playerID].text = "Press A to Ready Up!";
+            }
         }
         if (vehicles.Length >= minPlayers)
         {
