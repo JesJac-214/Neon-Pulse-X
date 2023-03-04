@@ -15,6 +15,8 @@ public class VehicleData : MonoBehaviour
 	public GameManager gameManager;
 	public int placement = 0;
 
+	private float ignoreReadyUpTime;
+
 	//private void Start()
 	//{
 	//	gameManager = GameObject.FindWithTag("Game Manager").GetComponent<GameManager>();
@@ -22,6 +24,8 @@ public class VehicleData : MonoBehaviour
     private void OnEnable()
     {
 		SceneManager.sceneLoaded += OnGameStart;
+		ignoreReadyUpTime = Time.time + 0.5f;
+
     }
 
     private void OnDisable()
@@ -58,8 +62,11 @@ public class VehicleData : MonoBehaviour
 		courseProgress--;
 	}
 
-	public void OnReadyUp()
+	public void OnReadyUp(InputAction.CallbackContext context)
     {
-		isReady = true;
+		if (context.started && Time.time > ignoreReadyUpTime)
+		{
+			isReady = true;
+		}
     }
 }
