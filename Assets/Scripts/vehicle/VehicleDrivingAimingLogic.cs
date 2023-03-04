@@ -155,7 +155,7 @@ public class VehicleDrivingAimingLogic : MonoBehaviour
 
 	private void Aim()
 	{
-		anchor.transform.position = transform.position + new Vector3(0, 2f, 0);
+		anchor.transform.position = transform.position + new Vector3(0, 4f, 0);
 		Vector3 direction = Vector3.right * aimInput.x + Vector3.forward * aimInput.y;
 		if (isGamepad)
 		{
