@@ -6,9 +6,20 @@ using UnityEngine.InputSystem;
 public class playerspawnmanager : MonoBehaviour
 {
     public Transform[] spawnLocations;
+    public GameObject[] vehicles;
+    PlayerInputManager manager;
+    private int index = 0;
+
+    void Start()
+    {
+        manager = GetComponent<PlayerInputManager>();
+        manager.playerPrefab = vehicles[index];
+    }
     public void OnPlayerJoined(PlayerInput playerInput)
     {
         playerInput.gameObject.GetComponent<VehicleData>().playerID = playerInput.playerIndex;
         playerInput.gameObject.GetComponent<VehicleData>().startPos = spawnLocations[playerInput.playerIndex].position;
+        index++;
+        manager.playerPrefab = vehicles[index];
     }
 }
