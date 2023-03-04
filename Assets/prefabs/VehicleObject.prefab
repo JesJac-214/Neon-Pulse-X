@@ -442,7 +442,7 @@ MonoBehaviour:
   accelerationSpeed: 20
   decelerationEffectivity: 0.8
   frictionForce: 5
-  maxSpeed: 40
+  maxSpeed: 50
   aimSpeed: 1500
   canAccel: 1
   hasFriction: 1
@@ -457,7 +457,7 @@ MonoBehaviour:
   backTires:
   - {fileID: 961647733232145154}
   - {fileID: 2833531371439253934}
-  springStrength: 400
+  springStrength: 300
   springDamper: 50
   tireRotationSmoothing: 5
   tireTiltAngle: 30
@@ -481,6 +481,7 @@ MonoBehaviour:
   isDead: 0
   isReady: 0
   gameManager: {fileID: 0}
+  placement: 0
 --- !u!114 &4124154686109981263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -668,7 +669,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2, y: 1, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3210850101850118116
 GameObject:
