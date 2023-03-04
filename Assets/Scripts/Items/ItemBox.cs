@@ -5,13 +5,13 @@ using UnityEngine;
 public class ItemBox : MonoBehaviour
 {
     public EquipmentBase[] items;
-
     private MeshRenderer[] meshRenderers;
 
     private void Start()
     {
         meshRenderers = gameObject.GetComponentsInChildren<MeshRenderer>();
     }
+
     private void OnTriggerEnter(Collider other)
     {
         EquipmentBase[] items = { new SpeedBoost(), new Wall(), new Mine() };
@@ -30,12 +30,13 @@ public class ItemBox : MonoBehaviour
             GetComponent<BoxCollider>().enabled = false;
         }
     }
+
     IEnumerator ItemDisappear()
     {
         yield return new WaitForSeconds(1);
         foreach (MeshRenderer meshRenderer in meshRenderers)
         {
-            meshRenderer.enabled = false;
+            meshRenderer.enabled = true;
         }
         GetComponent<BoxCollider>().enabled = true;
     }
