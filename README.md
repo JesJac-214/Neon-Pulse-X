@@ -13,10 +13,10 @@ Outrun, outgun, and outlive to outplay the competition
   - [x] End Game when all other players have 0 lives (sort of)
 - [ ] UI
   - [x] Make Pause Screen
-  - [ ] Make Start Screen
+  - [x] Make Start Screen
   - [x] Make Main Menu
-  - [ ] Make Player Select Screen
-    - [ ] Add multiple cars to select
+  - [x] Make Player Join Screen
+    - [ ] Add multiple cars
   - [ ] Make Track Select Screen
     - [ ] Add multiple tracks to select
   - [x] Player HUD for ammo
@@ -32,3 +32,6 @@ Outrun, outgun, and outlive to outplay the competition
   - [x] Mine
   - [ ] Ghost
   - [ ] Counter Shield
+- [ ] Misc
+  - [ ] Add Tutorial to Player Join
+  - [ ] Add Pathfinding for player who fell off screen
