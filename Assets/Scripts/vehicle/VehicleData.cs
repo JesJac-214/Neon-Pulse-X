@@ -24,8 +24,7 @@ public class VehicleData : MonoBehaviour
     private void OnEnable()
     {
 		SceneManager.sceneLoaded += OnGameStart;
-		ignoreReadyUpTime = Time.time + 0.5f;
-
+        ignoreReadyUpTime = Time.time + 0.1f;
     }
 
     private void OnDisable()
