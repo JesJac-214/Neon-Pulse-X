@@ -13,11 +13,10 @@ public class TrackInitializer : MonoBehaviour
         foreach (GameObject vehicle in vehicles)
         {
             vehicle.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            vehicle.transform.position = spawns[vehicle.GetComponent<VehicleData>().playerID].position;
-            vehicle.transform.rotation = spawns[vehicle.GetComponent<VehicleData>().playerID].rotation;
+            vehicle.transform.SetPositionAndRotation(spawns[vehicle.GetComponent<VehicleData>().playerID].position, spawns[vehicle.GetComponent<VehicleData>().playerID].rotation);
             vehicle.GetComponent<VehicleDrivingAimingLogic>().canAccel = false;
         }
-        StartCoroutine("AccelDelay");
+        StartCoroutine(nameof(AccelDelay));
     }
 
     IEnumerator AccelDelay()
