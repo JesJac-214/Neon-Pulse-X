@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class VehicleWeaponItemLogic : MonoBehaviour
 {
@@ -36,22 +37,45 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 		{
 			gun.GetComponent<MeshRenderer>().enabled = true;
 		}
-
+		if (SceneManager.GetActiveScene().name == "PlayerJoin" || SceneManager.GetActiveScene().name == "VictoryPodium")
+        {
+			gun.GetComponent<MeshRenderer>().enabled = true;
+		}
 	}
 
 	public void OnShoot(InputAction.CallbackContext context)
 	{
-		if (context.ReadValue<float>() == 0 && !gameObject.GetComponent<VehicleData>().gameManager.IsPaused)
-		{
-			Weapon.Use(gameObject);
-		}
-	}
+		if (context.started)
+        {
+			if (GetComponent<VehicleData>().gameManager != null)
+            {
+				if (!GetComponent<VehicleData>().gameManager.IsPaused)
+                {
+					Weapon.Use(gameObject);
+                }
+            }
+			else 
+            {
+				SpawnCannonBall();
+            }
+        }
+    }
 
 	public void OnUseItem(InputAction.CallbackContext context)
 	{
-		if (context.ReadValue<float>() == 0 && !gameObject.GetComponent<VehicleData>().gameManager.IsPaused)
+		if (context.started)
 		{
-			Item.Use(gameObject);
+			if (GetComponent<VehicleData>().gameManager != null)
+			{
+				if (!GetComponent<VehicleData>().gameManager.IsPaused)
+				{
+					Item.Use(gameObject);
+				}
+			}
+			else
+			{
+                SpawnWall();
+			}
 		}
 	}
 
