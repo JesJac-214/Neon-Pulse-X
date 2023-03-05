@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class TrackInitializer : MonoBehaviour
 {
     [SerializeField]
     private Transform[] spawns;
     GameObject[] vehicles;
+    [SerializeField]
+    private TMP_Text countdownText;
     void Start()
     {
         vehicles = GameObject.FindGameObjectsWithTag("Player");
@@ -21,10 +24,17 @@ public class TrackInitializer : MonoBehaviour
 
     IEnumerator AccelDelay()
     {
-        yield return new WaitForSeconds(3);
+        for (int i = 3; i > 0; i--)
+        {
+            countdownText.text = i.ToString();
+            yield return new WaitForSeconds(1);
+        }
+        countdownText.text = "GO!";
         foreach (GameObject vehicle in vehicles)
         {
             vehicle.GetComponent<VehicleDrivingAimingLogic>().canAccel = true;
         }
+        yield return new WaitForSeconds(1);
+        countdownText.text = "";
     }
 }
