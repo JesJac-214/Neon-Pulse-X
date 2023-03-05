@@ -9,6 +9,7 @@ TagManager:
   - SpeedBoost
   - Game Manager
   - Ice
+  - Hackingdrone
   layers:
   - Default
   - TransparentFX

@@ -14,6 +14,7 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 	public GameObject IcebeamPrefab;
 	public GameObject MinePrefab;
 	public GameObject EMPPrefab;
+	public GameObject HackingDevicePrefab;
 
     public GameObject gun;
 
@@ -22,20 +23,36 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 
 	public float boostedSpeedValue = 30.0f;
 	public float boostedAccelerationValue = 1000.0f;
-	public float speedCoolDown = 1;
+	
 	public float frozenfriction = 5;
+	public float speedCoolDown = 1;
 	public float frozenCoolDown = 4;
 	public float EMPCoolDown = 5; 
+	public float hackedCoolDown = 5;
 
     void Update()
 	{
 		if (Weapon.ammo == 0)
 		{
-			gun.GetComponent<MeshRenderer>().enabled = false;
+            gun.GetComponent<MeshRenderer>().enabled = false;
 		}
 		else
 		{
-			gun.GetComponent<MeshRenderer>().enabled = true;
+            if (Weapon.weaponName == "Cannonball")
+            {
+            }
+            if (Weapon.weaponName == "IceBeam")
+            {
+
+            }
+            if (Weapon.weaponName == "EMP")
+            {
+
+            }
+            if (Weapon.weaponName == "HackingDevice")
+            {
+				gun.GetComponent<MeshRenderer>().enabled = true;	
+            }
 		}
 		if (SceneManager.GetActiveScene().name == "PlayerJoin" || SceneManager.GetActiveScene().name == "VictoryPodium")
         {
@@ -118,6 +135,11 @@ public class VehicleWeaponItemLogic : MonoBehaviour
         Instantiate(IcebeamPrefab, transform.position + anchor.transform.forward * 5, anchor.transform.rotation);
     }
 
+    public void SpawnHackingDevice()
+    {
+        Instantiate(HackingDevicePrefab, transform.position + anchor.transform.forward * 5, anchor.transform.rotation);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Ice"))
@@ -145,5 +167,16 @@ public class VehicleWeaponItemLogic : MonoBehaviour
     {
         yield return new WaitForSeconds(EMPCoolDown);
         GetComponent<VehicleDrivingAimingLogic>().canAccel = true;
+    }
+	
+	public void HackedEffect()
+	{
+        GetComponent<VehicleDrivingAimingLogic>().tireTiltAngle *= -1;
+        StartCoroutine("HackedDuration");
+    }
+    IEnumerator HackedDuration()
+	{
+        yield return new WaitForSeconds(hackedCoolDown);
+        GetComponent<VehicleDrivingAimingLogic>().tireTiltAngle *= -1;
     }
 }

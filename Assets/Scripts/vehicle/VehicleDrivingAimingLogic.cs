@@ -42,7 +42,7 @@ public class VehicleDrivingAimingLogic : MonoBehaviour
 	[SerializeField]
 	public float tireRotationSmoothing = 5.0f;
 	[SerializeField]
-	private float tireTiltAngle = 30f;
+	public float tireTiltAngle = 30f;
 
 	
 
