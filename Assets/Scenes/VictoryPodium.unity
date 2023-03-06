@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18029143, g: 0.22572419, b: 0.30693057, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2727,6 +2727,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0603e46ab0e2ba84f840814e2ce5efbf, type: 3}
+      propertyPath: m_TagString
+      value: Track
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0603e46ab0e2ba84f840814e2ce5efbf, type: 3}
 --- !u!1 &1882038493 stripped
@@ -3344,6 +3348,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 793310a1cd8d292429057eea13ecb25b, type: 2}
+    - target: {fileID: -5731229141766309534, guid: c46dc668565fb9b48ac345163c97f4b2, type: 3}
+      propertyPath: m_TagString
+      value: Track
+      objectReference: {fileID: 0}
     - target: {fileID: -4830548618574930462, guid: c46dc668565fb9b48ac345163c97f4b2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -3360,6 +3368,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c174ff9dfc3d43b4a823c593db15c1ec, type: 2}
+    - target: {fileID: -2793727289926329592, guid: c46dc668565fb9b48ac345163c97f4b2, type: 3}
+      propertyPath: m_TagString
+      value: Track
+      objectReference: {fileID: 0}
     - target: {fileID: -2682167134973850427, guid: c46dc668565fb9b48ac345163c97f4b2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -3384,6 +3396,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_victorypodium_2
       objectReference: {fileID: 0}
+    - target: {fileID: 1507767883509144192, guid: c46dc668565fb9b48ac345163c97f4b2, type: 3}
+      propertyPath: m_TagString
+      value: Track
+      objectReference: {fileID: 0}
     - target: {fileID: 1790868808166937211, guid: c46dc668565fb9b48ac345163c97f4b2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -3404,6 +3420,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a68e36c33e791114790391430d92902b, type: 2}
+    - target: {fileID: 3779745573541866595, guid: c46dc668565fb9b48ac345163c97f4b2, type: 3}
+      propertyPath: m_TagString
+      value: Track
+      objectReference: {fileID: 0}
     - target: {fileID: 3932287124643443059, guid: c46dc668565fb9b48ac345163c97f4b2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
