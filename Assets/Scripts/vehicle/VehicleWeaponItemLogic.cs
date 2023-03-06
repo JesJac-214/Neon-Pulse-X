@@ -40,15 +40,16 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 		{
             if (Weapon.weaponName == "Cannonball")
             {
-            }
+				gun.GetComponent<MeshRenderer>().enabled = true;
+			}
             if (Weapon.weaponName == "IceBeam")
             {
-
-            }
+				gun.GetComponent<MeshRenderer>().enabled = true;
+			}
             if (Weapon.weaponName == "EMP")
             {
-
-            }
+				gun.GetComponent<MeshRenderer>().enabled = true;
+			}
             if (Weapon.weaponName == "HackingDevice")
             {
 				gun.GetComponent<MeshRenderer>().enabled = true;	
