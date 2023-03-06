@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
     public TMP_Text[] WeaponAmmoHUDs;
     public TMP_Text[] ItemAmmoHUDs;
 
+    [SerializeField]
+    private GameObject[] playerHUDContainers;
+
     public Button resumeButton;
     public Button restartButton;
 
@@ -84,6 +87,10 @@ public class GameManager : MonoBehaviour
         {
             foreach (GameObject vehicle in vehicles)
             {
+                if (vehicle.GetComponent<VehicleData>().lives < 3)
+                {
+                    playerHUDContainers[vehicle.GetComponent<VehicleData>().playerID].transform.GetChild(vehicle.GetComponent<VehicleData>().lives).gameObject.SetActive(false);
+                }
                 //WeaponAmmoHUDs[vehicle.GetComponent<VehicleData>().playerID].text = vehicle.GetComponent<VehicleWeaponItemLogic>().Weapon.ammo.ToString();
                 WeaponAmmoHUDs[vehicle.GetComponent<VehicleData>().playerID].text = vehicle.GetComponent<VehicleWeaponItemLogic>().Item.ammo.ToString();
             }
