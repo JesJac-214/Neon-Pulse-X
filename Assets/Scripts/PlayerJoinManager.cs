@@ -85,6 +85,7 @@ public class PlayerJoinManager : MonoBehaviour
         {
             DontDestroyOnLoad(vehicle.transform.parent.gameObject);
             vehicle.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            vehicle.GetComponent<VehicleWeaponItemLogic>().Item = new EquipmentBase();
         }
         SceneManager.LoadScene("Real_track 2");
     }
