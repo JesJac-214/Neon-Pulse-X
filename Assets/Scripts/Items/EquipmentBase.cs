@@ -45,7 +45,7 @@ public class CannonBall : EquipmentBase
     public override void Initialize()
     {
         ammo = 5;
-        weaponName= "CannonBall"; 
+        weaponName = "CannonBall"; 
     }
 
     public override void Use(GameObject vehicle)

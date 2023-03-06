@@ -29,7 +29,7 @@ public class TrackInitializer : MonoBehaviour
             countdownText.text = i.ToString();
             yield return new WaitForSeconds(1);
         }
-        countdownText.text = "GO!";
+        countdownText.text = "DON'T FALL BEHIND";
         foreach (GameObject vehicle in vehicles)
         {
             vehicle.GetComponent<VehicleDrivingAimingLogic>().canAccel = true;

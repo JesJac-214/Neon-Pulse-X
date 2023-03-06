@@ -18,9 +18,9 @@ public class WeaponBox : MonoBehaviour
 
         if (other.gameObject.CompareTag("Vehicle Body"))
         {
-            if (other.transform.parent.GetComponent<VehicleWeaponItemLogic>().Weapon.ammo == 0)
+            if (other.transform.parent.GetComponent<VehicleWeaponItemLogic>().Item.ammo == 0)
             {
-                other.transform.parent.GetComponent<VehicleWeaponItemLogic>().Weapon = weapons[Random.Range(0, weapons.Length)];
+                other.transform.parent.GetComponent<VehicleWeaponItemLogic>().Item = weapons[Random.Range(0, weapons.Length)];
             }
             StartCoroutine("ItemDisappear");
             foreach (MeshRenderer meshRenderer in meshRenderers)

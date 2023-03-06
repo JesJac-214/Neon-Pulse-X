@@ -10,6 +10,7 @@ TagManager:
   - Game Manager
   - Ice
   - Hackingdrone
+  - Ready Zone
   layers:
   - Default
   - TransparentFX

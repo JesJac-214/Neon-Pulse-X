@@ -319,7 +319,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.6
+      scalar: 1.2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -5140,7 +5140,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0.2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -9759,9 +9759,9 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.09958458
-        inSlope: -1.7721556
-        outSlope: -1.7721556
+        value: 0.19916344
+        inSlope: -3.3536553
+        outSlope: -3.3536553
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -9769,8 +9769,8 @@ TrailRenderer:
       - serializedVersion: 3
         time: 0.05937195
         value: 0
-        inSlope: -1.6055181
-        outSlope: -1.6055181
+        inSlope: -3.508657
+        outSlope: -3.508657
         tangentMode: 0
         weightedMode: 0
         inWeight: 1

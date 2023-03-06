@@ -85,15 +85,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Ready Up",
-                    "type": "Button",
-                    "id": "dc33bc1e-c7d2-4307-b326-6b046f290dc6",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -352,6 +343,50 @@
                 },
                 {
                     "name": "",
+                    "id": "79dc3145-2112-427b-97a6-22c81f3a2e1d",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6b09b208-af3e-4859-a5ec-6cd52da2e766",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c6fc8ea9-c000-4b4c-ba4e-d6244fb9c0f2",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "316fea37-d844-43cc-9a7c-c976dbc6cf7f",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "67cb166d-57d0-4662-868a-d413b0b5cfe2",
                     "path": "<Gamepad>/buttonWest",
                     "interactions": "",
@@ -413,28 +448,6 @@
                     "processors": "",
                     "groups": "KBM",
                     "action": "Drift",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "e7e02033-56a9-4775-896c-fc69085a8922",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Ready Up",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f8348e2e-9c22-44b2-b256-0a1df2315312",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KBM",
-                    "action": "Ready Up",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

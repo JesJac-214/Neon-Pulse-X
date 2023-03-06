@@ -55,7 +55,8 @@ public class VehicleDrivingAimingLogic : MonoBehaviour
 
 	private void Start()
 	{
-		transform.position = transform.GetComponent<VehicleData>().startPos;
+		transform.SetPositionAndRotation(GetComponent<VehicleData>().startTransform.position, GetComponent<VehicleData>().startTransform.rotation);
+		//transform.position = transform.GetComponent<VehicleData>().startPos;
 	}
 
 	private void OnEnable()
@@ -174,21 +175,21 @@ public class VehicleDrivingAimingLogic : MonoBehaviour
 	private void Aim()
 	{
 		anchor.transform.position = transform.position + new Vector3(0, 4f, 0);
-		Vector3 direction = Vector3.right * aimInput.x + Vector3.forward * aimInput.y;
-		if (isGamepad)
-		{
-			if (aimInput.x != 0 && aimInput.y != 0)
-			{
-				anchor.transform.rotation = Quaternion.RotateTowards(anchor.transform.rotation, Quaternion.LookRotation(direction), aimSpeed * Time.deltaTime);
-			}
-		}
-		else
-		{
-			if (direction != Vector3.zero)
-			{
-				anchor.transform.rotation = Quaternion.RotateTowards(anchor.transform.rotation, Quaternion.LookRotation(direction), aimSpeed * Time.deltaTime);
-			}
-		}
+		//Vector3 direction = Vector3.right * aimInput.x + Vector3.forward * aimInput.y;
+		//if (isGamepad)
+		//{
+		//	if (aimInput.x != 0 && aimInput.y != 0)
+		//	{
+		//		anchor.transform.rotation = Quaternion.RotateTowards(anchor.transform.rotation, Quaternion.LookRotation(direction), aimSpeed * Time.deltaTime);
+		//	}
+		//}
+		//else
+		//{
+		//	if (direction != Vector3.zero)
+		//	{
+		//		anchor.transform.rotation = Quaternion.RotateTowards(anchor.transform.rotation, Quaternion.LookRotation(direction), aimSpeed * Time.deltaTime);
+		//	}
+		//}
 	}
 
 	public void OnSteer(InputAction.CallbackContext context)

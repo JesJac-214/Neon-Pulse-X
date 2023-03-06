@@ -18,7 +18,7 @@ public class playerspawnmanager : MonoBehaviour
     public void OnPlayerJoined(PlayerInput playerInput)
     {
         playerInput.gameObject.GetComponent<VehicleData>().playerID = playerInput.playerIndex;
-        playerInput.gameObject.GetComponent<VehicleData>().startPos = spawnLocations[playerInput.playerIndex].position;
+        playerInput.gameObject.GetComponent<VehicleData>().startTransform = spawnLocations[playerInput.playerIndex];
         index++;
         manager.playerPrefab = vehicles[index];
     }
