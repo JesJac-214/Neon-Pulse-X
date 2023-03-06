@@ -18,7 +18,7 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 
     public GameObject gun;
 
-	public EquipmentBase Weapon = new();
+	//public EquipmentBase Weapon = new();
 	public EquipmentBase Item = new();
 
 	public float boostedSpeedValue = 30.0f;
@@ -32,25 +32,25 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 
     void Update()
 	{
-		if (Weapon.ammo == 0)
+		if (Item.ammo == 0)
 		{
             gun.GetComponent<MeshRenderer>().enabled = false;
 		}
 		else
 		{
-            if (Weapon.weaponName == "Cannonball")
+            if (Item.weaponName == "CannonBall")
             {
 				gun.GetComponent<MeshRenderer>().enabled = true;
 			}
-            if (Weapon.weaponName == "IceBeam")
+            if (Item.weaponName == "IceBeam")
             {
 				gun.GetComponent<MeshRenderer>().enabled = true;
 			}
-            if (Weapon.weaponName == "EMP")
+            if (Item.weaponName == "EMP")
             {
 				gun.GetComponent<MeshRenderer>().enabled = true;
 			}
-            if (Weapon.weaponName == "HackingDevice")
+            if (Item.weaponName == "HackingDevice")
             {
 				gun.GetComponent<MeshRenderer>().enabled = true;	
             }
@@ -69,7 +69,7 @@ public class VehicleWeaponItemLogic : MonoBehaviour
             {
 				if (!GetComponent<VehicleData>().gameManager.IsPaused)
                 {
-					Weapon.Use(gameObject);
+					Item.Use(gameObject);
                 }
             }
 			else 
@@ -87,12 +87,12 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 			{
 				if (!GetComponent<VehicleData>().gameManager.IsPaused)
 				{
-					Item.Use(gameObject);
+					//Item.Use(gameObject);
 				}
 			}
 			else
 			{
-                SpawnWall();
+                //SpawnWall();
 			}
 		}
 	}
@@ -123,12 +123,12 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 
     public void SpawnCannonBall()
 	{
-        Instantiate(CannonBallPrefab, transform.position + anchor.transform.forward * 5, anchor.transform.rotation);
+        Instantiate(CannonBallPrefab, transform.position + anchor.transform.forward * 7, anchor.transform.rotation);
     }
 
     public void SpawnEMP()
     {
-        Instantiate(EMPPrefab, transform.position + anchor.transform.forward * 3, anchor.transform.rotation);
+        Instantiate(EMPPrefab, transform.position + anchor.transform.forward * 5, anchor.transform.rotation);
     }
 
     public void SpawnIcebeamBullet()
