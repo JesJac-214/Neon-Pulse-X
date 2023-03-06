@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class VehicleData : MonoBehaviour
 {
 	public int playerID = 0;
-	public Vector3 startPos;
+	public Transform startTransform;
 	public int courseProgress = 0;
 	public int laps = 0;
 	public int lives = 3;
@@ -63,9 +63,25 @@ public class VehicleData : MonoBehaviour
 
 	public void OnReadyUp(InputAction.CallbackContext context)
     {
-		if (context.started && Time.time > ignoreReadyUpTime)
-		{
+		//if (context.started && Time.time > ignoreReadyUpTime)
+		//{
+		//	isReady = true;
+		//}
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Ready Zone"))
+        {
 			isReady = true;
-		}
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+		if (other.CompareTag("Ready Zone"))
+        {
+			isReady = false;
+        }
     }
 }
