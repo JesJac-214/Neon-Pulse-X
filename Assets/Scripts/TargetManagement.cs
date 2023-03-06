@@ -6,6 +6,8 @@ public class TargetManagement : MonoBehaviour
 {
     public GameObject target;
     public Camera cam;
+
+    public AudioSource heartBreak;
     
     private bool IsVisible(Camera c, GameObject target)
     {
@@ -43,6 +45,7 @@ public class TargetManagement : MonoBehaviour
                     if (vehicle.GetComponent<VehicleData>().lives > 0)
                     {
                         vehicle.GetComponent<VehicleData>().lives--;
+                        heartBreak.Play();
                         vehicle.transform.position = cam.transform.position -  new Vector3(0, 100, -40);
                         vehicle.GetComponent<VehicleData>().courseProgress = leadVehicle.GetComponent<VehicleData>().courseProgress;
                         vehicle.transform.rotation = leadVehicle.transform.rotation;

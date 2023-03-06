@@ -10,6 +10,11 @@ public class TrackInitializer : MonoBehaviour
     GameObject[] vehicles;
     [SerializeField]
     private TMP_Text countdownText;
+
+    
+    public AudioSource countdownSound;
+    public AudioSource goSound;
+
     void Start()
     {
         vehicles = GameObject.FindGameObjectsWithTag("Player");
@@ -24,11 +29,14 @@ public class TrackInitializer : MonoBehaviour
 
     IEnumerator AccelDelay()
     {
+        yield return new WaitForSeconds(1);
         for (int i = 3; i > 0; i--)
         {
+            countdownSound.Play();
             countdownText.text = i.ToString();
             yield return new WaitForSeconds(1);
         }
+        goSound.Play();
         countdownText.text = "DON'T FALL BEHIND";
         foreach (GameObject vehicle in vehicles)
         {

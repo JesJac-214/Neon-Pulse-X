@@ -7,6 +7,9 @@ public class ItemBox : MonoBehaviour
     public EquipmentBase[] items;
     private MeshRenderer[] meshRenderers;
 
+    public AudioSource hit;
+    public AudioSource restored;
+
     private void Start()
     {
         meshRenderers = gameObject.GetComponentsInChildren<MeshRenderer>();
@@ -28,6 +31,7 @@ public class ItemBox : MonoBehaviour
                 meshRenderer.enabled = false;
             }
             GetComponent<BoxCollider>().enabled = false;
+            hit.Play();
         }
     }
 
@@ -39,6 +43,7 @@ public class ItemBox : MonoBehaviour
             meshRenderer.enabled = true;
         }
         GetComponent<BoxCollider>().enabled = true;
+        restored.Play();
     }
 }
 

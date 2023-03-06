@@ -13,6 +13,10 @@ public class MainMenuManager : MonoBehaviour
 
     public GameObject menu;
 
+    public AudioSource audioSource;
+
+    public float volume = 0.5f;
+
     private bool move = false;
 
     void Update()
@@ -39,6 +43,7 @@ public class MainMenuManager : MonoBehaviour
     void MoveCameraToMainMenu()
     {
         PressAnyButton.SetActive(false);
+        audioSource.Play();
         move = true;
     }
 

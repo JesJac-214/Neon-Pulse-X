@@ -27,6 +27,8 @@ public class PlayerJoinManager : MonoBehaviour
 
     private bool countdownRunning = false;
 
+    public AudioSource countdownChime;
+
     void Update()
     {
         readyPlayers = 0;
@@ -79,6 +81,7 @@ public class PlayerJoinManager : MonoBehaviour
         for (int i = 3; i > 0; i--)
         {
             JoinPrompt.text = "Loading track in " + i.ToString();
+            countdownChime.Play();
             yield return new WaitForSeconds(1);
         }
         foreach (GameObject vehicle in vehicles)
