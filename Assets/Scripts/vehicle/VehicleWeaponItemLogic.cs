@@ -55,10 +55,6 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 				gun.GetComponent<MeshRenderer>().enabled = true;	
             }
 		}
-		if (SceneManager.GetActiveScene().name == "PlayerJoin" || SceneManager.GetActiveScene().name == "VictoryPodium")
-        {
-			gun.GetComponent<MeshRenderer>().enabled = true;
-		}
 	}
 
 	public void OnShoot(InputAction.CallbackContext context)
@@ -74,7 +70,7 @@ public class VehicleWeaponItemLogic : MonoBehaviour
             }
 			else 
             {
-				SpawnCannonBall();
+				Item.Use(gameObject);
             }
         }
     }

@@ -18,21 +18,27 @@ public class PlayerJoinManager : MonoBehaviour
     [SerializeField]
     private TMP_Text JoinPrompt;
 
+    [SerializeField]
+    private TMP_Text[] ItemHUDs;
+
     private int readyPlayers = 0;
 
     GameObject[] vehicles;
+
+    private bool countdownRunning = false;
 
     void Update()
     {
         readyPlayers = 0;
         vehicles = GameObject.FindGameObjectsWithTag("Player");
-        if (vehicles.Length > 0)
+        if (vehicles.Length == 1)
         {
             JoinPrompt.text = "";
         }
         foreach (GameObject vehicle in vehicles)
         {
             PlayerTitles[vehicle.GetComponent<VehicleData>().playerID].text = "Player " + (vehicle.GetComponent<VehicleData>().playerID + 1).ToString();
+            ItemHUDs[vehicle.GetComponent<VehicleData>().playerID].text = "Uses: " + (vehicle.GetComponent<VehicleWeaponItemLogic>().Item.ammo).ToString();
             if (vehicle.GetComponent<VehicleData>().isReady)
             {
                 ReadyTexts[vehicle.GetComponent<VehicleData>().playerID].text = "Ready!";
@@ -53,13 +59,33 @@ public class PlayerJoinManager : MonoBehaviour
             }
             if (readyPlayers == vehicles.Length)
             {
-                foreach (GameObject vehicle in vehicles)
+                if (!countdownRunning)
                 {
-                    DontDestroyOnLoad(vehicle.transform.parent.gameObject);
-                    vehicle.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                    StartCoroutine(nameof(DelayedJoin));
+                    countdownRunning = true;
                 }
-                SceneManager.LoadScene("Real_track 2");
+            }
+            else
+            {
+                StopCoroutine(nameof(DelayedJoin));
+                countdownRunning = false;
+                JoinPrompt.text = "";
             }
         }
+    }
+
+    IEnumerator DelayedJoin()
+    {
+        for (int i = 3; i > 0; i--)
+        {
+            JoinPrompt.text = "Loading track in " + i.ToString();
+            yield return new WaitForSeconds(1);
+        }
+        foreach (GameObject vehicle in vehicles)
+        {
+            DontDestroyOnLoad(vehicle.transform.parent.gameObject);
+            vehicle.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        }
+        SceneManager.LoadScene("Real_track 2");
     }
 }
