@@ -5,7 +5,7 @@ using UnityEngine;
 public class EMPLogic : MonoBehaviour
 {
     [SerializeField] private float explosionRadius = 15;
-    [SerializeField] private float launchVelocity = 10f;
+    [SerializeField] private float launchVelocity = 100f;
     private float timer = 3;
 
     // Start is called before the first frame update
