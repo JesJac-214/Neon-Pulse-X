@@ -155,11 +155,24 @@ public class VehicleDrivingAimingLogic : MonoBehaviour
 			vehicleRigidBody.AddForceAtPosition(Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward).magnitude * -tire.transform.right * 0.8f * Time.fixedDeltaTime, tire.transform.position, ForceMode.VelocityChange);
 		}
 	}
+	public static Quaternion ShortestRotation(Quaternion a, Quaternion b)
+	{
+		if (Quaternion.Dot(a, b) < 0)
+		{
+			return a * Quaternion.Inverse(Multiply(b, -1));
+		}
+		else return a * Quaternion.Inverse(b);
+	}
+	public static Quaternion Multiply(Quaternion input, float scalar)
+	{
+		return new Quaternion(input.x * scalar, input.y * scalar, input.z * scalar, input.w * scalar);
+	}
 
 	private void HandleUprightForce()
 	{
 		Quaternion vehicleCurrent = transform.rotation;
-		Quaternion toGoal = transform.rotation * new Quaternion(0,/*-0.707106829f*/0,0,0.707106829f) * Quaternion.Inverse(vehicleCurrent);
+		//Quaternion toGoal = transform.rotation * new Quaternion(0,/*-0.707106829f*/0,0,0.707106829f) * Quaternion.Inverse(vehicleCurrent);
+		Quaternion toGoal = ShortestRotation(transform.rotation * new Quaternion(0, 0, 0, 0.707106829f), vehicleCurrent);
 
 		Vector3 rotAxis;
 		float rotDegrees;
