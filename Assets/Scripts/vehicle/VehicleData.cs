@@ -69,13 +69,13 @@ public class VehicleData : MonoBehaviour
 		//}
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Ready Zone"))
-        {
+		if (other.CompareTag("Ready Zone"))
+		{
 			isReady = true;
-        }
-    }
+		}
+	}
 
     private void OnTriggerExit(Collider other)
     {
