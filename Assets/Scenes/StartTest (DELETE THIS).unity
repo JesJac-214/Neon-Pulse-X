@@ -1930,6 +1930,7 @@ MonoBehaviour:
   menu: {fileID: 2012892952}
   select: {fileID: 602998992}
   track1: {fileID: 1754037371}
+  play: {fileID: 769311875}
 --- !u!4 &1379089395
 Transform:
   m_ObjectHideFlags: 0
