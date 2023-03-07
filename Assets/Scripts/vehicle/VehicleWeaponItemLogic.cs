@@ -118,12 +118,12 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 	
 	public void SpawnWall()
 	{
-        Instantiate(WallPrefab, transform.position - transform.forward * 3, transform.rotation);
+        Instantiate(WallPrefab, transform.position - transform.forward * 5, transform.rotation);
     }
 
     public void SpawnMine()
     {
-        Instantiate(MinePrefab, transform.position - transform.forward * 3, transform.rotation);
+        Instantiate(MinePrefab, transform.position - transform.forward * 5, transform.rotation);
     }
 
     public void SpawnCannonBall()
@@ -133,17 +133,17 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 
     public void SpawnEMP()
     {
-        Instantiate(EMPPrefab, transform.position + anchor.transform.forward * 5, anchor.transform.rotation);
+        Instantiate(EMPPrefab, transform.position + anchor.transform.forward * 7, anchor.transform.rotation);
     }
 
     public void SpawnIcebeamBullet()
     {
-        Instantiate(IcebeamPrefab, transform.position + anchor.transform.forward * 5, anchor.transform.rotation);
+        Instantiate(IcebeamPrefab, transform.position + anchor.transform.forward * 7, anchor.transform.rotation);
     }
 
     public void SpawnHackingDevice()
     {
-        Instantiate(HackingDevicePrefab, transform.position + anchor.transform.forward * 5, anchor.transform.rotation);
+        Instantiate(HackingDevicePrefab, transform.position + anchor.transform.forward * 7, anchor.transform.rotation);
     }
 
     private void OnTriggerEnter(Collider other)
