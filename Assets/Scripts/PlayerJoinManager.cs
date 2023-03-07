@@ -21,6 +21,9 @@ public class PlayerJoinManager : MonoBehaviour
     [SerializeField]
     private TMP_Text[] ItemHUDs;
 
+    [SerializeField]
+    private TMP_Text ReadyAmount;
+
     private int readyPlayers = 0;
 
     GameObject[] vehicles;
@@ -33,10 +36,6 @@ public class PlayerJoinManager : MonoBehaviour
     {
         readyPlayers = 0;
         vehicles = GameObject.FindGameObjectsWithTag("Player");
-        if (vehicles.Length == 1)
-        {
-            JoinPrompt.text = "";
-        }
         foreach (GameObject vehicle in vehicles)
         {
             PlayerTitles[vehicle.GetComponent<VehicleData>().playerID].text = "Player " + (vehicle.GetComponent<VehicleData>().playerID + 1).ToString();
@@ -50,15 +49,15 @@ public class PlayerJoinManager : MonoBehaviour
                 ReadyTexts[vehicle.GetComponent<VehicleData>().playerID].text = "";
             }
         }
+        foreach (GameObject vehicle in vehicles)
+        {
+            if (vehicle.GetComponent<VehicleData>().isReady)
+            {
+                readyPlayers++;
+            }
+        }
         if (vehicles.Length >= minPlayers)
         {
-            foreach (GameObject vehicle in vehicles)
-            {
-                if (vehicle.GetComponent<VehicleData>().isReady)
-                {
-                    readyPlayers++;
-                }
-            }
             if (readyPlayers == vehicles.Length)
             {
                 if (!countdownRunning)
@@ -72,6 +71,14 @@ public class PlayerJoinManager : MonoBehaviour
                 StopCoroutine(nameof(DelayedJoin));
                 countdownRunning = false;
                 JoinPrompt.text = "";
+            }
+        }
+        if (vehicles.Length > 0)
+        {
+            ReadyAmount.text = "(" + readyPlayers + "/" + vehicles.Length + ") Ready!";
+            if (readyPlayers == vehicles.Length && readyPlayers < minPlayers)
+            {
+                ReadyAmount.text = minPlayers + " Players Minimum!";
             }
         }
     }
@@ -91,5 +98,10 @@ public class PlayerJoinManager : MonoBehaviour
             vehicle.GetComponent<VehicleWeaponItemLogic>().Item = new EquipmentBase();
         }
         SceneManager.LoadScene("Real_track 2");
+    }
+
+    public void ClearJoinPrompt()
+    {
+        JoinPrompt.text = "";
     }
 }

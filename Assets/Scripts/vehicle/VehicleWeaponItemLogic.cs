@@ -16,6 +16,11 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 	public GameObject EMPPrefab;
 	public GameObject HackingDevicePrefab;
 
+	public GameObject IceBeamModel;
+	public GameObject CannonballModel;
+	public GameObject EMPModel;
+	public GameObject HackingDroneModel;
+
     public GameObject gun;
 
 	//public EquipmentBase Weapon = new();
@@ -35,24 +40,28 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 		if (Item.ammo == 0)
 		{
             gun.GetComponent<MeshRenderer>().enabled = false;
-		}
-		else
+            CannonballModel.SetActive(false);
+			IceBeamModel.SetActive(false);
+			EMPModel.SetActive(false);
+            HackingDroneModel.SetActive(false);
+        }
+        else
 		{
             if (Item.weaponName == "CannonBall")
             {
-				gun.GetComponent<MeshRenderer>().enabled = true;
-			}
+				CannonballModel.SetActive(true);
+            }
             if (Item.weaponName == "IceBeam")
             {
-				gun.GetComponent<MeshRenderer>().enabled = true;
+				IceBeamModel.SetActive(true);
 			}
             if (Item.weaponName == "EMP")
             {
-				gun.GetComponent<MeshRenderer>().enabled = true;
+				EMPModel.SetActive(true);
 			}
             if (Item.weaponName == "HackingDevice")
             {
-				gun.GetComponent<MeshRenderer>().enabled = true;	
+				HackingDroneModel.SetActive(true);	
             }
 		}
 	}
@@ -109,12 +118,12 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 	
 	public void SpawnWall()
 	{
-        Instantiate(WallPrefab, transform.position - transform.forward * 3, transform.rotation);
+        Instantiate(WallPrefab, transform.position - transform.forward * 5, transform.rotation);
     }
 
     public void SpawnMine()
     {
-        Instantiate(MinePrefab, transform.position - transform.forward * 3, transform.rotation);
+        Instantiate(MinePrefab, transform.position - transform.forward * 5, transform.rotation);
     }
 
     public void SpawnCannonBall()
@@ -124,17 +133,17 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 
     public void SpawnEMP()
     {
-        Instantiate(EMPPrefab, transform.position + anchor.transform.forward * 5, anchor.transform.rotation);
+        Instantiate(EMPPrefab, transform.position + anchor.transform.forward * 7, anchor.transform.rotation);
     }
 
     public void SpawnIcebeamBullet()
     {
-        Instantiate(IcebeamPrefab, transform.position + anchor.transform.forward * 5, anchor.transform.rotation);
+        Instantiate(IcebeamPrefab, transform.position + anchor.transform.forward * 7, anchor.transform.rotation);
     }
 
     public void SpawnHackingDevice()
     {
-        Instantiate(HackingDevicePrefab, transform.position + anchor.transform.forward * 5, anchor.transform.rotation);
+        Instantiate(HackingDevicePrefab, transform.position + anchor.transform.forward * 7, anchor.transform.rotation);
     }
 
     private void OnTriggerEnter(Collider other)

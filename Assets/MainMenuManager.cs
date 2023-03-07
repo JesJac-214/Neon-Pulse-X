@@ -68,6 +68,12 @@ public class MainMenuManager : MonoBehaviour
 
     public void OnQuit()
     {
+        StartCoroutine(nameof(DelayedQuit));
+    }
+
+    IEnumerator DelayedQuit()
+    {
+        yield return new WaitForSeconds(1);
         Application.Quit();
     }
 }
