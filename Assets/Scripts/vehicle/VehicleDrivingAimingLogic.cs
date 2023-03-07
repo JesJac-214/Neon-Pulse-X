@@ -20,20 +20,16 @@ public class VehicleDrivingAimingLogic : MonoBehaviour
 	private float decelerateInput = 0;
 	//private Vector2 aimInput = Vector2.zero;
 
-	public float rotationSpeed = 120.0f;
+	//public float rotationSpeed = 120.0f;
 	public float accelerationSpeed = 1000.0f;
 	public float decelerationEffectivity = 0.8f;
-	public float frictionForce = 5f;
+	//public float frictionForce = 5f;
 	public float maxSpeed = 30.0f;
-	public float aimSpeed = 1500.0f;
+	//public float aimSpeed = 1500.0f;
 	private bool grounded;
 
 	public bool canAccel = true;
 	public bool hasFriction = true;
-	
-	public GameObject[] tires;
-	public GameObject[] frontTires;
-	public GameObject[] backTires;
 
 	[SerializeField]
 	public float springStrength = 10000.0f;
@@ -44,7 +40,18 @@ public class VehicleDrivingAimingLogic : MonoBehaviour
 	[SerializeField]
 	public float tireTiltAngle = 30f;
 
-	
+	[SerializeField]
+	private float friction = 1f;
+	[SerializeField]
+	private float driftFriction = 0.2f;
+	[SerializeField]
+	private float rollingFriction = 0.2f;
+	[SerializeField]
+	private float steerHelpFriction = 0.8f;
+
+	public GameObject[] tires;
+	public GameObject[] frontTires;
+	public GameObject[] backTires;
 
 	private void Awake()
 	{
@@ -84,8 +91,11 @@ public class VehicleDrivingAimingLogic : MonoBehaviour
 			{
 				HandleTireFriction();
 			}
-
 		}
+		if (!grounded)
+        {
+			//HandleUprightForce();
+        }
 	}
 
 	void Update()
@@ -142,17 +152,17 @@ public class VehicleDrivingAimingLogic : MonoBehaviour
 		{
 			if (!drift)
             {
-				vehicleRigidBody.AddForceAtPosition(-Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward) * Time.fixedDeltaTime, tire.transform.position, ForceMode.VelocityChange);
+				vehicleRigidBody.AddForceAtPosition(-Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward) * Time.fixedDeltaTime * friction, tire.transform.position, ForceMode.VelocityChange);
             }
 			else
             {
-				vehicleRigidBody.AddForceAtPosition(-Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward) * Time.fixedDeltaTime * 0.2f, tire.transform.position, ForceMode.VelocityChange);
+				vehicleRigidBody.AddForceAtPosition(-Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward) * Time.fixedDeltaTime * driftFriction, tire.transform.position, ForceMode.VelocityChange);
 			}
-			vehicleRigidBody.AddForceAtPosition(-Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.right) * 0.2f * Time.fixedDeltaTime, tire.transform.position, ForceMode.VelocityChange);
+			vehicleRigidBody.AddForceAtPosition(-Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.right) * rollingFriction * Time.fixedDeltaTime, tire.transform.position, ForceMode.VelocityChange);
 		}
 		foreach (GameObject tire in frontTires)
 		{
-			vehicleRigidBody.AddForceAtPosition(Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward).magnitude * -tire.transform.right * 0.8f * Time.fixedDeltaTime, tire.transform.position, ForceMode.VelocityChange);
+			vehicleRigidBody.AddForceAtPosition(Vector3.Project(vehicleRigidBody.GetPointVelocity(tire.transform.position), tire.transform.forward).magnitude * -tire.transform.right * Time.fixedDeltaTime * steerHelpFriction, tire.transform.position, ForceMode.VelocityChange);
 		}
 	}
 	public static Quaternion ShortestRotation(Quaternion a, Quaternion b)
