@@ -34,7 +34,7 @@ public class MainMenuManager : MonoBehaviour
         if (move)
         {
             cam.transform.position = Vector3.Lerp(cam.transform.position, target.position, 4f * Time.deltaTime);
-            cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation, target.rotation, 8f * Time.deltaTime);
+            cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation, target.rotation, 4f * Time.deltaTime);
             if ((cam.transform.position - BillboardTransform.position).magnitude < 50f)
             {
                 MainMenu.SetActive(true);
