@@ -4,18 +4,12 @@ using UnityEngine;
 
 public class HackingLogic : MonoBehaviour
 {
-    [SerializeField] private float launchVelocity = 10f;
-    [SerializeField] private float explosionRadius = 1;
-    private float timer = 3;
+    [SerializeField] private float launchVelocity = 100f;
+    [SerializeField] private float explosionRadius = 2;
     void Start()
     {
         GetComponent<Rigidbody>().velocity = transform.forward * launchVelocity;
-        StartCoroutine("DelayedExplosion");
-    }
-    IEnumerator DelayedExplosion()
-    {
-        yield return new WaitForSeconds(timer);
-        Destroy(gameObject);
+        Destroy(gameObject, 5);
     }
     private void OnCollisionEnter(Collision collision)
     {
