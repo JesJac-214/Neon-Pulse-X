@@ -36,10 +36,6 @@ public class PlayerJoinManager : MonoBehaviour
     {
         readyPlayers = 0;
         vehicles = GameObject.FindGameObjectsWithTag("Player");
-        if (vehicles.Length == 1)
-        {
-            JoinPrompt.text = "";
-        }
         foreach (GameObject vehicle in vehicles)
         {
             PlayerTitles[vehicle.GetComponent<VehicleData>().playerID].text = "Player " + (vehicle.GetComponent<VehicleData>().playerID + 1).ToString();
@@ -80,9 +76,9 @@ public class PlayerJoinManager : MonoBehaviour
         if (vehicles.Length > 0)
         {
             ReadyAmount.text = "(" + readyPlayers + "/" + vehicles.Length + ") Ready!";
-            if (readyPlayers == vehicles.Length && readyPlayers == 1)
+            if (readyPlayers == vehicles.Length && readyPlayers < minPlayers)
             {
-                ReadyAmount.text = "2 Players Minimum!";
+                ReadyAmount.text = minPlayers + " Players Minimum!";
             }
         }
     }
@@ -102,5 +98,10 @@ public class PlayerJoinManager : MonoBehaviour
             vehicle.GetComponent<VehicleWeaponItemLogic>().Item = new EquipmentBase();
         }
         SceneManager.LoadScene("Real_track 2");
+    }
+
+    public void ClearJoinPrompt()
+    {
+        JoinPrompt.text = "";
     }
 }

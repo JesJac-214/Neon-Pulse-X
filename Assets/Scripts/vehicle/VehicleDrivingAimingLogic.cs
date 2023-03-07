@@ -12,13 +12,13 @@ public class VehicleDrivingAimingLogic : MonoBehaviour
 	public Rigidbody vehicleRigidBody;
 	public GameObject anchor;
 
-	private bool isGamepad;
+	//private bool isGamepad;
 	private bool drift = false;
 
 	private float steerInput = 0;
 	private float accelerateInput = 0;
 	private float decelerateInput = 0;
-	private Vector2 aimInput = Vector2.zero;
+	//private Vector2 aimInput = Vector2.zero;
 
 	public float rotationSpeed = 120.0f;
 	public float accelerationSpeed = 1000.0f;
@@ -73,7 +73,7 @@ public class VehicleDrivingAimingLogic : MonoBehaviour
 	{
 		HandleTireSuspension();
 		HandleTireRotation();
-		HandleUprightForce();
+		//HandleUprightForce();
 		if (grounded)
 		{
 			if (canAccel)
@@ -212,7 +212,7 @@ public class VehicleDrivingAimingLogic : MonoBehaviour
 
 	public void OnAim(InputAction.CallbackContext context)
 	{
-		aimInput = context.ReadValue<Vector2>();
+		//aimInput = context.ReadValue<Vector2>();
 	}
 
 	public void OnAccelerate(InputAction.CallbackContext context)
