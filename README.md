@@ -31,7 +31,7 @@ Outrun, outgun, and outlive to outplay the competition
   - [x] Wall
   - [x] Mine
   - [ ] Ghost
-  - [ ] Counter Shield
+  - [x] Shield
 - [ ] Misc
   - [x] Add Tutorial to Player Join
   - [ ] Add Pathfinding for player who fell off screen
