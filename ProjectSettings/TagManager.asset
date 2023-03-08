@@ -11,6 +11,7 @@ TagManager:
   - Ice
   - Hackingdrone
   - Ready Zone
+  - Projectile
   layers:
   - Default
   - TransparentFX

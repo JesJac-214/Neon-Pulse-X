@@ -17,7 +17,7 @@ public class ItemBox : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        EquipmentBase[] items = { new SpeedBoost(), new Wall(), new Mine() };
+        EquipmentBase[] items = { new SpeedBoost(), new Wall(), new Mine(), new Shield() };
    
         if (other.gameObject.CompareTag("Vehicle Body"))
         {

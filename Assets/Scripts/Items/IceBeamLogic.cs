@@ -12,5 +12,12 @@ public class IceBeamLogic : MonoBehaviour
         Destroy(gameObject, 5);
     }
 
- 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<VehicleWeaponItemLogic>().Freeze();
+            Destroy(gameObject);
+        }
+    }
 }

@@ -146,3 +146,20 @@ public class HackingDevice : EquipmentBase
         }
     }
 }
+
+public class Shield : EquipmentBase
+{
+    public override void Initialize()
+    {
+        ammo = 1;
+    }
+
+    public override void Use(GameObject vehicle)
+    {
+        if (ammo > 0)
+        {
+            vehicle.GetComponent<VehicleWeaponItemLogic>().SpawnShield();
+            ammo--;
+        }
+    }
+}

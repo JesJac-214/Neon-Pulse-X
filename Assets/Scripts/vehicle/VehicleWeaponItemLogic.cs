@@ -15,13 +15,14 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 	public GameObject MinePrefab;
 	public GameObject EMPPrefab;
 	public GameObject HackingDevicePrefab;
+	public GameObject ShieldPrefab;
 
 	public GameObject IceBeamModel;
 	public GameObject CannonballModel;
 	public GameObject EMPModel;
 	public GameObject HackingDroneModel;
 
-    public GameObject gun;
+    //public GameObject gun;
 
 	//public EquipmentBase Weapon = new();
 	public EquipmentBase Item = new();
@@ -39,7 +40,7 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 	{
 		if (Item.ammo == 0)
 		{
-            gun.GetComponent<MeshRenderer>().enabled = false;
+            //gun.GetComponent<MeshRenderer>().enabled = false;
             CannonballModel.SetActive(false);
 			IceBeamModel.SetActive(false);
 			EMPModel.SetActive(false);
@@ -146,13 +147,13 @@ public class VehicleWeaponItemLogic : MonoBehaviour
         Instantiate(HackingDevicePrefab, transform.position + anchor.transform.forward * 7, anchor.transform.rotation);
     }
 
-    private void OnTriggerEnter(Collider other)
+	public void SpawnShield()
     {
-        if(other.gameObject.CompareTag("Ice"))
-		{
-			Freeze();
-		}
-    }
+		//Instantiate(CounterShieldPrefab, new Vector3(0,1,0) + transform.position + anchor.transform.forward * -4, anchor.transform.rotation).transform.SetParent(gameObject.transform.GetChild(0).transform.GetChild(2).transform.GetChild(0));
+		//Instantiate(CounterShieldPrefab, new Vector3(0,1,0) + transform.position + anchor.transform.forward * -7, anchor.transform.rotation).transform.SetParent(gameObject.transform);
+		Instantiate(ShieldPrefab, new Vector3(0, 1, 0) + transform.position, anchor.transform.rotation).transform.SetParent(gameObject.transform);
+	}
+
     public void Freeze()
 	{
         GetComponent<VehicleDrivingAimingLogic>().hasFriction = false;
