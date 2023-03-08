@@ -33,9 +33,9 @@ Outrun, outgun, and outlive to outplay the competition
   - [ ] Ghost
   - [ ] Counter Shield
 - [ ] Misc
-  - [ ] Add Tutorial to Player Join
+  - [x] Add Tutorial to Player Join
   - [ ] Add Pathfinding for player who fell off screen
 - [ ] Sound Effects
   - [ ] Vehicle Sounds
   - [ ] Weapons and Items Sounds
-  - [ ] Item and Weapon Box Sounds
+  - [x] Item and Weapon Box Sounds
