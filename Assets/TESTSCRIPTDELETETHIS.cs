@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 using TMPro;
+using UnityEngine.UI;
 
 public class TESTSCRIPTDELETETHIS : MonoBehaviour
 {
@@ -12,12 +13,17 @@ public class TESTSCRIPTDELETETHIS : MonoBehaviour
     public Transform goal;
 
     public GameObject menu;
+    public GameObject select;
 
     private bool move = false;
+    private bool pranbu2 = true;
+
+    public Button track1;
+    public Button play;
 
     void Update()
     {
-        if (!move)
+        if (!move && pranbu2)
         {
            InputSystem.onAnyButtonPress.CallOnce(_ => MoveCameraToMainMenu());
         }
@@ -30,21 +36,46 @@ public class TESTSCRIPTDELETETHIS : MonoBehaviour
                 menu.SetActive(true);
             }
         }
+        if (Gamepad.current.bButton.isPressed && select.activeInHierarchy)
+        {
+            select.SetActive(false);
+            menu.SetActive(true);
+            play.Select();
+        }
     }
 
     void MoveCameraToMainMenu()
     {
+        pranbu2 = false;
         move = true;
         pranbu.text = "Select Stuffs";
     }
 
     public void OnPlay()
     {
-        Debug.Log("Play");
+        menu.SetActive(false);
+        move = false;
+        select.SetActive(true);
+        track1.Select();
     }
 
     public void OnQuit()
     {
         Debug.Log("Quit");
+    }
+
+    public void OnTrack1()
+    {
+        Debug.Log("Track 1");
+    }
+
+    public void OnTrack2()
+    {
+        Debug.Log("Track 2");
+    }
+
+    public void OnTrack3()
+    {
+        Debug.Log("Track 3");
     }
 }
