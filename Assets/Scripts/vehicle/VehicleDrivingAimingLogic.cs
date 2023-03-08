@@ -94,7 +94,7 @@ public class VehicleDrivingAimingLogic : MonoBehaviour
 		}
 		if (!grounded)
         {
-			//HandleUprightForce();
+			HandleUprightForce();
         }
 	}
 
