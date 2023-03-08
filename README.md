@@ -10,7 +10,7 @@ Outrun, outgun, and outlive to outplay the competition
     - [x] Weapons
     - [x] Items
   - [x] Add life tracking
-  - [x] End Game when all other players have 0 lives (sort of)
+  - [x] End Game when all other players have 0 lives
 - [ ] UI
   - [x] Make Pause Screen
   - [x] Make Start Screen
