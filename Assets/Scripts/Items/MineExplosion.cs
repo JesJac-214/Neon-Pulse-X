@@ -5,7 +5,7 @@ using UnityEngine;
 public class MineExplosion : MonoBehaviour
 {
     [SerializeField] private float explosionRadius = 7;
-    [SerializeField] private float explosionForce = 2000;
+    [SerializeField] private float explosionForce = 100;
     private void OnTriggerEnter(Collider collision)
     {
         if(collision.gameObject.CompareTag("Vehicle Body"))

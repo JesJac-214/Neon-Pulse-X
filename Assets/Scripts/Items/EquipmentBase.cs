@@ -163,3 +163,21 @@ public class Shield : EquipmentBase
         }
     }
 }
+
+public class SoundWave : EquipmentBase
+{
+    public override void Initialize()
+    {
+        ammo = 3;
+        weaponName = "SoundWave";
+    }
+
+    public override void Use(GameObject vehicle)
+    {
+        if (ammo > 0)
+        {
+            vehicle.GetComponent<VehicleWeaponItemLogic>().SpawnSoundWave();
+            ammo--;
+        }
+    }
+}
