@@ -38,14 +38,14 @@ public class VehicleData : MonoBehaviour
 			gameManager = GameObject.FindWithTag("Game Manager").GetComponent<GameManager>();
 		}
     }
-    public void OnPauseGame()
+    public void OnPauseGame(InputAction.CallbackContext context)
 	{
 		//gameManager = GameObject.FindWithTag("Game Manager").GetComponent<GameManager>();
-		if (!gameManager.IsPaused)
+		if (context.started && !gameManager.IsPaused)
         {
 			gameManager.PauseGame();
         }
-		else
+		else if (context.started && gameManager.IsPaused)
         {
 			gameManager.UnpauseGame();
         }

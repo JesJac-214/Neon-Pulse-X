@@ -18,6 +18,9 @@ public class MainMenuManager : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioSource buttonPress;
+    public AudioSource MainMenuMusicSource;
+
+    public AudioClip MainMenuMusic;
 
     public float volume = 0.5f;
 
@@ -55,6 +58,9 @@ public class MainMenuManager : MonoBehaviour
         PressAnyButton.SetActive(false);
         audioSource.Play();
         target = BillboardTransform;
+        //MainMenuMusicSource.Stop();
+        MainMenuMusicSource.clip = MainMenuMusic;
+        MainMenuMusicSource.Play();
         move = true;
     }
 
@@ -63,6 +69,7 @@ public class MainMenuManager : MonoBehaviour
         target = PlayerJoinTransform;
         move = true;
         PlayerJoin.SetActive(true);
+        
         buttonPress.Play();
     }
 
