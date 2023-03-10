@@ -45,11 +45,11 @@ Stay in view of the camera the longest. The camera tracks the lead car and if a 
   - [x] EMP Grenade
   - [x] Sound Wave
   - [x] Ice Beam
-- [ ] Add Items
+- [x] Add Items
   - [x] Speed Boost
   - [x] Wall
   - [x] Mine
-  - [ ] Ghost
+  - [ ] ~Ghost~
   - [x] Shield
 - [ ] Sound Effects
   - [ ] Vehicle Sounds
