@@ -115,20 +115,6 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 		}
 	}
 
-	public void SpeedBoost()
-	{
-		transform.GetComponent<VehicleDrivingAimingLogic>().maxSpeed += boostedSpeedValue;
-        transform.GetComponent<VehicleDrivingAimingLogic>().accelerationSpeed += boostedAccelerationValue;
-        StartCoroutine("SpeedDuration");
-	}
-	
-	IEnumerator SpeedDuration()
-	{
-		yield return new WaitForSeconds(speedCoolDown);
-		transform.GetComponent<VehicleDrivingAimingLogic>().maxSpeed -= boostedSpeedValue;
-		transform.GetComponent<VehicleDrivingAimingLogic>().accelerationSpeed -= boostedAccelerationValue;
-	}
-	
 	public void SpawnWall()
 	{
         Instantiate(WallPrefab, transform.position - transform.forward * 5, transform.rotation);
@@ -204,5 +190,19 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 	{
         yield return new WaitForSeconds(hackedCoolDown);
         GetComponent<VehicleDrivingAimingLogic>().tireTiltAngle *= -1;
+    }
+
+    public void SpeedBoost()
+    {
+        transform.GetComponent<VehicleDrivingAimingLogic>().maxSpeed += boostedSpeedValue;
+        transform.GetComponent<VehicleDrivingAimingLogic>().accelerationSpeed += boostedAccelerationValue;
+        StartCoroutine("SpeedDuration");
+    }
+
+    IEnumerator SpeedDuration()
+    {
+        yield return new WaitForSeconds(speedCoolDown);
+        transform.GetComponent<VehicleDrivingAimingLogic>().maxSpeed -= boostedSpeedValue;
+        transform.GetComponent<VehicleDrivingAimingLogic>().accelerationSpeed -= boostedAccelerationValue;
     }
 }
