@@ -32,20 +32,18 @@ Stay in view of the camera the longest. The camera tracks the lead car and if a 
     - [x] Items
   - [x] Add life tracking
   - [x] End Game when all other players have 0 lives
-- [ ] UI
+- [x] UI
   - [x] Make Pause Screen
   - [x] Make Start Screen
   - [x] Make Main Menu
   - [x] Make Player Join Screen
-    - [ ] Add multiple cars
-  - [ ] Make Track Select Screen
-    - [ ] Add multiple tracks to select
+    - [x] Add multiple cars
   - [x] Player HUD for ammo
-- [ ] Add Weapons
+- [x] Add Weapons
   - [x] Cannon Ball
   - [x] Beam of Light
   - [x] EMP Grenade
-  - [ ] Sound Wave
+  - [x] Sound Wave
   - [x] Ice Beam
 - [ ] Add Items
   - [x] Speed Boost
@@ -53,9 +51,6 @@ Stay in view of the camera the longest. The camera tracks the lead car and if a 
   - [x] Mine
   - [ ] Ghost
   - [x] Shield
-- [ ] Misc
-  - [x] Add Tutorial to Player Join
-  - [ ] Add Pathfinding for player who fell off screen
 - [ ] Sound Effects
   - [ ] Vehicle Sounds
   - [ ] Weapons and Items Sounds
