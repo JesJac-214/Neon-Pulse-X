@@ -22,8 +22,11 @@ public class HackingLogic : MonoBehaviour
                 {
                     obj.transform.parent.GetComponent<VehicleWeaponItemLogic>().HackedEffect();
                 }
-
             }
+            Destroy(gameObject);
+        }
+        else
+        {
             Destroy(gameObject);
         }
     }
