@@ -26,6 +26,9 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 	public GameObject HackingDroneModel;
 	public GameObject SoundWaveModel;
 
+	// Status Effects Models
+	public GameObject IceModel;
+
     //public GameObject gun;
 
 	//public EquipmentBase Weapon = new();
@@ -172,12 +175,14 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 	{
         GetComponent<VehicleDrivingAimingLogic>().hasFriction = false;
         StartCoroutine("FrozenDuration");
+		IceModel.SetActive(true);
     }
     IEnumerator FrozenDuration()
 	{
 		yield return new WaitForSeconds(frozenCoolDown);
         GetComponent<VehicleDrivingAimingLogic>().hasFriction = true;
-    }
+		IceModel.SetActive(false);
+	}
 
     public void EMPEffect()
 	{
