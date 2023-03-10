@@ -19,5 +19,9 @@ public class IceBeamLogic : MonoBehaviour
             collision.gameObject.GetComponent<VehicleWeaponItemLogic>().Freeze();
             Destroy(gameObject);
         }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }

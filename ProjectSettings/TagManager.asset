@@ -12,6 +12,7 @@ TagManager:
   - Hackingdrone
   - Ready Zone
   - Projectile
+  - SoundWave
   layers:
   - Default
   - TransparentFX

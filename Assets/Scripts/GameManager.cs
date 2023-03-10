@@ -20,8 +20,15 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject[] playerHUDContainers;
 
-    public Button resumeButton;
-    public Button restartButton;
+    //public Button resumeButton;
+    //public Button restartButton;
+
+    public AudioSource raceMusicSource;
+    public AudioSource pauseSource;
+    public AudioSource pauseMusicSource;
+
+    public AudioClip pauseSound;
+    public AudioClip unpauseSound;
 
     void Start()
     {
@@ -35,6 +42,9 @@ public class GameManager : MonoBehaviour
         IsPaused = true;
         Time.timeScale = 0;
         Cursor.visible = true;
+        raceMusicSource.Pause();
+        pauseMusicSource.Play();
+        //pauseSource.PlayOneShot(pauseSound, 1f);
         pauseMenu.SetActive(true);
         pauseText.gameObject.SetActive(true);
         //resumeButton.gameObject.SetActive(true);
@@ -45,6 +55,9 @@ public class GameManager : MonoBehaviour
         IsPaused = false;
         Time.timeScale = 1;
         Cursor.visible = false;
+        raceMusicSource.Play();
+        pauseMusicSource.Stop();
+        //pauseSource.PlayOneShot(unpauseSound, 1f);
         pauseMenu.SetActive(false);
     }
 

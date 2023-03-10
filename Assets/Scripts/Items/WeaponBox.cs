@@ -17,7 +17,7 @@ public class WeaponBox : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        EquipmentBase[] weapons = { new CannonBall(), new IceBeam(), new EMP(), new HackingDevice() };
+        EquipmentBase[] weapons = { new CannonBall(), new IceBeam(), new EMP(), new HackingDevice(), new SoundWave() };
 
         if (other.gameObject.CompareTag("Vehicle Body"))
         {

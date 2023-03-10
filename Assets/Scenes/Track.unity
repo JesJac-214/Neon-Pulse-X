@@ -3809,7 +3809,7 @@ GameObject:
   - component: {fileID: 801444838}
   m_Layer: 0
   m_Name: Cube (3)
-  m_TagString: Untagged
+  m_TagString: Track
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7899,8 +7899,11 @@ MonoBehaviour:
   - {fileID: 1060716632}
   - {fileID: 606756578}
   playerHUDContainers: []
-  resumeButton: {fileID: 1403222790}
-  restartButton: {fileID: 1760218224}
+  raceMusicSource: {fileID: 0}
+  pauseSource: {fileID: 0}
+  pauseMusicSource: {fileID: 0}
+  pauseSound: {fileID: 0}
+  unpauseSound: {fileID: 0}
 --- !u!114 &1493420919
 MonoBehaviour:
   m_ObjectHideFlags: 0

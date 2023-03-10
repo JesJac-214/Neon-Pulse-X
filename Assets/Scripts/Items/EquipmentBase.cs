@@ -29,7 +29,7 @@ public class SpeedBoost : EquipmentBase
 {
     public override void Initialize()
     {
-        ammo = 2;
+        ammo = 1;
     }
     public override void Use(GameObject vehicle)
     {
@@ -44,7 +44,7 @@ public class CannonBall : EquipmentBase
 {
     public override void Initialize()
     {
-        ammo = 5;
+        ammo = 4;
         weaponName = "CannonBall"; 
     }
 
@@ -115,7 +115,7 @@ public class EMP : EquipmentBase
 {
     public override void Initialize()
     {
-        ammo = 3;
+        ammo = 1;
         weaponName = "EMP";
     }
 
@@ -159,6 +159,24 @@ public class Shield : EquipmentBase
         if (ammo > 0)
         {
             vehicle.GetComponent<VehicleWeaponItemLogic>().SpawnShield();
+            ammo--;
+        }
+    }
+}
+
+public class SoundWave : EquipmentBase
+{
+    public override void Initialize()
+    {
+        ammo = 3;
+        weaponName = "SoundWave";
+    }
+
+    public override void Use(GameObject vehicle)
+    {
+        if (ammo > 0)
+        {
+            vehicle.GetComponent<VehicleWeaponItemLogic>().SpawnSoundWave();
             ammo--;
         }
     }

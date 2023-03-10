@@ -9,6 +9,7 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 {
 	public GameObject anchor;
 
+	//Projectile model
 	public GameObject WallPrefab;
 	public GameObject CannonBallPrefab;
 	public GameObject IcebeamPrefab;
@@ -16,11 +17,17 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 	public GameObject EMPPrefab;
 	public GameObject HackingDevicePrefab;
 	public GameObject ShieldPrefab;
+	public GameObject SoundWavePrefab;
 
+	//weapon model
 	public GameObject IceBeamModel;
 	public GameObject CannonballModel;
 	public GameObject EMPModel;
 	public GameObject HackingDroneModel;
+	public GameObject SoundWaveModel;
+
+	// Status Effects Models
+	public GameObject IceModel;
 
     //public GameObject gun;
 
@@ -45,6 +52,7 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 			IceBeamModel.SetActive(false);
 			EMPModel.SetActive(false);
             HackingDroneModel.SetActive(false);
+			SoundWaveModel.SetActive(false);
         }
         else
 		{
@@ -64,7 +72,11 @@ public class VehicleWeaponItemLogic : MonoBehaviour
             {
 				HackingDroneModel.SetActive(true);	
             }
-		}
+            if (Item.weaponName == "SoundWave")
+            {
+                SoundWaveModel.SetActive(true);
+            }
+        }
 	}
 
 	public void OnShoot(InputAction.CallbackContext context)
@@ -103,20 +115,6 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 		}
 	}
 
-	public void SpeedBoost()
-	{
-		transform.GetComponent<VehicleDrivingAimingLogic>().maxSpeed += boostedSpeedValue;
-        transform.GetComponent<VehicleDrivingAimingLogic>().accelerationSpeed += boostedAccelerationValue;
-        StartCoroutine("SpeedDuration");
-	}
-	
-	IEnumerator SpeedDuration()
-	{
-		yield return new WaitForSeconds(speedCoolDown);
-		transform.GetComponent<VehicleDrivingAimingLogic>().maxSpeed -= boostedSpeedValue;
-		transform.GetComponent<VehicleDrivingAimingLogic>().accelerationSpeed -= boostedAccelerationValue;
-	}
-	
 	public void SpawnWall()
 	{
         Instantiate(WallPrefab, transform.position - transform.forward * 5, transform.rotation);
@@ -147,7 +145,12 @@ public class VehicleWeaponItemLogic : MonoBehaviour
         Instantiate(HackingDevicePrefab, transform.position + anchor.transform.forward * 7, anchor.transform.rotation);
     }
 
-	public void SpawnShield()
+    public void SpawnSoundWave()
+    {
+        Instantiate(SoundWavePrefab, transform.position + anchor.transform.forward * 7, anchor.transform.rotation);
+    }
+
+    public void SpawnShield()
     {
 		//Instantiate(CounterShieldPrefab, new Vector3(0,1,0) + transform.position + anchor.transform.forward * -4, anchor.transform.rotation).transform.SetParent(gameObject.transform.GetChild(0).transform.GetChild(2).transform.GetChild(0));
 		//Instantiate(CounterShieldPrefab, new Vector3(0,1,0) + transform.position + anchor.transform.forward * -7, anchor.transform.rotation).transform.SetParent(gameObject.transform);
@@ -158,12 +161,14 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 	{
         GetComponent<VehicleDrivingAimingLogic>().hasFriction = false;
         StartCoroutine("FrozenDuration");
+		IceModel.SetActive(true);
     }
     IEnumerator FrozenDuration()
 	{
 		yield return new WaitForSeconds(frozenCoolDown);
         GetComponent<VehicleDrivingAimingLogic>().hasFriction = true;
-    }
+		IceModel.SetActive(false);
+	}
 
     public void EMPEffect()
 	{
@@ -185,5 +190,19 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 	{
         yield return new WaitForSeconds(hackedCoolDown);
         GetComponent<VehicleDrivingAimingLogic>().tireTiltAngle *= -1;
+    }
+
+    public void SpeedBoost()
+    {
+        transform.GetComponent<VehicleDrivingAimingLogic>().maxSpeed += boostedSpeedValue;
+        transform.GetComponent<VehicleDrivingAimingLogic>().accelerationSpeed += boostedAccelerationValue;
+        StartCoroutine("SpeedDuration");
+    }
+
+    IEnumerator SpeedDuration()
+    {
+        yield return new WaitForSeconds(speedCoolDown);
+        transform.GetComponent<VehicleDrivingAimingLogic>().maxSpeed -= boostedSpeedValue;
+        transform.GetComponent<VehicleDrivingAimingLogic>().accelerationSpeed -= boostedAccelerationValue;
     }
 }
