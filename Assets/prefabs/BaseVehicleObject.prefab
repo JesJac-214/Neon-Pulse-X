@@ -422,7 +422,7 @@ MonoBehaviour:
   anchor: {fileID: 3210850101133266494}
   accelerationSpeed: 20
   decelerationEffectivity: 0.8
-  maxSpeed: 100
+  maxSpeed: 80
   canAccel: 1
   hasFriction: 1
   springStrength: 1000
