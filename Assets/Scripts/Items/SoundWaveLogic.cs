@@ -20,9 +20,6 @@ public class SoundWaveLogic : MonoBehaviour
             Rigidbody rb = other.transform.parent.GetComponent<Rigidbody>();
             rb.velocity = transform.up * liftForce;
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+        
     }
 }
