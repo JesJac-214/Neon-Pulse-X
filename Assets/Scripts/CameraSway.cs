@@ -8,6 +8,6 @@ public class CameraSway : MonoBehaviour
 
     void Update()
     {
-        transform.position += new Vector3(0, Mathf.Cos(Time.time), Mathf.Sin(Time.time)) * amplitude * Time.deltaTime;
+        transform.position += amplitude * Time.deltaTime * new Vector3(0, Mathf.Cos(Time.time), Mathf.Sin(Time.time));
     }
 }
