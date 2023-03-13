@@ -6,8 +6,7 @@ public class CameraFollowLead : MonoBehaviour
 {
     Vector3 positionVelocity = Vector3.zero;
 
-    [SerializeField]
-    private Vector3 cameraOffset = new(0, 100, -40);
+    public Vector3 cameraOffset = new(0, 100, -40);
     [SerializeField]
     private float cameraFollowLag = 50f;
 

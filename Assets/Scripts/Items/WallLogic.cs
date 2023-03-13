@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class obstacle : MonoBehaviour
+public class WallLogic : MonoBehaviour
 {
     public float destructionDelay = 0.2f;
     private void OnCollisionEnter(Collision collision)

@@ -1073,6 +1073,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da4c58346ec06f645b0b6a616233eec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraOffset: {x: 0, y: 100, z: -40}
+  cameraFollowLag: 50
 --- !u!81 &77308585
 AudioListener:
   m_ObjectHideFlags: 0
@@ -28966,6 +28968,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da4c58346ec06f645b0b6a616233eec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraOffset: {x: 0, y: 100, z: -40}
+  cameraFollowLag: 50
 --- !u!1001 &1665016092
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33239,6 +33243,7 @@ MonoBehaviour:
   pauseMusicSource: {fileID: 1947116892}
   pauseSound: {fileID: 8300000, guid: d09b63e2418ff65aab98b328614ad7e1, type: 3}
   unpauseSound: {fileID: 8300000, guid: 50888158aef6d6f54af41410e460fe2f, type: 3}
+  winSound: {fileID: 8300000, guid: 30df7986a1bf2437dbbff4027f71acef, type: 3}
 --- !u!82 &1947116889
 AudioSource:
   m_ObjectHideFlags: 0

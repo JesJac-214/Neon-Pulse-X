@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
 
     public AudioClip pauseSound;
     public AudioClip unpauseSound;
+    public AudioClip winSound;
 
     void Start()
     {
@@ -64,7 +65,14 @@ public class GameManager : MonoBehaviour
     public void GameWin(int ID)
     {
         winScreen.SetActive(true);
-        winnerDeclaration.text = "Player " + ID + " wins";
+        winnerDeclaration.text = "Player " + ID + " wins!";
+        pauseSource.PlayOneShot(winSound, 1f);
+        StartCoroutine(nameof(WinDelay));
+    }
+
+    IEnumerator WinDelay()
+    {
+        yield return new WaitForSeconds(3);
         SceneManager.LoadScene("VictoryPodium");
     }
 

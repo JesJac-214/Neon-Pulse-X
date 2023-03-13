@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class CameraSway : MonoBehaviour
 {
-    private float amplitude = 0.005f;
+    public float amplitude = 0.005f;
+
     void Update()
     {
-        transform.position += new Vector3(amplitude * Mathf.Cos(Time.time) * 0, amplitude * Mathf.Cos(Time.time), amplitude * Mathf.Sin(Time.time));
+        transform.position += new Vector3(0, Mathf.Cos(Time.time), Mathf.Sin(Time.time)) * amplitude;
     }
 }

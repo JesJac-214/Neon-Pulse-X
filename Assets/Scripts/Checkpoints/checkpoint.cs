@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class checkpoint : MonoBehaviour
+public class Checkpoint : MonoBehaviour
 {
     public bool[] collided = {false, false, false, false};
 
@@ -10,7 +10,7 @@ public class checkpoint : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Vehicle Body")
+        if (other.gameObject.CompareTag("Vehicle Body"))
         {
             // !!IMPORTANT!! This may be a bit wack so check back and fix it if it has to be fixed
             Transform player = other.transform.parent;
