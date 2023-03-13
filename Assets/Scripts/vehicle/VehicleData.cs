@@ -15,6 +15,8 @@ public class VehicleData : MonoBehaviour
 	public GameManager gameManager;
 	public int placement = 0;
 
+	public Transform lastHitCheckpointTransform;
+
 	private float ignoreReadyUpTime;
 
 	//private void Start()
@@ -36,6 +38,7 @@ public class VehicleData : MonoBehaviour
 		if (scene.name == "Real_track 2")
         {
 			gameManager = GameObject.FindWithTag("Game Manager").GetComponent<GameManager>();
+			lastHitCheckpointTransform = transform;
 		}
     }
     public void OnPauseGame(InputAction.CallbackContext context)

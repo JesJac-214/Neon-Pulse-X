@@ -434,6 +434,7 @@ MonoBehaviour:
   driftFriction: 0.2
   rollingFriction: 0.2
   steerHelpFriction: 0.8
+  backTireFrictionMultiplier: 2
   tires:
   - {fileID: 2573416420867566705}
   - {fileID: 5665296505424889057}
@@ -466,6 +467,7 @@ MonoBehaviour:
   isReady: 0
   gameManager: {fileID: 0}
   placement: 0
+  lastHitCheckpointTransform: {fileID: 0}
 --- !u!114 &4124154686109981263
 MonoBehaviour:
   m_ObjectHideFlags: 0
