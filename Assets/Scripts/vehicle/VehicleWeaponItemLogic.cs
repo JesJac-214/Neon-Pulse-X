@@ -26,6 +26,9 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 	public GameObject HackingDroneModel;
 	public GameObject SoundWaveModel;
 
+	// Status Effects Models
+	public GameObject IceModel;
+
     //public GameObject gun;
 
 	//public EquipmentBase Weapon = new();
@@ -112,20 +115,6 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 		}
 	}
 
-	public void SpeedBoost()
-	{
-		transform.GetComponent<VehicleDrivingAimingLogic>().maxSpeed += boostedSpeedValue;
-        transform.GetComponent<VehicleDrivingAimingLogic>().accelerationSpeed += boostedAccelerationValue;
-        StartCoroutine("SpeedDuration");
-	}
-	
-	IEnumerator SpeedDuration()
-	{
-		yield return new WaitForSeconds(speedCoolDown);
-		transform.GetComponent<VehicleDrivingAimingLogic>().maxSpeed -= boostedSpeedValue;
-		transform.GetComponent<VehicleDrivingAimingLogic>().accelerationSpeed -= boostedAccelerationValue;
-	}
-	
 	public void SpawnWall()
 	{
         Instantiate(WallPrefab, transform.position - transform.forward * 5, transform.rotation);
@@ -172,12 +161,14 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 	{
         GetComponent<VehicleDrivingAimingLogic>().hasFriction = false;
         StartCoroutine("FrozenDuration");
+		IceModel.SetActive(true);
     }
     IEnumerator FrozenDuration()
 	{
 		yield return new WaitForSeconds(frozenCoolDown);
         GetComponent<VehicleDrivingAimingLogic>().hasFriction = true;
-    }
+		IceModel.SetActive(false);
+	}
 
     public void EMPEffect()
 	{
@@ -199,5 +190,19 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 	{
         yield return new WaitForSeconds(hackedCoolDown);
         GetComponent<VehicleDrivingAimingLogic>().tireTiltAngle *= -1;
+    }
+
+    public void SpeedBoost()
+    {
+        transform.GetComponent<VehicleDrivingAimingLogic>().maxSpeed += boostedSpeedValue;
+        transform.GetComponent<VehicleDrivingAimingLogic>().accelerationSpeed += boostedAccelerationValue;
+        StartCoroutine("SpeedDuration");
+    }
+
+    IEnumerator SpeedDuration()
+    {
+        yield return new WaitForSeconds(speedCoolDown);
+        transform.GetComponent<VehicleDrivingAimingLogic>().maxSpeed -= boostedSpeedValue;
+        transform.GetComponent<VehicleDrivingAimingLogic>().accelerationSpeed -= boostedAccelerationValue;
     }
 }

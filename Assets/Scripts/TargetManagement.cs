@@ -40,7 +40,7 @@ public class TargetManagement : MonoBehaviour
 
             foreach (GameObject vehicle in vehicles)
             {
-                if (!IsVisible(cam, vehicle))
+                if (!IsVisible(cam, vehicle) || vehicle.transform.position.y < -25)
                 {
                     if (vehicle.GetComponent<VehicleData>().lives > 0)
                     {
@@ -70,8 +70,6 @@ public class TargetManagement : MonoBehaviour
                     }
                 }
             }
-
-            
         }
     }
 }
