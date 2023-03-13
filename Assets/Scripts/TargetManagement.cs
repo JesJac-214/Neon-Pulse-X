@@ -42,19 +42,21 @@ public class TargetManagement : MonoBehaviour
             {
                 if (!IsVisible(cam, vehicle) || vehicle.transform.position.y < -25)
                 {
-                    if (vehicle.GetComponent<VehicleData>().lives > 0)
+                    VehicleData vehicleData = vehicle.GetComponent<VehicleData>();
+                    if (vehicleData.lives > 0)
                     {
-                        vehicle.GetComponent<VehicleData>().lives--;
+                        vehicleData.lives--;
                         heartBreak.Play();
-                        vehicle.transform.position = cam.transform.position -  new Vector3(0, 100, -40);
-                        vehicle.GetComponent<VehicleData>().courseProgress = leadVehicle.GetComponent<VehicleData>().courseProgress;
-                        vehicle.transform.rotation = leadVehicle.transform.rotation;
+                        vehicle.transform.SetPositionAndRotation(cam.transform.position - cam.GetComponent<CameraFollowLead>().cameraOffset, leadVehicle.transform.rotation);
+                        vehicleData.courseProgress = leadVehicle.GetComponent<VehicleData>().courseProgress;
+                        //vehicle.transform.position = cam.transform.position - cam.GetComponent<CameraFollowLead>().cameraOffset;
+                        //vehicle.transform.rotation = leadVehicle.transform.rotation;
                     }
                     else
                     {
                         vehicle.transform.position = new Vector3(0, -50, 0);
-                        vehicle.GetComponent<VehicleData>().courseProgress = 0;
-                        vehicle.GetComponent<VehicleData>().isDead = true;
+                        vehicleData.courseProgress = 0;
+                        vehicleData.isDead = true;
                         int aliveCount = 0;
                         foreach (GameObject car in vehicles)
                         {
@@ -63,9 +65,9 @@ public class TargetManagement : MonoBehaviour
                                 aliveCount++;
                             }
                         }
-                        if (vehicle.GetComponent<VehicleData>().placement == 0)
+                        if (vehicleData.placement == 0)
                         { 
-                            vehicle.GetComponent<VehicleData>().placement = aliveCount;
+                            vehicleData.placement = aliveCount;
                         }
                     }
                 }

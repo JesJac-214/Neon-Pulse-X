@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public bool IsPaused;
+    private bool pausable = true;
 
     public GameObject pauseMenu;
     public GameObject winScreen;
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
 
     public AudioClip pauseSound;
     public AudioClip unpauseSound;
+    public AudioClip winSound;
 
     void Start()
     {
@@ -39,15 +41,18 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame()
     {
-        IsPaused = true;
-        Time.timeScale = 0;
-        Cursor.visible = true;
-        raceMusicSource.Pause();
-        pauseMusicSource.Play();
-        //pauseSource.PlayOneShot(pauseSound, 1f);
-        pauseMenu.SetActive(true);
-        pauseText.gameObject.SetActive(true);
-        //resumeButton.gameObject.SetActive(true);
+        if (pausable)
+        {
+            IsPaused = true;
+            Time.timeScale = 0;
+            Cursor.visible = true;
+            raceMusicSource.Pause();
+            pauseMusicSource.Play();
+            //pauseSource.PlayOneShot(pauseSound, 1f);
+            pauseMenu.SetActive(true);
+            pauseText.gameObject.SetActive(true);
+            //resumeButton.gameObject.SetActive(true);
+        }
     }
 
     public void UnpauseGame()
@@ -63,8 +68,16 @@ public class GameManager : MonoBehaviour
 
     public void GameWin(int ID)
     {
+        pausable = false;
         winScreen.SetActive(true);
-        winnerDeclaration.text = "Player " + ID + " wins";
+        winnerDeclaration.text = "Player " + ID + " wins!";
+        pauseSource.PlayOneShot(winSound, 1f);
+        StartCoroutine(nameof(WinDelay));
+    }
+
+    IEnumerator WinDelay()
+    {
+        yield return new WaitForSeconds(3);
         SceneManager.LoadScene("VictoryPodium");
     }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class resetcheckpoint : MonoBehaviour
+public class ResetCheckpoint : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {

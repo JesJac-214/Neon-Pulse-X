@@ -2,23 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class checkpointManager : MonoBehaviour
+public class CheckpointManager : MonoBehaviour
 {
-    checkpoint[] checkpoints;
+    Checkpoint[] checkpoints;
     int totalCheckpoints;
     public float requiredLapCompletion = 0.6f;
     void Start()
     {
-        checkpoints = FindObjectsOfType<checkpoint>();
+        checkpoints = FindObjectsOfType<Checkpoint>();
         totalCheckpoints = checkpoints.Length;
     }
 
-    void ResetCheckpoints(int playerID)
+    public void ResetCheckpoints(int playerID)
     {
         int checkpointsCrossed = 0;
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         
-        foreach (checkpoint checkpoint in checkpoints)
+        foreach (Checkpoint checkpoint in checkpoints)
         {
             if (checkpoint.collided[playerID])
             {
@@ -30,13 +30,14 @@ public class checkpointManager : MonoBehaviour
         {
             foreach (GameObject player in players)
             {
-                if (player.GetComponent<VehicleData>().playerID == playerID)
+                VehicleData playerData = player.GetComponent<VehicleData>();
+                if (playerData.playerID == playerID)
                 {
-                    player.GetComponent<VehicleData>().courseProgress += (totalCheckpoints - checkpointsCrossed);
-                    player.GetComponent<VehicleData>().laps++;
+                    playerData.courseProgress += (totalCheckpoints - checkpointsCrossed);
+                    playerData.laps++;
                 }
             }
-            foreach (checkpoint checkpoint in checkpoints)
+            foreach (Checkpoint checkpoint in checkpoints)
             {
                 checkpoint.collided[playerID] = false;
             }

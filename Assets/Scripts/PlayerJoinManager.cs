@@ -10,10 +10,7 @@ public class PlayerJoinManager : MonoBehaviour
     private int minPlayers = 2;
 
     [SerializeField]
-    private TMP_Text[] ReadyTexts;
-
-    [SerializeField]
-    private TMP_Text[] PlayerTitles;
+    private GameObject[] ReadyTexts;
 
     [SerializeField]
     private TMP_Text JoinPrompt;
@@ -38,16 +35,9 @@ public class PlayerJoinManager : MonoBehaviour
         vehicles = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject vehicle in vehicles)
         {
-            PlayerTitles[vehicle.GetComponent<VehicleData>().playerID].text = "Player " + (vehicle.GetComponent<VehicleData>().playerID + 1).ToString();
-            ItemHUDs[vehicle.GetComponent<VehicleData>().playerID].text = (vehicle.GetComponent<VehicleWeaponItemLogic>().Item.ammo).ToString();
-            if (vehicle.GetComponent<VehicleData>().isReady)
-            {
-                ReadyTexts[vehicle.GetComponent<VehicleData>().playerID].text = "Ready!";
-            }
-            else
-            {
-                ReadyTexts[vehicle.GetComponent<VehicleData>().playerID].text = "";
-            }
+            VehicleData vehicleData = vehicle.GetComponent<VehicleData>();
+            ItemHUDs[vehicleData.playerID].text = (vehicle.GetComponent<VehicleWeaponItemLogic>().Item.ammo).ToString();
+            ReadyTexts[vehicleData.playerID].SetActive(vehicleData.isReady);
         }
         foreach (GameObject vehicle in vehicles)
         {
