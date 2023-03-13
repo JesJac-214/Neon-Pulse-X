@@ -50,19 +50,19 @@ MonoBehaviour:
   active: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 1.79
+    m_Value: 0.63
   intensity:
     m_OverrideState: 1
-    m_Value: 0.56
+    m_Value: 0.63
   scatter:
     m_OverrideState: 1
-    m_Value: 0.59
+    m_Value: 0.46
   clamp:
     m_OverrideState: 0
     m_Value: 65472
   tint:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_Value: {r: 0.3325472, g: 0.5, b: 0.3829848, a: 1}
   highQualityFiltering:
     m_OverrideState: 0
     m_Value: 0
@@ -86,7 +86,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: PostProcessingVolume Profile
+  m_Name: Track volume
   m_EditorClassIdentifier: 
   components:
   - {fileID: 5077288017278942305}
