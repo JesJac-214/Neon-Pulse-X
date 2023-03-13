@@ -1074,7 +1074,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraOffset: {x: 0, y: 100, z: -40}
-  cameraFollowLag: 50
+  cameraFollowLag: 35
 --- !u!81 &77308585
 AudioListener:
   m_ObjectHideFlags: 0
