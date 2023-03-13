@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class camera : MonoBehaviour
+public class CameraFollowLead : MonoBehaviour
 {
     Vector3 positionVelocity = Vector3.zero;
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cameraSway : MonoBehaviour
+public class CameraSway : MonoBehaviour
 {
     private float amplitude = 0.005f;
     void Update()
