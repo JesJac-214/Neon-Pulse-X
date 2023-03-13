@@ -12,6 +12,7 @@ public class WinPodiumInitializer : MonoBehaviour
         foreach (GameObject vehicle in vehicles)
         {
             vehicle.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            vehicle.GetComponent<VehicleDrivingAimingLogic>().canAccel = false;
             vehicle.transform.position = spawns[vehicle.GetComponent<VehicleData>().placement].position;
             vehicle.transform.rotation = spawns[vehicle.GetComponent<VehicleData>().placement].rotation;
         }
