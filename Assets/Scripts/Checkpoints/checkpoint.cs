@@ -15,7 +15,9 @@ public class checkpoint : MonoBehaviour
             // !!IMPORTANT!! This may be a bit wack so check back and fix it if it has to be fixed
             Transform player = other.transform.parent;
             int PlayerID = player.GetComponent<VehicleData>().playerID;
-        
+
+            player.GetComponent<VehicleData>().lastHitCheckpointTransform = transform;
+
             if (!collided[PlayerID])
             {
                 player.BroadcastMessage("IncrementProgress");
