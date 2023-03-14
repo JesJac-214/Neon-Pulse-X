@@ -16,10 +16,13 @@ public class GameManager : MonoBehaviour
     public TMP_Text winnerDeclaration;
     public TMP_Text pauseText;
     public TMP_Text[] WeaponAmmoHUDs;
-    public TMP_Text[] ItemAmmoHUDs;
+    //public TMP_Text[] ItemAmmoHUDs;
 
     [SerializeField]
-    private GameObject[] playerHUDContainers;
+    private GameObject[] playerHeartContainers;
+
+    [SerializeField]
+    private GameObject[] playerHUDs;
 
     //public Button resumeButton;
     //public Button restartButton;
@@ -37,6 +40,16 @@ public class GameManager : MonoBehaviour
         IsPaused = false;
         Cursor.visible = false;
         pauseMenu.SetActive(false);
+        foreach (GameObject playerHUD in playerHUDs)
+        {
+            playerHUD.SetActive(false);
+        }
+        GameObject[] vehicles;
+        vehicles = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject vehicle in vehicles)
+        {
+            playerHUDs[vehicle.GetComponent<VehicleData>().playerID].SetActive(true);
+        }
     }
 
     public void PauseGame()
@@ -115,7 +128,7 @@ public class GameManager : MonoBehaviour
             {
                 if (vehicle.GetComponent<VehicleData>().lives < 3)
                 {
-                    playerHUDContainers[vehicle.GetComponent<VehicleData>().playerID].transform.GetChild(vehicle.GetComponent<VehicleData>().lives).gameObject.SetActive(false);
+                    playerHeartContainers[vehicle.GetComponent<VehicleData>().playerID].transform.GetChild(vehicle.GetComponent<VehicleData>().lives).gameObject.SetActive(false);
                 }
                 //WeaponAmmoHUDs[vehicle.GetComponent<VehicleData>().playerID].text = vehicle.GetComponent<VehicleWeaponItemLogic>().Weapon.ammo.ToString();
                 WeaponAmmoHUDs[vehicle.GetComponent<VehicleData>().playerID].text = vehicle.GetComponent<VehicleWeaponItemLogic>().Item.ammo.ToString();

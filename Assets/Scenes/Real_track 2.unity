@@ -19653,6 +19653,26 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: ba09d3f80716e1c4cbceaedb158a2c46, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa41abb2611495d498ee9574c3aa6497, type: 3}
+--- !u!1 &1085373715 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7311692778995398996, guid: 977af978d7ad93243bb24d5896573ba6, type: 3}
+  m_PrefabInstance: {fileID: 798345935}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1085373716 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2123639485404711270, guid: 977af978d7ad93243bb24d5896573ba6, type: 3}
+  m_PrefabInstance: {fileID: 798345935}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1085373717 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6719445691636694664, guid: 977af978d7ad93243bb24d5896573ba6, type: 3}
+  m_PrefabInstance: {fileID: 798345935}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1085373718 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1795179499662273893, guid: 977af978d7ad93243bb24d5896573ba6, type: 3}
+  m_PrefabInstance: {fileID: 798345935}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1086647339 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 60ad252cca786804d9727c176c4f4414, type: 3}
@@ -32018,12 +32038,16 @@ MonoBehaviour:
   - {fileID: 798345942}
   - {fileID: 798345941}
   - {fileID: 798345940}
-  ItemAmmoHUDs: []
-  playerHUDContainers:
+  playerHeartContainers:
+  - {fileID: 1085373718}
+  - {fileID: 1085373717}
+  - {fileID: 1085373716}
+  - {fileID: 1085373715}
+  playerHUDs:
   - {fileID: 798345939}
   - {fileID: 798345938}
-  - {fileID: 798345937}
   - {fileID: 798345936}
+  - {fileID: 798345937}
   raceMusicSource: {fileID: 1947116889}
   pauseSource: {fileID: 1947116891}
   pauseMusicSource: {fileID: 1947116892}
