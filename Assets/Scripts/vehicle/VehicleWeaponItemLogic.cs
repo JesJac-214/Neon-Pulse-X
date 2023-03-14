@@ -28,6 +28,7 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 
 	// Status Effects Models
 	public GameObject IceModel;
+    public GameObject DizzyModel;
 
     //public GameObject gun;
 
@@ -185,11 +186,13 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 	{
         GetComponent<VehicleDrivingAimingLogic>().tireTiltAngle *= -1;
         StartCoroutine("HackedDuration");
+        DizzyModel.SetActive(true);
     }
     IEnumerator HackedDuration()
 	{
         yield return new WaitForSeconds(hackedCoolDown);
         GetComponent<VehicleDrivingAimingLogic>().tireTiltAngle *= -1;
+        DizzyModel.SetActive(false);
     }
 
     public void SpeedBoost()

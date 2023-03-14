@@ -60,6 +60,7 @@ public class MainMenuManager : MonoBehaviour
         target = BillboardTransform;
         //MainMenuMusicSource.Stop();
         MainMenuMusicSource.clip = MainMenuMusic;
+        MainMenuMusicSource.pitch = 1f;
         MainMenuMusicSource.Play();
         move = true;
     }

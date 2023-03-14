@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
     public GameObject winScreen;
 
     public TMP_Text winnerDeclaration;
-    public TMP_Text pauseText;
     public TMP_Text[] WeaponAmmoHUDs;
     //public TMP_Text[] ItemAmmoHUDs;
 
@@ -61,9 +60,9 @@ public class GameManager : MonoBehaviour
             Cursor.visible = true;
             raceMusicSource.Pause();
             pauseMusicSource.Play();
-            //pauseSource.PlayOneShot(pauseSound, 1f);
             pauseMenu.SetActive(true);
-            pauseText.gameObject.SetActive(true);
+            //pauseSource.PlayOneShot(pauseSound, 1f);
+            //pauseText.gameObject.SetActive(true);
             //resumeButton.gameObject.SetActive(true);
         }
     }
@@ -75,12 +74,13 @@ public class GameManager : MonoBehaviour
         Cursor.visible = false;
         raceMusicSource.Play();
         pauseMusicSource.Stop();
-        //pauseSource.PlayOneShot(unpauseSound, 1f);
         pauseMenu.SetActive(false);
+        //pauseSource.PlayOneShot(unpauseSound, 1f);
     }
 
     public void GameWin(int ID)
     {
+        raceMusicSource.Stop();
         pausable = false;
         winScreen.SetActive(true);
         winnerDeclaration.text = "Player " + ID + " wins!";
@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator WinDelay()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(4);
         SceneManager.LoadScene("VictoryPodium");
     }
 
@@ -151,6 +151,7 @@ public class GameManager : MonoBehaviour
                 if (deadCount == vehicles.Length - 1)
                 {
                     GameWin(winnerID);
+                    enabled = false;
                 }
             }
         }
