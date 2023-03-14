@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+
 public class VehicleData : MonoBehaviour
 {
 	public int playerID = 0;
@@ -43,15 +44,36 @@ public class VehicleData : MonoBehaviour
     }
     public void OnPauseGame(InputAction.CallbackContext context)
 	{
-		//gameManager = GameObject.FindWithTag("Game Manager").GetComponent<GameManager>();
-		if (context.started && !gameManager.IsPaused)
-        {
-			gameManager.PauseGame();
-        }
-		else if (context.started && gameManager.IsPaused)
-        {
-			gameManager.UnpauseGame();
-        }
+		if (context.started)
+		{
+			if (SceneManager.GetActiveScene().name == "MainMenu")
+			{
+				GameObject.FindWithTag("Game Manager").GetComponent<PlayerJoinManager>().PauseGame();
+			}
+			else if (!gameManager.IsPaused)
+			{
+				gameManager.PauseGame();
+			}
+			else if (gameManager.IsPaused)
+			{
+				gameManager.UnpauseGame();
+			}
+		}
+
+
+		// if (context.started && SceneManager.GetActiveScene().name == "MainMenu")
+		// {
+		// 	Debug.Log("PauseGame");
+		// }
+		// //gameManager = GameObject.FindWithTag("Game Manager").GetComponent<GameManager>();
+		// if (context.started && !gameManager.IsPaused)
+        // {
+		// 	gameManager.PauseGame();
+        // }
+		// else if (context.started && gameManager.IsPaused)
+        // {
+		// 	gameManager.UnpauseGame();
+        // }
 	}
 
 	public void IncrementProgress()

@@ -7,8 +7,8 @@ public class playerspawnmanager : MonoBehaviour
 {
     public Transform[] spawnLocations;
     public GameObject[] vehicles;
-    PlayerInputManager manager;
-    private int index = 0;
+    public PlayerInputManager manager;
+    public int index = 0;
 
     void Start()
     {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
 
 public class PlayerJoinManager : MonoBehaviour
 {
@@ -28,6 +29,9 @@ public class PlayerJoinManager : MonoBehaviour
     private bool countdownRunning = false;
 
     public AudioSource countdownChime;
+
+    public GameObject pauseMenu;
+    public Button resetButton;
 
     void Update()
     {
@@ -71,6 +75,20 @@ public class PlayerJoinManager : MonoBehaviour
                 ReadyAmount.text = minPlayers + " Players Minimum!";
             }
         }
+        if (vehicles.Length == 0)
+        {
+            JoinPrompt.text = "Press Any Button to Join";
+            ReadyAmount.text = "";
+            StopCoroutine(nameof(DelayedJoin));
+            foreach (GameObject readyText in ReadyTexts)
+            {
+                readyText.SetActive(false);
+            }
+            foreach (TMP_Text ammo in ItemHUDs)
+            {
+                ammo.text = "";
+            }
+        }
     }
 
     IEnumerator DelayedJoin()
@@ -88,6 +106,34 @@ public class PlayerJoinManager : MonoBehaviour
             vehicle.GetComponent<VehicleWeaponItemLogic>().Item = new EquipmentBase();
         }
         SceneManager.LoadScene("Real_track 2");
+    }
+    public void PauseGame()
+    {
+        pauseMenu.SetActive(!pauseMenu.activeSelf);
+        resetButton.Select();
+    }
+
+    public void ResetPlayerJoin()
+    {
+        vehicles = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject vehicle in vehicles)
+        {
+            Destroy(vehicle);
+        }
+        GameObject.FindWithTag("Respawn").GetComponent<playerspawnmanager>().index = 0;
+        GameObject.FindWithTag("Respawn").GetComponent<playerspawnmanager>().manager.playerPrefab = GameObject.FindWithTag("Respawn").GetComponent<playerspawnmanager>().vehicles[0];
+        
+        pauseMenu.SetActive(!pauseMenu.activeSelf);
+    }
+
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
     public void ClearJoinPrompt()
