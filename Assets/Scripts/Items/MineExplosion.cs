@@ -6,6 +6,7 @@ public class MineExplosion : MonoBehaviour
 {
     [SerializeField] private float explosionRadius = 7;
     [SerializeField] private float explosionForce = 100;
+    public GameObject explosionEffect;
     void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
@@ -15,8 +16,8 @@ public class MineExplosion : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Vehicle Body"))
         {
-             var surroundingObjects = Physics.OverlapSphere(transform.position, explosionRadius);
-             foreach(var obj in surroundingObjects) 
+            var surroundingObjects = Physics.OverlapSphere(transform.position, explosionRadius);
+            foreach(var obj in surroundingObjects) 
             {
                 if (obj.CompareTag("Vehicle Body"))
                 {
@@ -25,9 +26,14 @@ public class MineExplosion : MonoBehaviour
                 }
                    
             }
-            SpawnSphere();
-             Destroy(gameObject);
+            Explode();
+            //SpawnSphere();
         }    
+    }
+    private void Explode()
+    {
+        Destroy(Instantiate(explosionEffect, transform.position, transform.rotation), 2);
+        Destroy(gameObject);
     }
     private void SpawnSphere()
     {
@@ -36,5 +42,6 @@ public class MineExplosion : MonoBehaviour
         sphere.transform.localScale = new Vector3(1, 1, 1) * explosionRadius * 2;
         sphere.GetComponent<SphereCollider>().enabled = false;
         Destroy(sphere, 0.3f);
+        Destroy(gameObject);
     }
 }
