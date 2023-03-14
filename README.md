@@ -9,9 +9,9 @@ Download the latest [release](https://github.com/JesJac-214/Neon-Pulse-X/release
 ### Controls
 | Actions | Controller | Keyboard and Mouse |
 | ----------- | ----------- | ----------- |
-| Accelerate | Right Trigger | 'W' Key |
-| Decelerate | Left Trigger | 'S' Key |
-| Steering | Left Stick or D-Pad | 'A' and 'D' Keys |
+| Accelerate | Right Trigger | 'W' Key or Up Arrow Key |
+| Decelerate | Left Trigger | 'S' Key or Down Arrow Key|
+| Steering | Left Stick or D-Pad | 'A' and 'D' Keys or Left and Right Arrow Keys|
 | Use Equipment | Shoulder Buttons or Face Buttons (Not Drift Button) | Spacebar or Mouse Clicks |
 | Drift | East Face Button | Left Shift |
 | Pause | Start Button or Equivalent | ESC Key |
