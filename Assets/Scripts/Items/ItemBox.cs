@@ -10,6 +10,17 @@ public class ItemBox : MonoBehaviour
     public AudioSource hit;
     public AudioSource restored;
 
+    public enum GivenItem
+    {
+        All,
+        SpeedBoost,
+        Wall,
+        Mine,
+        Shield
+    }
+
+    public GivenItem spawnedItem;
+
     private void Start()
     {
         meshRenderers = gameObject.GetComponentsInChildren<MeshRenderer>();
@@ -23,7 +34,27 @@ public class ItemBox : MonoBehaviour
         {
             if (other.transform.parent.GetComponent<VehicleWeaponItemLogic>().Item.ammo == 0)
             {
-                other.transform.parent.GetComponent<VehicleWeaponItemLogic>().Item = items[Random.Range(0, items.Length)];
+                //The switch case below is for testing, if you want to remove useless code take away the switch case and uncomment the line below
+                switch (spawnedItem)
+                {
+                    case GivenItem.All:
+                        other.transform.parent.GetComponent<VehicleWeaponItemLogic>().Item = items[Random.Range(0, items.Length)];
+                        break;
+                    case GivenItem.SpeedBoost:
+                        other.transform.parent.GetComponent<VehicleWeaponItemLogic>().Item = new SpeedBoost();
+                        break;
+                    case GivenItem.Wall:
+                        other.transform.parent.GetComponent<VehicleWeaponItemLogic>().Item = new Wall();
+                        break;
+                    case GivenItem.Mine:
+                        other.transform.parent.GetComponent<VehicleWeaponItemLogic>().Item = new Mine();
+                        break;
+                    case GivenItem.Shield:
+                        other.transform.parent.GetComponent<VehicleWeaponItemLogic>().Item = new Shield();
+                        break;
+                }
+                //The switch case above is for testing, if you want to remove useless code take away the switch case and uncomment the line below
+                //other.transform.parent.GetComponent<VehicleWeaponItemLogic>().Item = items[Random.Range(0, items.Length)];
             }
             StartCoroutine("ItemDisappear");
             foreach (MeshRenderer meshRenderer in meshRenderers)

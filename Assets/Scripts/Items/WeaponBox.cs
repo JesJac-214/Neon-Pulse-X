@@ -10,6 +10,18 @@ public class WeaponBox : MonoBehaviour
     public AudioSource hit;
     public AudioSource restored;
 
+    public enum GivenWeapon
+    {
+        All,
+        CannonBall,
+        IceBeam,
+        EMP,
+        HackingDevice,
+        SoundWave
+    }
+
+    public GivenWeapon spawnedWeapon;
+
     private void Start()
     {
         meshRenderers = gameObject.GetComponentsInChildren<MeshRenderer>();
@@ -23,7 +35,30 @@ public class WeaponBox : MonoBehaviour
         {
             if (other.transform.parent.GetComponent<VehicleWeaponItemLogic>().Item.ammo == 0)
             {
-                other.transform.parent.GetComponent<VehicleWeaponItemLogic>().Item = weapons[Random.Range(0, weapons.Length)];
+                //The switch case below is for testing, if you want to remove useless code take away the switch case and uncomment the line below
+                switch (spawnedWeapon)
+                {
+                    case GivenWeapon.All:
+                        other.transform.parent.GetComponent<VehicleWeaponItemLogic>().Item = weapons[Random.Range(0, weapons.Length)];
+                        break;
+                    case GivenWeapon.CannonBall:
+                        other.transform.parent.GetComponent<VehicleWeaponItemLogic>().Item = new CannonBall();
+                        break;
+                    case GivenWeapon.IceBeam:
+                        other.transform.parent.GetComponent<VehicleWeaponItemLogic>().Item = new IceBeam();
+                        break;
+                    case GivenWeapon.EMP:
+                        other.transform.parent.GetComponent<VehicleWeaponItemLogic>().Item = new EMP();
+                        break;
+                    case GivenWeapon.HackingDevice:
+                        other.transform.parent.GetComponent<VehicleWeaponItemLogic>().Item = new HackingDevice();
+                        break;
+                    case GivenWeapon.SoundWave:
+                        other.transform.parent.GetComponent<VehicleWeaponItemLogic>().Item = new SoundWave();
+                        break;
+                }
+                //The switch case above is for testing, if you want to remove useless code take away the switch case and uncomment the line below
+                //other.transform.parent.GetComponent<VehicleWeaponItemLogic>().Item = weapons[Random.Range(0, weapons.Length)];
             }
             StartCoroutine("ItemDisappear");
             foreach (MeshRenderer meshRenderer in meshRenderers)
