@@ -84,6 +84,10 @@ PrefabInstance:
       propertyPath: accelerationSpeed
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 3181776883182848866, guid: 57d4ce5dce9680045862129d3f73953a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 3210850100417622790, guid: 57d4ce5dce9680045862129d3f73953a, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -146,7 +150,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3210850101425450139, guid: 57d4ce5dce9680045862129d3f73953a, type: 3}
       propertyPath: m_Center.z
-      value: -0.3
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703462005290189131, guid: 57d4ce5dce9680045862129d3f73953a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 8058780142307552097, guid: 57d4ce5dce9680045862129d3f73953a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -258,7 +266,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: caa45dc86c4c7b14598939b7a8b00152, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: caa45dc86c4c7b14598939b7a8b00152, type: 3}
       propertyPath: m_LocalRotation.w
