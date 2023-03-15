@@ -35,6 +35,9 @@ public class PlayerJoinManager : MonoBehaviour
     public GameObject pauseMenu;
     public Button resetButton;
 
+    public GameObject[] PlayerIconContainers;
+    List<string> iconOrder = new List<string>() { "CannonBall", "EMP", "HackingDevice", "IceBeam", "SoundWave", "Mine", "Shield", "SpeedBoost", "Wall" };
+
     void Update()
     {
         readyPlayers = 0;
@@ -45,6 +48,17 @@ public class PlayerJoinManager : MonoBehaviour
             ItemHUDs[vehicleData.playerID].text = (vehicle.GetComponent<VehicleWeaponItemLogic>().Item.ammo).ToString();
             ReadyTexts[vehicleData.playerID].SetActive(vehicleData.isReady);
             PlayerHUDs[vehicleData.playerID].SetActive(true);
+            if (vehicle.GetComponent<VehicleWeaponItemLogic>().Item.ammo > 0)
+            {
+                PlayerIconContainers[vehicle.GetComponent<VehicleData>().playerID].transform.GetChild(iconOrder.IndexOf(vehicle.GetComponent<VehicleWeaponItemLogic>().Item.weaponName)).gameObject.SetActive(true);
+            }
+            else
+            {
+                for (int i = 0; i < iconOrder.Count; i++)
+                {
+                    PlayerIconContainers[vehicle.GetComponent<VehicleData>().playerID].transform.GetChild(i).gameObject.SetActive(false);
+                }
+            }
         }
         foreach (GameObject vehicle in vehicles)
         {

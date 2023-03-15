@@ -7934,6 +7934,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &483648402 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 494042573780870222, guid: 977af978d7ad93243bb24d5896573ba6, type: 3}
+  m_PrefabInstance: {fileID: 798345935}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &483648403 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5219415923486012025, guid: 977af978d7ad93243bb24d5896573ba6, type: 3}
+  m_PrefabInstance: {fileID: 798345935}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &483648404 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3851507938122009425, guid: 977af978d7ad93243bb24d5896573ba6, type: 3}
+  m_PrefabInstance: {fileID: 798345935}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &483648405 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8458096842098096965, guid: 977af978d7ad93243bb24d5896573ba6, type: 3}
+  m_PrefabInstance: {fileID: 798345935}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &496226745 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 60ad252cca786804d9727c176c4f4414, type: 3}
@@ -33477,6 +33497,11 @@ MonoBehaviour:
   - {fileID: 798345938}
   - {fileID: 798345936}
   - {fileID: 798345937}
+  PlayerIconContainers:
+  - {fileID: 483648405}
+  - {fileID: 483648404}
+  - {fileID: 483648403}
+  - {fileID: 483648402}
   raceMusicSource: {fileID: 1947116889}
   pauseSource: {fileID: 1947116890}
   pauseMusicSource: {fileID: 1947116892}

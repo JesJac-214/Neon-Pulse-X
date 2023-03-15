@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject[] playerHUDs;
 
+    public GameObject[] PlayerIconContainers;
+    //private string[] iconOrder = { "CannonBall","EMP", "HackingDrone", "IceBeam", "SoundWave", "Mine", "Shield", "SpeedBoost", "Wall" };
+    List<string> iconOrder = new List<string>() { "CannonBall", "EMP", "HackingDevice", "IceBeam", "SoundWave", "Mine", "Shield", "SpeedBoost", "Wall" };
     //public Button resumeButton;
     //public Button restartButton;
 
@@ -139,6 +143,17 @@ public class GameManager : MonoBehaviour
                 }
                 //WeaponAmmoHUDs[vehicle.GetComponent<VehicleData>().playerID].text = vehicle.GetComponent<VehicleWeaponItemLogic>().Weapon.ammo.ToString();
                 WeaponAmmoHUDs[vehicle.GetComponent<VehicleData>().playerID].text = vehicle.GetComponent<VehicleWeaponItemLogic>().Item.ammo.ToString();
+                if (vehicle.GetComponent<VehicleWeaponItemLogic>().Item.ammo > 0)
+                {
+                    PlayerIconContainers[vehicle.GetComponent<VehicleData>().playerID].transform.GetChild(iconOrder.IndexOf(vehicle.GetComponent<VehicleWeaponItemLogic>().Item.weaponName)).gameObject.SetActive(true);
+                }
+                else
+                {
+                    for (int i = 0; i < iconOrder.Count; i++)
+                    {
+                        PlayerIconContainers[vehicle.GetComponent<VehicleData>().playerID].transform.GetChild(i).gameObject.SetActive(false);
+                    }
+                }
             }
         }
         if (vehicles.Length > 1)

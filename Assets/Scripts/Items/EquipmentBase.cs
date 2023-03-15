@@ -29,6 +29,7 @@ public class SpeedBoost : EquipmentBase
 {
     public override void Initialize()
     {
+        weaponName = "SpeedBoost";
         ammo = 1;
     }
     public override void Use(GameObject vehicle)
@@ -63,6 +64,7 @@ public class Wall : EquipmentBase
     public override void Initialize()
     {
         ammo = 3;
+        weaponName = "Wall";
     }
 
     public override void Use(GameObject vehicle)
@@ -100,6 +102,7 @@ public class Mine : EquipmentBase
     public override void Initialize()
     {
         ammo = 3;
+        weaponName = "Mine";
     }
 
     public override void Use(GameObject vehicle)
@@ -152,6 +155,7 @@ public class Shield : EquipmentBase
     public override void Initialize()
     {
         ammo = 1;
+        weaponName = "Shield";
     }
 
     public override void Use(GameObject vehicle)
