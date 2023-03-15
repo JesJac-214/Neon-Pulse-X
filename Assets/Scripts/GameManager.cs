@@ -116,6 +116,13 @@ public class GameManager : MonoBehaviour
     {
         IsPaused = false;
         Time.timeScale = 1;
+        GameObject[] vehicles = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject vehicle in vehicles)
+        {
+            vehicle.GetComponent<VehicleData>().lives = 3;
+            vehicle.GetComponent<VehicleData>().courseProgress = 0;
+            vehicle.GetComponent<VehicleWeaponItemLogic>().Item = new EquipmentBase();
+        }
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
