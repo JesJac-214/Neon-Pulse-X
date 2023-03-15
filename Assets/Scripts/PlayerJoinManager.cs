@@ -22,6 +22,8 @@ public class PlayerJoinManager : MonoBehaviour
     [SerializeField]
     private TMP_Text ReadyAmount;
 
+    public GameObject[] PlayerHUDs;
+
     private int readyPlayers = 0;
 
     GameObject[] vehicles;
@@ -42,6 +44,7 @@ public class PlayerJoinManager : MonoBehaviour
             VehicleData vehicleData = vehicle.GetComponent<VehicleData>();
             ItemHUDs[vehicleData.playerID].text = (vehicle.GetComponent<VehicleWeaponItemLogic>().Item.ammo).ToString();
             ReadyTexts[vehicleData.playerID].SetActive(vehicleData.isReady);
+            PlayerHUDs[vehicleData.playerID].SetActive(true);
         }
         foreach (GameObject vehicle in vehicles)
         {
@@ -87,6 +90,10 @@ public class PlayerJoinManager : MonoBehaviour
             foreach (TMP_Text ammo in ItemHUDs)
             {
                 ammo.text = "";
+            }
+            foreach (GameObject HUD in PlayerHUDs)
+            {
+                HUD.SetActive(false);
             }
         }
     }
