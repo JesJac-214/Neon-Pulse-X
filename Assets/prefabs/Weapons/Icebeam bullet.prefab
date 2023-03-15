@@ -19316,6 +19316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   launchVelocity: 150
+  IcebeamParticle: {fileID: 4479335604907327608, guid: c650f1ffd95a3574bb4bad14d1dddc8f, type: 3}
 --- !u!1 &5812529708672472518
 GameObject:
   m_ObjectHideFlags: 0

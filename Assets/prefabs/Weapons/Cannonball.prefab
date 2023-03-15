@@ -211,6 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   launchVelocity: 150
+  CannonballExplosionParticle: {fileID: 3799633321254819356, guid: 50ebb33d9deae714a986c6f90872c7f0, type: 3}
 --- !u!54 &-6336702825450402551
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -238,7 +239,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.2
-  m_Height: 1
+  m_Height: 1.5
   m_Direction: 0
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4601860462131233227

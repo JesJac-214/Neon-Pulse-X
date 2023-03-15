@@ -6,6 +6,7 @@ public class SoundWaveLogic : MonoBehaviour
 {
     [SerializeField] private float launchVelocity = 150f;
     [SerializeField] private float liftForce = 25f;
+    public GameObject SoundwaveParticle;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,7 @@ public class SoundWaveLogic : MonoBehaviour
         {
             Rigidbody rb = other.transform.parent.GetComponent<Rigidbody>();
             rb.velocity = transform.up * liftForce;
+            Destroy(Instantiate(SoundwaveParticle, other.transform.position, transform.rotation), 2);
         }
         
     }
