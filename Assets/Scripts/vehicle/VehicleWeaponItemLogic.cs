@@ -161,6 +161,7 @@ public class VehicleWeaponItemLogic : MonoBehaviour
     public void Freeze()
 	{
         GetComponent<VehicleDrivingAimingLogic>().hasFriction = false;
+        GetComponent<VehicleDrivingAimingLogic>().canAccel = false;
         StartCoroutine("FrozenDuration");
 		IceModel.SetActive(true);
     }
@@ -168,7 +169,8 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 	{
 		yield return new WaitForSeconds(frozenCoolDown);
         GetComponent<VehicleDrivingAimingLogic>().hasFriction = true;
-		IceModel.SetActive(false);
+        GetComponent<VehicleDrivingAimingLogic>().canAccel = true;
+        IceModel.SetActive(false);
 	}
 
     public void EMPEffect()
