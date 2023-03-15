@@ -112,8 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe78899018a4db24b910b0010c41e320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  launchVelocity: 80
-  explosionRadius: 2
+  launchVelocity: 150
 --- !u!54 &-3939450794046550681
 Rigidbody:
   m_ObjectHideFlags: 0

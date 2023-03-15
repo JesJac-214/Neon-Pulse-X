@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionRadius: 15
-  launchVelocity: 100
+  launchVelocity: 150
 --- !u!54 &5383845481441065770
 Rigidbody:
   m_ObjectHideFlags: 0
