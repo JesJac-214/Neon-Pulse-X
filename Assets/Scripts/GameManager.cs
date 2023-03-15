@@ -142,7 +142,14 @@ public class GameManager : MonoBehaviour
                     playerHeartContainers[vehicle.GetComponent<VehicleData>().playerID].transform.GetChild(vehicle.GetComponent<VehicleData>().lives).gameObject.SetActive(false);
                 }
                 //WeaponAmmoHUDs[vehicle.GetComponent<VehicleData>().playerID].text = vehicle.GetComponent<VehicleWeaponItemLogic>().Weapon.ammo.ToString();
-                WeaponAmmoHUDs[vehicle.GetComponent<VehicleData>().playerID].text = vehicle.GetComponent<VehicleWeaponItemLogic>().Item.ammo.ToString();
+                if (vehicle.GetComponent<VehicleWeaponItemLogic>().Item.ammo > 0)
+                {
+                    WeaponAmmoHUDs[vehicle.GetComponent<VehicleData>().playerID].text = vehicle.GetComponent<VehicleWeaponItemLogic>().Item.ammo.ToString();
+                }
+                else
+                {
+                    WeaponAmmoHUDs[vehicle.GetComponent<VehicleData>().playerID].text = "";
+                }
                 if (vehicle.GetComponent<VehicleWeaponItemLogic>().Item.ammo > 0)
                 {
                     PlayerIconContainers[vehicle.GetComponent<VehicleData>().playerID].transform.GetChild(iconOrder.IndexOf(vehicle.GetComponent<VehicleWeaponItemLogic>().Item.weaponName)).gameObject.SetActive(true);

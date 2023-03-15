@@ -45,7 +45,15 @@ public class PlayerJoinManager : MonoBehaviour
         foreach (GameObject vehicle in vehicles)
         {
             VehicleData vehicleData = vehicle.GetComponent<VehicleData>();
-            ItemHUDs[vehicleData.playerID].text = (vehicle.GetComponent<VehicleWeaponItemLogic>().Item.ammo).ToString();
+            
+            if (vehicle.GetComponent<VehicleWeaponItemLogic>().Item.ammo > 0)
+            {
+                ItemHUDs[vehicleData.playerID].text = (vehicle.GetComponent<VehicleWeaponItemLogic>().Item.ammo).ToString();
+            }
+            else
+            {
+                ItemHUDs[vehicleData.playerID].text = "";
+            }
             ReadyTexts[vehicleData.playerID].SetActive(vehicleData.isReady);
             PlayerHUDs[vehicleData.playerID].SetActive(true);
             if (vehicle.GetComponent<VehicleWeaponItemLogic>().Item.ammo > 0)
