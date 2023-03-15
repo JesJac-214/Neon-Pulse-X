@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IceBeamLogic : MonoBehaviour
 {
-    [SerializeField] private float launchVelocity = 100f;
+    [SerializeField] private float launchVelocity = 150f;
     // Start is called before the first frame update
     void Start()
     {

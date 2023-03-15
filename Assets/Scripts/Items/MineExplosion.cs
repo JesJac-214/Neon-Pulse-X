@@ -5,7 +5,7 @@ using UnityEngine;
 public class MineExplosion : MonoBehaviour
 {
     [SerializeField] private float explosionRadius = 7;
-    [SerializeField] private float explosionForce = 100;
+    [SerializeField] private float explosionForce = 150;
     public GameObject explosionEffect;
     void OnDrawGizmos()
     {

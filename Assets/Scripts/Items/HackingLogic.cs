@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class HackingLogic : MonoBehaviour
 {
-    [SerializeField] private float launchVelocity = 100f;
-    [SerializeField] private float explosionRadius = 2;
+    [SerializeField] private float launchVelocity = 150f;
     void Start()
     {
         GetComponent<Rigidbody>().velocity = transform.forward * launchVelocity;
@@ -15,14 +14,7 @@ public class HackingLogic : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            var surroundingObjects = Physics.OverlapSphere(transform.position, explosionRadius);
-            foreach (var obj in surroundingObjects)
-            {
-                if (obj.CompareTag("Vehicle Body"))
-                {
-                    obj.transform.parent.GetComponent<VehicleWeaponItemLogic>().HackedEffect();
-                }
-            }
+            collision.gameObject.GetComponent<VehicleWeaponItemLogic>().HackedEffect();
             Destroy(gameObject);
         }
         else

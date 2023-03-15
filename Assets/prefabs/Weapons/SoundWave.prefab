@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55390bcf8e17d9b46a971c8414aed219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  launchVelocity: 100
+  launchVelocity: 150
   liftForce: 25
 --- !u!1001 &2919704709101712679
 PrefabInstance:
