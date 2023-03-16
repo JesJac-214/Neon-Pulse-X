@@ -5,7 +5,7 @@ using UnityEngine;
 public class SoundWaveLogic : MonoBehaviour
 {
     [SerializeField] private float launchVelocity = 150f;
-    [SerializeField] private float liftForce = 25f;
+    [SerializeField] private float liftForce = 35f;
     public GameObject SoundwaveParticle;
     // Start is called before the first frame update
     void Start()
