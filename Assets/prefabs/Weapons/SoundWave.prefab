@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   launchVelocity: 150
-  liftForce: 25
+  liftForce: 35
   SoundwaveParticle: {fileID: 4466145470123958727, guid: dd8f25e74eae7d148b34fd36cd870900, type: 3}
 --- !u!1001 &2919704709101712679
 PrefabInstance:

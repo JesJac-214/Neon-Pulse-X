@@ -128,12 +128,12 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 
     public void SpawnCannonBall()
 	{
-        Instantiate(CannonBallPrefab, transform.position + anchor.transform.forward * 7, anchor.transform.rotation);
+        Instantiate(CannonBallPrefab, transform.position + anchor.transform.forward * 8, anchor.transform.rotation);
     }
 
     public void SpawnEMP()
     {
-        Instantiate(EMPPrefab, transform.position + anchor.transform.forward * 7, anchor.transform.rotation);
+        Instantiate(EMPPrefab, transform.position + anchor.transform.forward * 8, anchor.transform.rotation);
     }
 
     public void SpawnIcebeamBullet()
@@ -143,12 +143,12 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 
     public void SpawnHackingDevice()
     {
-        Instantiate(HackingDevicePrefab, transform.position + anchor.transform.forward * 7, anchor.transform.rotation);
+        Instantiate(HackingDevicePrefab, transform.position + anchor.transform.forward * 8, anchor.transform.rotation);
     }
 
     public void SpawnSoundWave()
     {
-        Instantiate(SoundWavePrefab, transform.position + anchor.transform.forward * 7, anchor.transform.rotation);
+        Instantiate(SoundWavePrefab, transform.position + anchor.transform.forward * 8, anchor.transform.rotation);
     }
 
     public void SpawnShield()
