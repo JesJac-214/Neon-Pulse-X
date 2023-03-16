@@ -15,6 +15,7 @@ public class WinPodiumInitializer : MonoBehaviour
             vehicle.GetComponent<VehicleDrivingAimingLogic>().canAccel = false;
             vehicle.transform.position = spawns[vehicle.GetComponent<VehicleData>().placement].position;
             vehicle.transform.rotation = spawns[vehicle.GetComponent<VehicleData>().placement].rotation;
+            vehicle.GetComponent<VehicleWeaponItemLogic>().Item = new EquipmentBase();
         }
     }
 }

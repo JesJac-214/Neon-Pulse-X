@@ -40,7 +40,7 @@ public class Checkpoint : MonoBehaviour
             {
                 other.GetComponent<RespawnPositionTracker>().DecrementProgress();
             }
-            other.transform.rotation = transform.rotation * Quaternion.Euler(-90,-90,-270);
+            other.transform.rotation = transform.rotation * Quaternion.Euler(-90,-90,-270); // This constant is so that the rotation has the Z axis forward so that the vehicles can use it as spawn
             RespawnPositionTrackerHit = !RespawnPositionTrackerHit;
         }
     }
