@@ -51,11 +51,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FresnelPower: 0.79
+    - _FresnelPower: 4.11
     - _Offset: 0.6
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Scrollspeed: 0.05
     m_Colors:
-    - _Emission: {r: 25.71649, g: 0.20169798, b: 18.914585, a: 0}
+    - _Emission: {r: 45.837955, g: 0, b: 33.865345, a: 1}
   m_BuildTextureStacks: []
