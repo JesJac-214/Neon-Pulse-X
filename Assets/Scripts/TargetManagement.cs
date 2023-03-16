@@ -6,6 +6,7 @@ public class TargetManagement : MonoBehaviour
 {
     public GameObject target;
     public Camera cam;
+    public GameObject RespawnPositionTracker;
 
     public AudioSource heartBreak;
     
@@ -47,8 +48,10 @@ public class TargetManagement : MonoBehaviour
                     {
                         vehicleData.lives--;
                         heartBreak.Play();
-                        vehicle.transform.SetPositionAndRotation(cam.transform.position - cam.GetComponent<CameraFollowLead>().cameraOffset, leadVehicle.transform.rotation);
-                        vehicleData.courseProgress = leadVehicle.GetComponent<VehicleData>().courseProgress;
+                        //vehicle.transform.SetPositionAndRotation(cam.transform.position - cam.GetComponent<CameraFollowLead>().cameraOffset, leadVehicle.transform.rotation);
+                        vehicle.transform.SetPositionAndRotation(RespawnPositionTracker.transform.position, RespawnPositionTracker.transform.rotation);
+                        //vehicleData.courseProgress = leadVehicle.GetComponent<VehicleData>().courseProgress;
+                        vehicleData.courseProgress = RespawnPositionTracker.GetComponent<RespawnPositionTracker>().courseProgress;
                         vehicle.GetComponent<Rigidbody>().velocity = Vector3.zero;
                         //vehicle.transform.position = cam.transform.position - cam.GetComponent<CameraFollowLead>().cameraOffset;
                         //vehicle.transform.rotation = leadVehicle.transform.rotation;

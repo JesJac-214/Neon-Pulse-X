@@ -8,6 +8,8 @@ public class Checkpoint : MonoBehaviour
 
     public bool test = false;
 
+    public bool RespawnPositionTrackerHit = false;
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Vehicle Body"))
@@ -27,6 +29,19 @@ public class Checkpoint : MonoBehaviour
                 player.BroadcastMessage("DecrementProgress");
             }
             collided[PlayerID] = !collided[PlayerID];
+        }
+        if (other.gameObject.CompareTag("RespawnPositionTrackerCube"))
+        {
+            if (!RespawnPositionTrackerHit)
+            {
+                other.GetComponent<RespawnPositionTracker>().IncrementProgress();
+            }
+            if (RespawnPositionTrackerHit)
+            {
+                other.GetComponent<RespawnPositionTracker>().DecrementProgress();
+            }
+            other.transform.rotation = transform.rotation * Quaternion.Euler(-90,-90,-270);
+            RespawnPositionTrackerHit = !RespawnPositionTrackerHit;
         }
     }
 }

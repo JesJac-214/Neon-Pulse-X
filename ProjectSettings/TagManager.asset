@@ -13,6 +13,7 @@ TagManager:
   - Ready Zone
   - Projectile
   - SoundWave
+  - RespawnPositionTrackerCube
   layers:
   - Default
   - TransparentFX

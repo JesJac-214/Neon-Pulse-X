@@ -40,6 +40,7 @@ public class CheckpointManager : MonoBehaviour
             foreach (Checkpoint checkpoint in checkpoints)
             {
                 checkpoint.collided[playerID] = false;
+                checkpoint.RespawnPositionTrackerHit = false;
             }
         }
     }

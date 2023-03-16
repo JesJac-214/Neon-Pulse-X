@@ -9,6 +9,7 @@ public class CameraFollowLead : MonoBehaviour
     public Vector3 cameraOffset = new(0, 100, -40);
     [SerializeField]
     private float cameraFollowLag = 50f;
+    public GameObject RespawnPositionTracker;
 
     void LateUpdate()
     {
@@ -24,6 +25,7 @@ public class CameraFollowLead : MonoBehaviour
                 }
             }
             transform.position = Vector3.SmoothDamp(transform.position, leadVehicle.GetComponent<VehicleData>().lastHitCheckpointTransform.position + cameraOffset, ref positionVelocity, cameraFollowLag * Time.smoothDeltaTime);
+            RespawnPositionTracker.transform.position = transform.position - cameraOffset;
         }
     }
 }
