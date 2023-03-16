@@ -10,6 +10,7 @@ public class CameraFollowLead : MonoBehaviour
     [SerializeField]
     private float cameraFollowLag = 50f;
     public GameObject RespawnPositionTracker;
+    public bool GameWon = false;
 
     void LateUpdate()
     {
@@ -24,8 +25,15 @@ public class CameraFollowLead : MonoBehaviour
                     leadVehicle = vehicle;
                 }
             }
-            transform.position = Vector3.SmoothDamp(transform.position, leadVehicle.GetComponent<VehicleData>().lastHitCheckpointTransform.position + cameraOffset, ref positionVelocity, cameraFollowLag * Time.smoothDeltaTime);
-            RespawnPositionTracker.transform.position = transform.position - cameraOffset;
+            if (!GameWon)
+            {
+                transform.position = Vector3.SmoothDamp(transform.position, leadVehicle.GetComponent<VehicleData>().lastHitCheckpointTransform.position + cameraOffset, ref positionVelocity, cameraFollowLag * Time.smoothDeltaTime);
+                RespawnPositionTracker.transform.position = transform.position - cameraOffset;
+            }
+            if (GameWon)
+            {
+                transform.position = Vector3.SmoothDamp(transform.position, leadVehicle.transform.position + cameraOffset * 0.5f, ref positionVelocity, cameraFollowLag * 0.25f * Time.smoothDeltaTime);
+            }
         }
     }
 }

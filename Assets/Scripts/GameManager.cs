@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour
     public AudioClip unpauseSound;
     public AudioClip winSound;
 
+    public GameObject cam;
+
     void Start()
     {
         IsPaused = false;
@@ -84,6 +86,7 @@ public class GameManager : MonoBehaviour
 
     public void GameWin(int ID)
     {
+        cam.GetComponent<CameraFollowLead>().GameWon = true;
         raceMusicSource.Stop();
         pausable = false;
         winScreen.SetActive(true);
