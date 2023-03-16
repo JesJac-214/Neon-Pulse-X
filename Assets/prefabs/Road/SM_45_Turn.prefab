@@ -371,6 +371,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_45_TurnWall_OUT
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4977ec0aaf3ed3b4aa05a85d4cbfcb4a, type: 3}
+      propertyPath: m_TagString
+      value: Track
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4977ec0aaf3ed3b4aa05a85d4cbfcb4a, type: 3}
 --- !u!4 &215747174133335327 stripped
@@ -1071,6 +1075,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: bb48c5b704fb037438914635d00190a9, type: 3}
       propertyPath: m_Name
       value: SM_45_TurnWall_IN
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bb48c5b704fb037438914635d00190a9, type: 3}
+      propertyPath: m_TagString
+      value: Track
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb48c5b704fb037438914635d00190a9, type: 3}
