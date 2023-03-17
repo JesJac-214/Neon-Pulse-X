@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
     //public Button resumeButton;
     //public Button restartButton;
 
+    public GameObject RestartPositionTracker;
+
     public AudioSource raceMusicSource;
     public AudioSource pauseSource;
     public AudioSource pauseMusicSource;
@@ -130,6 +132,7 @@ public class GameManager : MonoBehaviour
             vehicle.GetComponent<VehicleData>().courseProgress = 0;
             vehicle.GetComponent<VehicleWeaponItemLogic>().Item = new EquipmentBase();
         }
+        RestartPositionTracker.GetComponent<RespawnPositionTracker>().courseProgress = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

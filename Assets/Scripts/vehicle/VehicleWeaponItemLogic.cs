@@ -201,6 +201,7 @@ public class VehicleWeaponItemLogic : MonoBehaviour
     {
         transform.GetComponent<VehicleDrivingAimingLogic>().maxSpeed += boostedSpeedValue;
         transform.GetComponent<VehicleDrivingAimingLogic>().accelerationSpeed += boostedAccelerationValue;
+        GetComponent<Rigidbody>().velocity = transform.forward * 2000;
         StartCoroutine("SpeedDuration");
     }
 

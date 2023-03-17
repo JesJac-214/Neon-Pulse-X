@@ -8,6 +8,8 @@ public class TargetManagement : MonoBehaviour
     public Camera cam;
     public GameObject RespawnPositionTracker;
 
+    public GameObject SpawnEffect;
+
     public AudioSource heartBreak;
     
     private bool IsVisible(Camera c, GameObject target)
@@ -52,7 +54,9 @@ public class TargetManagement : MonoBehaviour
                         vehicle.transform.SetPositionAndRotation(RespawnPositionTracker.transform.position, RespawnPositionTracker.transform.rotation);
                         //vehicleData.courseProgress = leadVehicle.GetComponent<VehicleData>().courseProgress;
                         vehicleData.courseProgress = RespawnPositionTracker.GetComponent<RespawnPositionTracker>().courseProgress;
-                        vehicle.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                        FindObjectOfType<CheckpointManager>().SetCheckpointsToRespawnTracker(vehicleData.playerID);
+                        Destroy(Instantiate(SpawnEffect, RespawnPositionTracker.transform.position + new Vector3(0,-7,0), RespawnPositionTracker.transform.rotation), 2);
+                        vehicle.GetComponent<Rigidbody>().velocity = vehicle.transform.forward * 200;
                         //vehicle.transform.position = cam.transform.position - cam.GetComponent<CameraFollowLead>().cameraOffset;
                         //vehicle.transform.rotation = leadVehicle.transform.rotation;
                     }
