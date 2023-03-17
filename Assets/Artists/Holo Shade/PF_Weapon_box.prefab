@@ -124,6 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hit: {fileID: 7433785482282001289}
   restored: {fileID: 3503552748508487906}
+  spawnedWeapon: 0
 --- !u!65 &2682157324984609836
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -149,7 +150,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: bf436967a6ff12b808e5685d37cee7bd, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -245,7 +246,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f39d3e67cefdb6808ad5b29114dc3e32, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.03
   m_Pitch: 1
   Loop: 0
   Mute: 0
