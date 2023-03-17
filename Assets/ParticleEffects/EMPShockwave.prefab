@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3733056247219748762}
   - component: {fileID: 3733056247219748763}
   - component: {fileID: 3733056247219748760}
-  - component: {fileID: 3733056247219748761}
+  - component: {fileID: 8345002062900606491}
   m_Layer: 0
   m_Name: EMPStreak
   m_TagString: Untagged
@@ -4820,7 +4820,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a81c0a7b80fc55644b5bcc74f7d030de, type: 2}
+  - {fileID: 2100000, guid: 29d02837dd3c9af438a898f2113d6a7e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4871,7 +4871,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &3733056247219748761
+--- !u!114 &8345002062900606491
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4880,7 +4880,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3733056247219748766}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d51d396d723c19945ae2e87741e01f6b, type: 3}
+  m_Script: {fileID: 11500000, guid: fc832a4b47887cb40b3a2daa14abf97c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3733056247554283065
@@ -4894,7 +4894,7 @@ GameObject:
   - component: {fileID: 3733056247554283205}
   - component: {fileID: 3733056247554283066}
   - component: {fileID: 3733056247554283067}
-  - component: {fileID: 3733056247554283204}
+  - component: {fileID: 7215320788791200099}
   m_Layer: 0
   m_Name: EMPCircle
   m_TagString: Untagged
@@ -9703,8 +9703,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 38a5d9b758f4e0342a7957dff6d0308f, type: 2}
-  - {fileID: 2100000, guid: 38a5d9b758f4e0342a7957dff6d0308f, type: 2}
+  - {fileID: 2100000, guid: dfa0b31a0cf5ec2438fa4c0b9361433c, type: 2}
+  - {fileID: 2100000, guid: 644da4f85789bf6438aec341512a4383, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9755,7 +9755,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &3733056247554283204
+--- !u!114 &7215320788791200099
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9764,7 +9764,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3733056247554283065}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d51d396d723c19945ae2e87741e01f6b, type: 3}
+  m_Script: {fileID: 11500000, guid: fc832a4b47887cb40b3a2daa14abf97c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3733056247637560481
@@ -9778,7 +9778,7 @@ GameObject:
   - component: {fileID: 3733056247637560493}
   - component: {fileID: 3733056247637560482}
   - component: {fileID: 3733056247637560483}
-  - component: {fileID: 3733056247637560480}
+  - component: {fileID: 8258903521328276703}
   m_Layer: 0
   m_Name: EMPGlow
   m_TagString: Untagged
@@ -14638,7 +14638,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &3733056247637560480
+--- !u!114 &8258903521328276703
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14647,7 +14647,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3733056247637560481}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d51d396d723c19945ae2e87741e01f6b, type: 3}
+  m_Script: {fileID: 11500000, guid: fc832a4b47887cb40b3a2daa14abf97c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4484259636567406890
