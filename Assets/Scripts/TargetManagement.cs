@@ -56,7 +56,7 @@ public class TargetManagement : MonoBehaviour
                         vehicleData.courseProgress = RespawnPositionTracker.GetComponent<RespawnPositionTracker>().courseProgress;
                         FindObjectOfType<CheckpointManager>().SetCheckpointsToRespawnTracker(vehicleData.playerID);
                         Destroy(Instantiate(SpawnEffect, RespawnPositionTracker.transform.position + new Vector3(0,-7,0), RespawnPositionTracker.transform.rotation), 2);
-                        vehicle.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                        vehicle.GetComponent<Rigidbody>().velocity = vehicle.transform.forward * 200;
                         //vehicle.transform.position = cam.transform.position - cam.GetComponent<CameraFollowLead>().cameraOffset;
                         //vehicle.transform.rotation = leadVehicle.transform.rotation;
                     }
