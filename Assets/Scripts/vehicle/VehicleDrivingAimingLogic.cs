@@ -108,7 +108,7 @@ public class VehicleDrivingAimingLogic : MonoBehaviour
 		foreach (GameObject tire in tires)
 		{
 			Ray ray = new Ray(tire.transform.position, -tire.transform.up);
-			if (Physics.Raycast(ray, out RaycastHit hit, 20))
+			if (Physics.Raycast(ray, out RaycastHit hit, 8))
 			{
 				if (hit.collider.CompareTag("Track"))
 				{
