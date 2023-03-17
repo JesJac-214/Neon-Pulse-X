@@ -201,12 +201,17 @@ public class VehicleWeaponItemLogic : MonoBehaviour
     {
         transform.GetComponent<VehicleDrivingAimingLogic>().maxSpeed += boostedSpeedValue;
         transform.GetComponent<VehicleDrivingAimingLogic>().accelerationSpeed += boostedAccelerationValue;
-        GetComponent<Rigidbody>().velocity = transform.forward * 2000;
+        //GetComponent<Rigidbody>().velocity = transform.forward * 2000;
         StartCoroutine("SpeedDuration");
     }
 
     IEnumerator SpeedDuration()
     {
+        for (int i = 0; i < 10; i++)
+        {
+            GetComponent<Rigidbody>().velocity = transform.forward * 200;
+            yield return new WaitForSeconds(0.1f);
+        }
         yield return new WaitForSeconds(speedCoolDown);
         transform.GetComponent<VehicleDrivingAimingLogic>().maxSpeed -= boostedSpeedValue;
         transform.GetComponent<VehicleDrivingAimingLogic>().accelerationSpeed -= boostedAccelerationValue;

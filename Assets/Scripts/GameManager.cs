@@ -131,6 +131,8 @@ public class GameManager : MonoBehaviour
             vehicle.GetComponent<VehicleData>().lives = 3;
             vehicle.GetComponent<VehicleData>().courseProgress = 0;
             vehicle.GetComponent<VehicleWeaponItemLogic>().Item = new EquipmentBase();
+            vehicle.GetComponent<VehicleData>().isDead = false;
+            vehicle.GetComponent<VehicleData>().placement = 0;
         }
         RestartPositionTracker.GetComponent<RespawnPositionTracker>().courseProgress = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

@@ -9,6 +9,9 @@ public class VictorySceneCamera : MonoBehaviour
     private Vector3 goalPos;
     private Vector3 positionVelocity = Vector3.zero;
     private float cameraMoveLag = 20f;
+
+    public GameObject buttons;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,10 +33,11 @@ public class VictorySceneCamera : MonoBehaviour
                 if (vehicle.GetComponent<VehicleData>().placement == i)
                 {
                     goalPos = spawns[i].position + cameraOffset;
-                    yield return new WaitForSeconds(2);
+                    yield return new WaitForSeconds(1);
                 }
             }
         }
         goalPos = new Vector3(0, 24.8999996f, -49.5999985f) * 0.5f;
+        buttons.SetActive(true);
     }
 }
