@@ -373,7 +373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4977ec0aaf3ed3b4aa05a85d4cbfcb4a, type: 3}
       propertyPath: m_TagString
-      value: Track
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4977ec0aaf3ed3b4aa05a85d4cbfcb4a, type: 3}
@@ -1078,7 +1078,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: bb48c5b704fb037438914635d00190a9, type: 3}
       propertyPath: m_TagString
-      value: Track
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb48c5b704fb037438914635d00190a9, type: 3}

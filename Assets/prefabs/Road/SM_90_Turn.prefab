@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5941513726780695937}
   m_Layer: 0
   m_Name: SM_90_Turn
-  m_TagString: Track
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -757,7 +757,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7c8b53f5bbb4fbc41b2d603f1a192aa9, type: 3}
       propertyPath: m_TagString
-      value: Track
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c8b53f5bbb4fbc41b2d603f1a192aa9, type: 3}
@@ -1602,7 +1602,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3397931205869e04d9b1907fc55434d3, type: 3}
       propertyPath: m_TagString
-      value: Track
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3397931205869e04d9b1907fc55434d3, type: 3}
