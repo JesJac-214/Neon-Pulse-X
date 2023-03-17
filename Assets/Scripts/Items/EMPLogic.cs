@@ -7,6 +7,7 @@ public class EMPLogic : MonoBehaviour
     [SerializeField] private float explosionRadius = 15;
     [SerializeField] private float launchVelocity = 100f;
     private float timer = 3;
+    public GameObject explosionEffect;
     void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
@@ -29,8 +30,9 @@ public class EMPLogic : MonoBehaviour
                   obj.transform.parent.GetComponent<VehicleWeaponItemLogic>().EMPEffect();
              }
         }
-        SpawnSphere();
-        Destroy(gameObject);
+        Explode();
+        //SpawnSphere();
+        //Destroy(gameObject);
     }
 
 
@@ -46,9 +48,17 @@ public class EMPLogic : MonoBehaviour
                     obj.transform.parent.GetComponent<VehicleWeaponItemLogic>().EMPEffect();
                 }
             }
-            SpawnSphere();
-            Destroy(gameObject);
+            Explode();
+            //SpawnSphere();
+            //Destroy(gameObject);
         }
+    }
+    private void Explode()
+    {
+        GameObject o = Instantiate(explosionEffect, transform.position, transform.rotation);
+        o.transform.localScale *= 2;
+        Destroy(o, 2) ;
+        Destroy(gameObject);
     }
     private void SpawnSphere()
     {

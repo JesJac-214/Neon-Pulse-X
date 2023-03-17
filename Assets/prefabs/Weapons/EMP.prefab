@@ -114,6 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionRadius: 15
   launchVelocity: 150
+  explosionEffect: {fileID: 818666270922496177, guid: 0ef4b0da13ced8f4eb01081786d1b694, type: 3}
 --- !u!54 &5383845481441065770
 Rigidbody:
   m_ObjectHideFlags: 0
