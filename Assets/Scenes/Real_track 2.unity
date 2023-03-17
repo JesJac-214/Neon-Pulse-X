@@ -35239,6 +35239,7 @@ MonoBehaviour:
   target: {fileID: 3210850100417622841, guid: 89da7491d56a98e49b77b4b745779773, type: 3}
   cam: {fileID: 77308586}
   RespawnPositionTracker: {fileID: 1614193126}
+  SpawnEffect: {fileID: 1918290447946630575, guid: c36d5022cf655664ea5c190f70c6e8af, type: 3}
   heartBreak: {fileID: 1947116890}
 --- !u!4 &1947116887
 Transform:

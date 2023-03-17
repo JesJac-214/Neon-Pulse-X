@@ -23,9 +23,8 @@ public class VictorySceneCamera : MonoBehaviour
     IEnumerator CameraSweep()
     {
         GameObject[] vehicles = GameObject.FindGameObjectsWithTag("Player");
-        for (int i = spawns.Length - 1; i > -1; i--)
+        for (int i = spawns.Length - 1; i >= 0; i--)
         {
-            Debug.Log(i);
             foreach (GameObject vehicle in vehicles)
             {
                 if (vehicle.GetComponent<VehicleData>().placement == i)
