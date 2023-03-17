@@ -8,7 +8,7 @@ public class VictorySceneCamera : MonoBehaviour
     public Vector3 cameraOffset = new(0, 10, 100);
     private Vector3 goalPos;
     private Vector3 positionVelocity = Vector3.zero;
-    private float cameraMoveLag = 50f;
+    private float cameraMoveLag = 20f;
     // Start is called before the first frame update
     void Start()
     {
