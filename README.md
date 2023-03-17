@@ -26,7 +26,7 @@ Stay in view of the camera the longest. The camera tracks the lead car and if a 
 - [x] Create core game loop
   - [x] Create a system that tracks player positions
   - [x] Make players who fall off screen teleport/bullet bill back into the fray
-    - [x] Solve checkpoint problem (pretty much)
+    - [x] Solve checkpoint problem
   - [x] Add pickups
     - [x] Weapons
     - [x] Items
