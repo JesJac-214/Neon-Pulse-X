@@ -55,9 +55,7 @@ public class EMPLogic : MonoBehaviour
     }
     private void Explode()
     {
-        GameObject o = Instantiate(explosionEffect, transform.position, transform.rotation);
-        o.transform.localScale *= 2;
-        Destroy(o, 2) ;
+        Destroy(Instantiate(explosionEffect, transform.position, new Quaternion(0, 0, 0, 0)), 2) ;
         Destroy(gameObject);
     }
     private void SpawnSphere()
