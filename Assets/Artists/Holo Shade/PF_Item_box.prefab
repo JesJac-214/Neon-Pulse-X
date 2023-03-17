@@ -124,6 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hit: {fileID: 311286997401209619}
   restored: {fileID: 4071868438521645724}
+  spawnedItem: 0
 --- !u!65 &5833110813845346645
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -149,7 +150,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: bf436967a6ff12b808e5685d37cee7bd, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -245,7 +246,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f39d3e67cefdb6808ad5b29114dc3e32, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.03
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -429,6 +430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hit: {fileID: 0}
   restored: {fileID: 0}
+  spawnedItem: 0
 --- !u!4 &4440786716216256076 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c85db0b5d41e0ba4a9ea4e85167c8418, type: 3}
