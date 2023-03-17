@@ -75,6 +75,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: P4VehicleObject
       objectReference: {fileID: 0}
+    - target: {fileID: 4945565523986613977, guid: 57d4ce5dce9680045862129d3f73953a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 68.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945565523986613977, guid: 57d4ce5dce9680045862129d3f73953a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 68.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945565523986613977, guid: 57d4ce5dce9680045862129d3f73953a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 68.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945565523986613977, guid: 57d4ce5dce9680045862129d3f73953a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945565523986613977, guid: 57d4ce5dce9680045862129d3f73953a, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5758411812392688739, guid: 57d4ce5dce9680045862129d3f73953a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6958167792584780382, guid: 57d4ce5dce9680045862129d3f73953a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8058780142307552097, guid: 57d4ce5dce9680045862129d3f73953a, type: 3}
       propertyPath: m_LocalPosition.z
       value: -1
