@@ -3,7 +3,32 @@ guid: 16fb27ed6d1f43941b16ec9e15d45cc5
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Body
+    second: {fileID: 2100000, guid: d1e00b54c008c534995321c6dd61cefc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Bow
+    second: {fileID: 2100000, guid: 2a7abd58137af6141ad604f90b867db4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Holder
+    second: {fileID: 2100000, guid: b4435ea15632e9d40b75e8509e3bd1d7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Plasma_Core
+    second: {fileID: 2100000, guid: cdd2dbb8c26bc6f4f98d693c605f6360, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Plasma_Outer
+    second: {fileID: 2100000, guid: 708b438908f4c394e921890556407395, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -6,6 +6,11 @@ public class TargetManagement : MonoBehaviour
 {
     public GameObject target;
     public Camera cam;
+    public GameObject RespawnPositionTracker;
+
+    public GameObject SpawnEffect;
+
+    public AudioSource heartBreak;
     
     private bool IsVisible(Camera c, GameObject target)
     {
@@ -38,20 +43,40 @@ public class TargetManagement : MonoBehaviour
 
             foreach (GameObject vehicle in vehicles)
             {
-                if (!IsVisible(cam, vehicle))
+                if (!IsVisible(cam, vehicle) || vehicle.transform.position.y < -25)
                 {
-                    if (vehicle.GetComponent<VehicleData>().lives > 0)
+                    VehicleData vehicleData = vehicle.GetComponent<VehicleData>();
+                    if (vehicleData.lives > 0)
                     {
-                        vehicle.GetComponent<VehicleData>().lives--;
-                        vehicle.transform.position = cam.transform.position - new Vector3(0, 50, -20);
-                        vehicle.GetComponent<VehicleData>().courseProgress = leadVehicle.GetComponent<VehicleData>().courseProgress;
-                        vehicle.transform.rotation = leadVehicle.transform.rotation;
+                        vehicleData.lives--;
+                        heartBreak.Play();
+                        //vehicle.transform.SetPositionAndRotation(cam.transform.position - cam.GetComponent<CameraFollowLead>().cameraOffset, leadVehicle.transform.rotation);
+                        vehicle.transform.SetPositionAndRotation(RespawnPositionTracker.transform.position, RespawnPositionTracker.transform.rotation);
+                        //vehicleData.courseProgress = leadVehicle.GetComponent<VehicleData>().courseProgress;
+                        vehicleData.courseProgress = RespawnPositionTracker.GetComponent<RespawnPositionTracker>().courseProgress;
+                        FindObjectOfType<CheckpointManager>().SetCheckpointsToRespawnTracker(vehicleData.playerID);
+                        Destroy(Instantiate(SpawnEffect, RespawnPositionTracker.transform.position + new Vector3(0,-7,0), RespawnPositionTracker.transform.rotation), 2);
+                        vehicle.GetComponent<Rigidbody>().velocity = vehicle.transform.forward * 200;
+                        //vehicle.transform.position = cam.transform.position - cam.GetComponent<CameraFollowLead>().cameraOffset;
+                        //vehicle.transform.rotation = leadVehicle.transform.rotation;
                     }
                     else
                     {
                         vehicle.transform.position = new Vector3(0, -50, 0);
-                        vehicle.GetComponent<VehicleData>().courseProgress = 0;
-                        vehicle.GetComponent<VehicleData>().isDead = true;
+                        vehicleData.courseProgress = 0;
+                        vehicleData.isDead = true;
+                        int aliveCount = 0;
+                        foreach (GameObject car in vehicles)
+                        {
+                            if (!car.GetComponent<VehicleData>().isDead)
+                            {
+                                aliveCount++;
+                            }
+                        }
+                        if (vehicleData.placement == 0)
+                        { 
+                            vehicleData.placement = aliveCount;
+                        }
                     }
                 }
             }

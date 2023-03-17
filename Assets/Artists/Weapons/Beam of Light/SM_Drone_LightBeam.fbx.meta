@@ -3,7 +3,12 @@ guid: 31d8ca842a301024c8f24b23c06c534b
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cockpit
+    second: {fileID: 2100000, guid: 47bd377cca4762a438975be87cb6eebb, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

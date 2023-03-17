@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Ballong
-  m_Shader: {fileID: -6465566751694194690, guid: d4fa094734df999488bb7b6ce6dff862, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: a2b6418770d51ba498532c1ee5d4bbed, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 2
@@ -51,11 +51,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FresnelPower: 6
+    - _FresnelPower: 4.11
     - _Offset: 0.6
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Scrollspeed: 0.05
     m_Colors:
-    - _Emission: {r: 9.8481045, g: 3.0075142, b: 10.806661, a: 0}
+    - _Emission: {r: 45.837955, g: 0, b: 33.865345, a: 1}
   m_BuildTextureStacks: []

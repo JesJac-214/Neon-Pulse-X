@@ -9,6 +9,11 @@ TagManager:
   - SpeedBoost
   - Game Manager
   - Ice
+  - Hackingdrone
+  - Ready Zone
+  - Projectile
+  - SoundWave
+  - RespawnPositionTrackerCube
   layers:
   - Default
   - TransparentFX

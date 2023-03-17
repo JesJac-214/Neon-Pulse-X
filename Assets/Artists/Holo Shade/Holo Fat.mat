@@ -65,8 +65,8 @@ Material:
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _FresnelColor: {r: 0, g: 40.156864, b: 766.9961, a: 0}
-    - _HologramTiling: {r: 64, g: 2.3, b: 0, a: 0}
+    - _FresnelColor: {r: 0, g: 0.3137255, b: 5.992157, a: 0}
+    - _HologramTiling: {r: 109.37, g: 151.6, b: 0, a: 0}
     - _MainColor: {r: 0, g: 0.04418309, b: 2.1208208, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &5695341431249550267

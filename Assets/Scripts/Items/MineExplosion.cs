@@ -5,13 +5,19 @@ using UnityEngine;
 public class MineExplosion : MonoBehaviour
 {
     [SerializeField] private float explosionRadius = 7;
-    [SerializeField] private float explosionForce = 2000;
+    [SerializeField] private float explosionForce = 150;
+    public GameObject explosionEffect;
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(transform.position, explosionRadius);
+    }
     private void OnTriggerEnter(Collider collision)
     {
         if(collision.gameObject.CompareTag("Vehicle Body"))
         {
-             var surroundingObjects = Physics.OverlapSphere(transform.position, explosionRadius);
-             foreach(var obj in surroundingObjects) 
+            var surroundingObjects = Physics.OverlapSphere(transform.position, explosionRadius);
+            foreach(var obj in surroundingObjects) 
             {
                 if (obj.CompareTag("Vehicle Body"))
                 {
@@ -20,7 +26,22 @@ public class MineExplosion : MonoBehaviour
                 }
                    
             }
-             Destroy(gameObject);
+            Explode();
+            //SpawnSphere();
         }    
+    }
+    private void Explode()
+    {
+        Destroy(Instantiate(explosionEffect, transform.position, transform.rotation), 2);
+        Destroy(gameObject);
+    }
+    private void SpawnSphere()
+    {
+        GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        sphere.transform.position = transform.position;
+        sphere.transform.localScale = new Vector3(1, 1, 1) * explosionRadius * 2;
+        sphere.GetComponent<SphereCollider>().enabled = false;
+        Destroy(sphere, 0.3f);
+        Destroy(gameObject);
     }
 }

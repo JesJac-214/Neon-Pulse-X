@@ -107,15 +107,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Ready Up"",
-                    ""type"": ""Button"",
-                    ""id"": ""dc33bc1e-c7d2-4307-b326-6b046f290dc6"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -219,6 +210,39 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""829e4c36-3a55-40a0-8e85-1799d7035f19"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steer"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""a915250c-bb03-4fa4-9258-c3f4162905e7"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KBM"",
+                    ""action"": ""Steer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""ca747693-9955-47c4-afc5-571a3886af3f"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KBM"",
+                    ""action"": ""Steer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""54249ac3-3d31-4b6d-b4b9-f1d45984ffa2"",
                     ""path"": ""<Gamepad>/rightStick"",
@@ -308,6 +332,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""645a2634-d5ca-41d8-9fcc-35d0a4d328d9"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KBM"",
+                    ""action"": ""Accelerate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""da5a95b4-43b4-45dd-b2a8-1d0f49b844d0"",
                     ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
@@ -321,6 +356,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""b9e829f2-e421-41e7-bcdb-fac42acdf470"",
                     ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KBM"",
+                    ""action"": ""Decelerate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e86c5412-4eb6-4b04-ad78-33a6268e1a8e"",
+                    ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KBM"",
@@ -365,6 +411,72 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""7e0428ad-ed79-40c8-b445-b780042e59fa"",
                     ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KBM"",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""79dc3145-2112-427b-97a6-22c81f3a2e1d"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6b09b208-af3e-4859-a5ec-6cd52da2e766"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c6fc8ea9-c000-4b4c-ba4e-d6244fb9c0f2"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""316fea37-d844-43cc-9a7c-c976dbc6cf7f"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5b2faaf3-55ce-41d5-abe1-77bae63303c1"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KBM"",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2a0dc1c4-ec15-47ee-b3a9-b42b7d9d7d93"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KBM"",
@@ -437,28 +549,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Drift"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""e7e02033-56a9-4775-896c-fc69085a8922"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Ready Up"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f8348e2e-9c22-44b2-b256-0a1df2315312"",
-                    ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KBM"",
-                    ""action"": ""Ready Up"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -504,7 +594,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Driving_Respawn = m_Driving.FindAction("Respawn", throwIfNotFound: true);
         m_Driving_UseItem = m_Driving.FindAction("UseItem", throwIfNotFound: true);
         m_Driving_Drift = m_Driving.FindAction("Drift", throwIfNotFound: true);
-        m_Driving_ReadyUp = m_Driving.FindAction("Ready Up", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -573,7 +662,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Driving_Respawn;
     private readonly InputAction m_Driving_UseItem;
     private readonly InputAction m_Driving_Drift;
-    private readonly InputAction m_Driving_ReadyUp;
     public struct DrivingActions
     {
         private @PlayerControls m_Wrapper;
@@ -587,7 +675,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Respawn => m_Wrapper.m_Driving_Respawn;
         public InputAction @UseItem => m_Wrapper.m_Driving_UseItem;
         public InputAction @Drift => m_Wrapper.m_Driving_Drift;
-        public InputAction @ReadyUp => m_Wrapper.m_Driving_ReadyUp;
         public InputActionMap Get() { return m_Wrapper.m_Driving; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -624,9 +711,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Drift.started -= m_Wrapper.m_DrivingActionsCallbackInterface.OnDrift;
                 @Drift.performed -= m_Wrapper.m_DrivingActionsCallbackInterface.OnDrift;
                 @Drift.canceled -= m_Wrapper.m_DrivingActionsCallbackInterface.OnDrift;
-                @ReadyUp.started -= m_Wrapper.m_DrivingActionsCallbackInterface.OnReadyUp;
-                @ReadyUp.performed -= m_Wrapper.m_DrivingActionsCallbackInterface.OnReadyUp;
-                @ReadyUp.canceled -= m_Wrapper.m_DrivingActionsCallbackInterface.OnReadyUp;
             }
             m_Wrapper.m_DrivingActionsCallbackInterface = instance;
             if (instance != null)
@@ -658,9 +742,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Drift.started += instance.OnDrift;
                 @Drift.performed += instance.OnDrift;
                 @Drift.canceled += instance.OnDrift;
-                @ReadyUp.started += instance.OnReadyUp;
-                @ReadyUp.performed += instance.OnReadyUp;
-                @ReadyUp.canceled += instance.OnReadyUp;
             }
         }
     }
@@ -694,6 +775,5 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnRespawn(InputAction.CallbackContext context);
         void OnUseItem(InputAction.CallbackContext context);
         void OnDrift(InputAction.CallbackContext context);
-        void OnReadyUp(InputAction.CallbackContext context);
     }
 }

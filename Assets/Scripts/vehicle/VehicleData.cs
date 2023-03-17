@@ -2,34 +2,78 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class VehicleData : MonoBehaviour
 {
 	public int playerID = 0;
-	public Vector3 startPos;
+	public Transform startTransform;
 	public int courseProgress = 0;
 	public int laps = 0;
 	public int lives = 3;
 	public bool isDead = false;
 	public bool isReady = false;
 	public GameManager gameManager;
+	public int placement = 0;
 
-    private void Start()
+	public Transform lastHitCheckpointTransform;
+
+	private float ignoreReadyUpTime;
+
+	//private void Start()
+	//{
+	//	gameManager = GameObject.FindWithTag("Game Manager").GetComponent<GameManager>();
+	//}
+    private void OnEnable()
     {
-		gameManager = GameObject.FindWithTag("Game Manager").GetComponent<GameManager>();
+		SceneManager.sceneLoaded += OnGameStart;
+        ignoreReadyUpTime = Time.time + 0.1f;
     }
 
-    public void OnPauseGame()
+    private void OnDisable()
+    {
+		SceneManager.sceneLoaded -= OnGameStart;
+	}
+    private void OnGameStart(Scene scene, LoadSceneMode mode)
+    {
+		if (scene.name == "Real_track 2")
+        {
+			gameManager = GameObject.FindWithTag("Game Manager").GetComponent<GameManager>();
+			lastHitCheckpointTransform = transform;
+		}
+    }
+    public void OnPauseGame(InputAction.CallbackContext context)
 	{
-		gameManager = GameObject.FindWithTag("Game Manager").GetComponent<GameManager>();
-		if (!gameManager.IsPaused)
-        {
-			gameManager.PauseGame();
-        }
-		else
-        {
-			gameManager.UnpauseGame();
-        }
+		if (context.started)
+		{
+			if (SceneManager.GetActiveScene().name == "MainMenu")
+			{
+				GameObject.FindWithTag("Game Manager").GetComponent<PlayerJoinManager>().PauseGame();
+			}
+			else if (!gameManager.IsPaused)
+			{
+				gameManager.PauseGame();
+			}
+			else if (gameManager.IsPaused)
+			{
+				gameManager.UnpauseGame();
+			}
+		}
+
+
+		// if (context.started && SceneManager.GetActiveScene().name == "MainMenu")
+		// {
+		// 	Debug.Log("PauseGame");
+		// }
+		// //gameManager = GameObject.FindWithTag("Game Manager").GetComponent<GameManager>();
+		// if (context.started && !gameManager.IsPaused)
+        // {
+		// 	gameManager.PauseGame();
+        // }
+		// else if (context.started && gameManager.IsPaused)
+        // {
+		// 	gameManager.UnpauseGame();
+        // }
 	}
 
 	public void IncrementProgress()
@@ -42,8 +86,27 @@ public class VehicleData : MonoBehaviour
 		courseProgress--;
 	}
 
-	public void OnReadyUp()
+	public void OnReadyUp(InputAction.CallbackContext context)
     {
-		isReady = true;
+		//if (context.started && Time.time > ignoreReadyUpTime)
+		//{
+		//	isReady = true;
+		//}
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+		if (other.CompareTag("Ready Zone"))
+		{
+			isReady = true;
+		}
+	}
+
+    private void OnTriggerExit(Collider other)
+    {
+		if (other.CompareTag("Ready Zone"))
+        {
+			isReady = false;
+        }
     }
 }
