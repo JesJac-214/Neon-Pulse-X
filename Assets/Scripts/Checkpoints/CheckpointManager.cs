@@ -13,6 +13,14 @@ public class CheckpointManager : MonoBehaviour
         totalCheckpoints = checkpoints.Length;
     }
 
+    public void SetCheckpointsToRespawnTracker(int playerID)
+    {
+        foreach (Checkpoint checkpoint in checkpoints)
+        {
+            checkpoint.collided[playerID] = checkpoint.RespawnPositionTrackerHit;
+        }
+    }
+
     public void ResetCheckpoints(int playerID)
     {
         int checkpointsCrossed = 0;
