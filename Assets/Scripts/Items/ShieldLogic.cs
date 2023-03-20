@@ -10,7 +10,7 @@ public class ShieldLogic : MonoBehaviour
     public float counterShieldTime = 3;
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.CompareTag("Projectile") || collision.CompareTag("Ice") || collision.CompareTag("Hackingdrone"))
+        if (collision.CompareTag("Projectile") || collision.CompareTag("Ice") || collision.CompareTag("Hackingdrone") || (collision.CompareTag("EMP")))
         {
             audioSource.PlayOneShot(hitSound,1f);
             Destroy(collision.gameObject);

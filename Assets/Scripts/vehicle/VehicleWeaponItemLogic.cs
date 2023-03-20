@@ -153,10 +153,16 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 
     public void SpawnShield()
     {
-		//Instantiate(CounterShieldPrefab, new Vector3(0,1,0) + transform.position + anchor.transform.forward * -4, anchor.transform.rotation).transform.SetParent(gameObject.transform.GetChild(0).transform.GetChild(2).transform.GetChild(0));
-		//Instantiate(CounterShieldPrefab, new Vector3(0,1,0) + transform.position + anchor.transform.forward * -7, anchor.transform.rotation).transform.SetParent(gameObject.transform);
 		Instantiate(ShieldPrefab, new Vector3(0, 1, 0) + transform.position, anchor.transform.rotation).transform.SetParent(gameObject.transform);
+        GetComponent<VehicleData>().isShielded = true;
+        StartCoroutine(nameof(ShieldEffectDuration));
 	}
+
+    public IEnumerator ShieldEffectDuration()
+    {
+        yield return new WaitForSeconds(3);
+        GetComponent<VehicleData>().isShielded = false;
+    }
 
     public void Freeze()
 	{
