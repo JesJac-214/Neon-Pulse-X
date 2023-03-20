@@ -16,8 +16,8 @@ public class VehicleDrivingAimingLogic : MonoBehaviour
 	private bool drift = false;
 
 	private float steerInput = 0;
-	private float accelerateInput = 0;
-	private float decelerateInput = 0;
+	public float accelerateInput = 0;
+	public float decelerateInput = 0;
 	//private Vector2 aimInput = Vector2.zero;
 
 	//public float rotationSpeed = 120.0f;
@@ -95,6 +95,7 @@ public class VehicleDrivingAimingLogic : MonoBehaviour
         {
 			HandleUprightForce();
         }
+		vehicleRigidBody.velocity = Vector3.ClampMagnitude(vehicleRigidBody.velocity, maxSpeed);
 	}
 
 	void Update()
@@ -141,7 +142,6 @@ public class VehicleDrivingAimingLogic : MonoBehaviour
 		{
 			vehicleRigidBody.AddForceAtPosition(-tire.transform.right * (accelerateInput - decelerateInput * decelerationEffectivity) * accelerationSpeed * Time.fixedDeltaTime, tire.transform.position, ForceMode.VelocityChange);
 			Debug.DrawRay(tire.transform.position, -tire.transform.right * (accelerateInput - decelerateInput * decelerationEffectivity) * accelerationSpeed, Color.white);
-			vehicleRigidBody.velocity = Vector3.ClampMagnitude(vehicleRigidBody.velocity, maxSpeed);
 		}
 	}
 

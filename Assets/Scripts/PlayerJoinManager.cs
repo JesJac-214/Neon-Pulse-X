@@ -11,6 +11,9 @@ public class PlayerJoinManager : MonoBehaviour
     private int minPlayers = 2;
 
     [SerializeField]
+    private GameObject AIVehicle;
+
+    [SerializeField]
     private GameObject[] ReadyTexts;
 
     [SerializeField]
@@ -136,6 +139,27 @@ public class PlayerJoinManager : MonoBehaviour
         }
         SceneManager.LoadScene("Real_track 2");
     }
+
+    public GameObject[] AIs = new GameObject[4];
+    List<GameObject> AIVehicles;
+    public void AddAIPlayers()
+    {
+        vehicles = GameObject.FindGameObjectsWithTag("Player");
+        if (vehicles.Length < 4)
+        {
+            for (int i = vehicles.Length; i < 4; i++)
+            {
+                Instantiate(AIVehicle, GameObject.FindWithTag("Respawn").GetComponent<playerspawnmanager>().spawnLocations[i].position, GameObject.FindWithTag("Respawn").GetComponent<playerspawnmanager>().spawnLocations[i].rotation);
+            }
+            int j = vehicles.Length;
+            foreach (GameObject AIVehicle in GameObject.FindGameObjectsWithTag("AIPlayer"))
+            {
+                AIVehicle.transform.GetChild(0).GetComponent<VehicleData>().playerID = j;
+                j++;
+            }
+        }
+    }
+
     public void PauseGame()
     {
         pauseMenu.SetActive(!pauseMenu.activeSelf);

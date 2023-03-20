@@ -29,6 +29,7 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 	// Status Effects Models
 	public GameObject IceModel;
     public GameObject DizzyModel;
+    public GameObject SpeedBoostModel;
 
     //public GameObject gun;
 
@@ -208,6 +209,7 @@ public class VehicleWeaponItemLogic : MonoBehaviour
         transform.GetComponent<VehicleDrivingAimingLogic>().maxSpeed += boostedSpeedValue;
         transform.GetComponent<VehicleDrivingAimingLogic>().accelerationSpeed += boostedAccelerationValue;
         //GetComponent<Rigidbody>().velocity = transform.forward * 2000;
+        SpeedBoostModel.SetActive(true);
         StartCoroutine("SpeedDuration");
     }
 
@@ -221,5 +223,6 @@ public class VehicleWeaponItemLogic : MonoBehaviour
         yield return new WaitForSeconds(speedCoolDown);
         transform.GetComponent<VehicleDrivingAimingLogic>().maxSpeed -= boostedSpeedValue;
         transform.GetComponent<VehicleDrivingAimingLogic>().accelerationSpeed -= boostedAccelerationValue;
+        SpeedBoostModel.SetActive(false);
     }
 }
