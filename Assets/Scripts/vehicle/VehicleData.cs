@@ -15,6 +15,7 @@ public class VehicleData : MonoBehaviour
 	public bool isReady = false;
 	public GameManager gameManager;
 	public int placement = 0;
+	public bool isShielded = false;
 
 	public Transform lastHitCheckpointTransform;
 
