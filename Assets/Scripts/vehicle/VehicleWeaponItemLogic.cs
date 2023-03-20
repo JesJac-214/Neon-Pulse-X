@@ -123,7 +123,7 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 
     public void SpawnMine()
     {
-        Instantiate(MinePrefab, transform.position - transform.forward * 5, transform.rotation);
+        Instantiate(MinePrefab, transform.position - transform.forward * 7, transform.rotation);
     }
 
     public void SpawnCannonBall()

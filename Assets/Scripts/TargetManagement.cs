@@ -67,6 +67,7 @@ public class TargetManagement : MonoBehaviour
             {
                 vehicleData.placement = aliveCount;
             }
+            deathCountdownTimers[vehicle.GetComponent<VehicleData>().playerID].text = "X";
         }
     }
 
@@ -101,7 +102,10 @@ public class TargetManagement : MonoBehaviour
                 else
                 {
                     //vehicle.GetComponent<VehicleData>().StopAllCoroutines();
-                    StopCoroutine(playerDeathInsts[vehicle.GetComponent<VehicleData>().playerID]);
+                    if (playerDeathInsts[vehicle.GetComponent<VehicleData>().playerID] != null)
+                    {
+                        StopCoroutine(playerDeathInsts[vehicle.GetComponent<VehicleData>().playerID]);
+                    }
                     playerDying[vehicle.GetComponent<VehicleData>().playerID] = false;
                     deathCountdownTimers[vehicle.GetComponent<VehicleData>().playerID].text = "";
                 }
