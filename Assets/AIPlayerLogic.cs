@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class AIPlayerLogic : MonoBehaviour
 {
+    public GameObject[] frontTires;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,15 +30,29 @@ public class AIPlayerLogic : MonoBehaviour
 
     public void SteerAI(Quaternion rot)
     {
-
+        foreach (GameObject tire in frontTires)
+        {
+            tire.transform.rotation = rot;
+        }
     }
 
-    // Update is called once per frame
+    bool shooting = false;
     void Update()
     {
-        if (GetComponent<VehicleWeaponItemLogic>().Item.ammo > 0)
+        if (GetComponent<VehicleWeaponItemLogic>().Item.ammo > 0 && !shooting)
+        {
+            StartCoroutine(nameof(ItemUseDelay));
+            shooting = true;
+        }
+    }
+
+    IEnumerator ItemUseDelay()
+    {
+        for (int i = GetComponent<VehicleWeaponItemLogic>().Item.ammo; i > 0; i--)
         {
             GetComponent<VehicleWeaponItemLogic>().Item.Use(gameObject);
+            yield return new WaitForSeconds(Random.Range(1f, 5f));
         }
+        shooting = false;
     }
 }

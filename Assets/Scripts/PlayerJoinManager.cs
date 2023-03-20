@@ -140,7 +140,6 @@ public class PlayerJoinManager : MonoBehaviour
         SceneManager.LoadScene("Real_track 2");
     }
 
-    public GameObject[] AIs = new GameObject[4];
     List<GameObject> AIVehicles;
     public void AddAIPlayers()
     {
@@ -158,6 +157,7 @@ public class PlayerJoinManager : MonoBehaviour
                 j++;
             }
         }
+        pauseMenu.SetActive(!pauseMenu.activeSelf);
     }
 
     public void PauseGame()
@@ -171,7 +171,11 @@ public class PlayerJoinManager : MonoBehaviour
         vehicles = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject vehicle in vehicles)
         {
-            Destroy(vehicle);
+            Destroy(vehicle.transform.parent.gameObject);
+        }
+        foreach (GameObject AIVehicle in GameObject.FindGameObjectsWithTag("AIPlayer"))
+        {
+            Destroy(AIVehicle);
         }
         GameObject.FindWithTag("Respawn").GetComponent<playerspawnmanager>().index = 0;
         GameObject.FindWithTag("Respawn").GetComponent<playerspawnmanager>().manager.playerPrefab = GameObject.FindWithTag("Respawn").GetComponent<playerspawnmanager>().vehicles[0];

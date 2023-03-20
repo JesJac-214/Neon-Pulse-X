@@ -17,6 +17,8 @@ public class VehicleData : MonoBehaviour
 	public int placement = 0;
 	public bool isShielded = false;
 
+	public AudioSource engineSource;
+
 	public Transform lastHitCheckpointTransform;
 
 	private float ignoreReadyUpTime;
@@ -30,6 +32,18 @@ public class VehicleData : MonoBehaviour
 		SceneManager.sceneLoaded += OnGameStart;
         ignoreReadyUpTime = Time.time + 0.1f;
     }
+
+	private void Update()
+	{
+		if (GetComponent<VehicleDrivingAimingLogic>().canAccel)
+		{
+			engineSource.pitch = 0.4f + GetComponent<Rigidbody>().velocity.magnitude/GetComponent<VehicleDrivingAimingLogic>().maxSpeed;
+		}
+		else
+		{
+			engineSource.pitch = 0;
+		}
+	}
 
     private void OnDisable()
     {

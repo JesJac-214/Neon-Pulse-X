@@ -78,7 +78,10 @@ public class VehicleDrivingAimingLogic : MonoBehaviour
 	private void FixedUpdate()
 	{
 		HandleTireSuspension();
-		HandleTireRotation();
+		if (!transform.parent.CompareTag("AIPlayer"))
+		{
+			HandleTireRotation();
+		}
 		//HandleUprightForce();
 		if (grounded)
 		{

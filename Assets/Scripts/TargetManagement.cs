@@ -13,6 +13,8 @@ public class TargetManagement : MonoBehaviour
 
     public AudioSource heartBreak;
 
+    public AudioSource deathTimer;
+
     public TMP_Text[] deathCountdownTimers;
 
     private bool IsVisible(Camera c, GameObject target)
@@ -35,6 +37,7 @@ public class TargetManagement : MonoBehaviour
         {
             deathCountdownTimers[vehicle.GetComponent<VehicleData>().playerID].text = i.ToString();
             //countdownChime.Play();
+            deathTimer.Play();
             yield return new WaitForSeconds(1);
         }
         GameObject[] vehicles = GameObject.FindGameObjectsWithTag("Player");
