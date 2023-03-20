@@ -501,7 +501,7 @@ MonoBehaviour:
   frozenfriction: 5
   speedCoolDown: 1
   frozenCoolDown: 2
-  EMPCoolDown: 5
+  EMPCoolDown: 1
   hackedCoolDown: 5
 --- !u!1 &3210850101133266494
 GameObject:
