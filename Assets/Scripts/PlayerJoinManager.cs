@@ -28,6 +28,8 @@ public class PlayerJoinManager : MonoBehaviour
 
     public GameObject[] PlayerHUDs;
 
+    public TMP_Text playerMessage;
+
     private int readyPlayers = 0;
 
     GameObject[] vehicles;
@@ -167,8 +169,19 @@ public class PlayerJoinManager : MonoBehaviour
                 j++;
             }
         }
+        else
+        {
+            playerMessage.text = "Maximum Amount of Players Already!";
+            StartCoroutine(nameof(ShortMessage));
+        }
         spawnManager.GetComponent<PlayerInputManager>().DisableJoining();
         pauseMenu.SetActive(false);
+    }
+
+    IEnumerator ShortMessage()
+    {
+        yield return new WaitForSeconds(2);
+        playerMessage.text = "";
     }
 
     public void PauseGame()
