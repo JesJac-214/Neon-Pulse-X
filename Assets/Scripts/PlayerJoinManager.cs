@@ -4,11 +4,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class PlayerJoinManager : MonoBehaviour
 {
     [SerializeField]
     private int minPlayers = 2;
+
+    [SerializeField]
+    private GameObject AIVehicle;
 
     [SerializeField]
     private GameObject[] ReadyTexts;
@@ -24,6 +28,8 @@ public class PlayerJoinManager : MonoBehaviour
 
     public GameObject[] PlayerHUDs;
 
+    public TMP_Text playerMessage;
+
     private int readyPlayers = 0;
 
     GameObject[] vehicles;
@@ -35,8 +41,17 @@ public class PlayerJoinManager : MonoBehaviour
     public GameObject pauseMenu;
     public Button resetButton;
 
+    public GameObject[] prompts;
+
     public GameObject[] PlayerIconContainers;
     List<string> iconOrder = new List<string>() { "CannonBall", "EMP", "HackingDevice", "IceBeam", "SoundWave", "Mine", "Shield", "SpeedBoost", "Wall" };
+
+    GameObject spawnManager;
+
+    void Start()
+    {
+        spawnManager = GameObject.FindWithTag("Respawn");
+    }
 
     void Update()
     {
@@ -136,9 +151,50 @@ public class PlayerJoinManager : MonoBehaviour
         }
         SceneManager.LoadScene("Real_track 2");
     }
+
+    List<GameObject> AIVehicles;
+    public void AddAIPlayers()
+    {
+        vehicles = GameObject.FindGameObjectsWithTag("Player");
+        if (vehicles.Length < 4)
+        {
+            for (int i = vehicles.Length; i < 4; i++)
+            {
+                Instantiate(AIVehicle, spawnManager.GetComponent<playerspawnmanager>().spawnLocations[i].position, spawnManager.GetComponent<playerspawnmanager>().spawnLocations[i].rotation);
+            }
+            int j = vehicles.Length;
+            foreach (GameObject AIVehicle in GameObject.FindGameObjectsWithTag("AIPlayer"))
+            {
+                AIVehicle.transform.GetChild(0).GetComponent<VehicleData>().playerID = j;
+                j++;
+            }
+        }
+        else
+        {
+            playerMessage.text = "Maximum Amount of Players Already!";
+            StartCoroutine(nameof(ShortMessage));
+        }
+        spawnManager.GetComponent<PlayerInputManager>().DisableJoining();
+        pauseMenu.SetActive(false);
+        foreach (GameObject prompt in prompts)
+        {
+            prompt.SetActive(true);
+        }
+    }
+
+    IEnumerator ShortMessage()
+    {
+        yield return new WaitForSeconds(2);
+        playerMessage.text = "";
+    }
+
     public void PauseGame()
     {
         pauseMenu.SetActive(!pauseMenu.activeSelf);
+        foreach (GameObject prompt in prompts)
+        {
+            prompt.SetActive(!pauseMenu.activeSelf);
+        }
         resetButton.Select();
     }
 
@@ -147,12 +203,20 @@ public class PlayerJoinManager : MonoBehaviour
         vehicles = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject vehicle in vehicles)
         {
-            Destroy(vehicle);
+            Destroy(vehicle.transform.parent.gameObject);
         }
-        GameObject.FindWithTag("Respawn").GetComponent<playerspawnmanager>().index = 0;
-        GameObject.FindWithTag("Respawn").GetComponent<playerspawnmanager>().manager.playerPrefab = GameObject.FindWithTag("Respawn").GetComponent<playerspawnmanager>().vehicles[0];
-        
-        pauseMenu.SetActive(!pauseMenu.activeSelf);
+        foreach (GameObject AIVehicle in GameObject.FindGameObjectsWithTag("AIPlayer"))
+        {
+            Destroy(AIVehicle);
+        }
+        spawnManager.GetComponent<PlayerInputManager>().EnableJoining();
+        spawnManager.GetComponent<playerspawnmanager>().index = 0;
+        spawnManager.GetComponent<playerspawnmanager>().manager.playerPrefab = spawnManager.GetComponent<playerspawnmanager>().vehicles[0];
+        foreach (GameObject prompt in prompts)
+        {
+            prompt.SetActive(true);
+        }
+        pauseMenu.SetActive(false);
     }
 
     public void ReturnToMainMenu()

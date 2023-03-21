@@ -19,7 +19,10 @@ public class SoundWaveLogic : MonoBehaviour
         if (other.gameObject.CompareTag("Vehicle Body"))
         {
             Rigidbody rb = other.transform.parent.GetComponent<Rigidbody>();
-            rb.velocity = transform.up * liftForce;
+            if (!other.transform.parent.GetComponent<VehicleData>().isShielded)
+            {
+                rb.velocity = transform.up * liftForce;
+            }
             Destroy(Instantiate(SoundwaveParticle, other.transform.position, transform.rotation), 2);
         }
         

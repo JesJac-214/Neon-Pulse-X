@@ -29,6 +29,7 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 	// Status Effects Models
 	public GameObject IceModel;
     public GameObject DizzyModel;
+    public GameObject SpeedBoostModel;
 
     //public GameObject gun;
 
@@ -37,6 +38,8 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 
 	public float boostedSpeedValue = 30.0f;
 	public float boostedAccelerationValue = 1000.0f;
+
+    public float EMPStrength = 0.4f;
 	
 	public float frozenfriction = 5;
 	public float speedCoolDown = 1;
@@ -123,7 +126,7 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 
     public void SpawnMine()
     {
-        Instantiate(MinePrefab, transform.position - transform.forward * 5, transform.rotation);
+        Instantiate(MinePrefab, transform.position - transform.forward * 7, transform.rotation);
     }
 
     public void SpawnCannonBall()
@@ -153,10 +156,16 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 
     public void SpawnShield()
     {
-		//Instantiate(CounterShieldPrefab, new Vector3(0,1,0) + transform.position + anchor.transform.forward * -4, anchor.transform.rotation).transform.SetParent(gameObject.transform.GetChild(0).transform.GetChild(2).transform.GetChild(0));
-		//Instantiate(CounterShieldPrefab, new Vector3(0,1,0) + transform.position + anchor.transform.forward * -7, anchor.transform.rotation).transform.SetParent(gameObject.transform);
 		Instantiate(ShieldPrefab, new Vector3(0, 1, 0) + transform.position, anchor.transform.rotation).transform.SetParent(gameObject.transform);
+        GetComponent<VehicleData>().isShielded = true;
+        StartCoroutine(nameof(ShieldEffectDuration));
 	}
+
+    public IEnumerator ShieldEffectDuration()
+    {
+        yield return new WaitForSeconds(3);
+        GetComponent<VehicleData>().isShielded = false;
+    }
 
     public void Freeze()
 	{
@@ -176,12 +185,14 @@ public class VehicleWeaponItemLogic : MonoBehaviour
     public void EMPEffect()
 	{
 		GetComponent<VehicleDrivingAimingLogic>().canAccel = false;
+        GetComponent<VehicleDrivingAimingLogic>().rollingFriction += EMPStrength;
         StartCoroutine("EMPDuration");
     }
     IEnumerator EMPDuration()
     {
         yield return new WaitForSeconds(EMPCoolDown);
         GetComponent<VehicleDrivingAimingLogic>().canAccel = true;
+        GetComponent<VehicleDrivingAimingLogic>().rollingFriction -= EMPStrength;
     }
 	
 	public void HackedEffect()
@@ -202,6 +213,7 @@ public class VehicleWeaponItemLogic : MonoBehaviour
         transform.GetComponent<VehicleDrivingAimingLogic>().maxSpeed += boostedSpeedValue;
         transform.GetComponent<VehicleDrivingAimingLogic>().accelerationSpeed += boostedAccelerationValue;
         //GetComponent<Rigidbody>().velocity = transform.forward * 2000;
+        SpeedBoostModel.SetActive(true);
         StartCoroutine("SpeedDuration");
     }
 
@@ -215,5 +227,6 @@ public class VehicleWeaponItemLogic : MonoBehaviour
         yield return new WaitForSeconds(speedCoolDown);
         transform.GetComponent<VehicleDrivingAimingLogic>().maxSpeed -= boostedSpeedValue;
         transform.GetComponent<VehicleDrivingAimingLogic>().accelerationSpeed -= boostedAccelerationValue;
+        SpeedBoostModel.SetActive(false);
     }
 }

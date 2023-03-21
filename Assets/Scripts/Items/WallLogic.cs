@@ -7,7 +7,7 @@ public class WallLogic : MonoBehaviour
     public float destructionDelay = 0.2f;
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Projectile"))
         {
             Destroy(gameObject, destructionDelay);
         }

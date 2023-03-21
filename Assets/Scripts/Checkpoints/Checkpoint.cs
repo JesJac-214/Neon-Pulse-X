@@ -14,6 +14,10 @@ public class Checkpoint : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Vehicle Body"))
         {
+            if (other.gameObject.transform.parent.transform.parent.gameObject.CompareTag("AIPlayer"))
+            {
+                other.gameObject.transform.parent.GetComponent<AIPlayerLogic>().SteerAI(transform.rotation * Quaternion.Euler(-180, -90, -270));
+            }
             // !!IMPORTANT!! This may be a bit wack so check back and fix it if it has to be fixed
             Transform player = other.transform.parent;
             int PlayerID = player.GetComponent<VehicleData>().playerID;

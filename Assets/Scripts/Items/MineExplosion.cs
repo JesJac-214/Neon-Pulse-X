@@ -22,9 +22,11 @@ public class MineExplosion : MonoBehaviour
                 if (obj.CompareTag("Vehicle Body"))
                 {
                     Rigidbody rb = obj.transform.parent.GetComponent<Rigidbody>();
-                    rb.AddExplosionForce(explosionForce,transform.position, explosionRadius);
+                    if (!obj.transform.parent.GetComponent<VehicleData>().isShielded)
+                    {
+                        rb.AddExplosionForce(explosionForce,transform.position, explosionRadius);
+                    }
                 }
-                   
             }
             Explode();
             //SpawnSphere();
