@@ -176,6 +176,10 @@ public class PlayerJoinManager : MonoBehaviour
         }
         spawnManager.GetComponent<PlayerInputManager>().DisableJoining();
         pauseMenu.SetActive(false);
+        foreach (GameObject prompt in prompts)
+        {
+            prompt.SetActive(true);
+        }
     }
 
     IEnumerator ShortMessage()
@@ -208,7 +212,10 @@ public class PlayerJoinManager : MonoBehaviour
         spawnManager.GetComponent<PlayerInputManager>().EnableJoining();
         spawnManager.GetComponent<playerspawnmanager>().index = 0;
         spawnManager.GetComponent<playerspawnmanager>().manager.playerPrefab = spawnManager.GetComponent<playerspawnmanager>().vehicles[0];
-        
+        foreach (GameObject prompt in prompts)
+        {
+            prompt.SetActive(true);
+        }
         pauseMenu.SetActive(false);
     }
 
