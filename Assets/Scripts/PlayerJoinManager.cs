@@ -39,6 +39,8 @@ public class PlayerJoinManager : MonoBehaviour
     public GameObject pauseMenu;
     public Button resetButton;
 
+    public GameObject[] prompts;
+
     public GameObject[] PlayerIconContainers;
     List<string> iconOrder = new List<string>() { "CannonBall", "EMP", "HackingDevice", "IceBeam", "SoundWave", "Mine", "Shield", "SpeedBoost", "Wall" };
 
@@ -172,6 +174,10 @@ public class PlayerJoinManager : MonoBehaviour
     public void PauseGame()
     {
         pauseMenu.SetActive(!pauseMenu.activeSelf);
+        foreach (GameObject prompt in prompts)
+        {
+            prompt.SetActive(!pauseMenu.activeSelf);
+        }
         resetButton.Select();
     }
 
