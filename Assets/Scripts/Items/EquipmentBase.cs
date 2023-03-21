@@ -45,7 +45,7 @@ public class CannonBall : EquipmentBase
 {
     public override void Initialize()
     {
-        ammo = 4;
+        ammo = 3;
         weaponName = "CannonBall"; 
     }
 
