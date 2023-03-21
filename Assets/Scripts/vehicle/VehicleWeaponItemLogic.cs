@@ -38,6 +38,8 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 
 	public float boostedSpeedValue = 30.0f;
 	public float boostedAccelerationValue = 1000.0f;
+
+    public float EMPStrength = 0.4f;
 	
 	public float frozenfriction = 5;
 	public float speedCoolDown = 1;
@@ -183,12 +185,14 @@ public class VehicleWeaponItemLogic : MonoBehaviour
     public void EMPEffect()
 	{
 		GetComponent<VehicleDrivingAimingLogic>().canAccel = false;
+        GetComponent<VehicleDrivingAimingLogic>().rollingFriction += EMPStrength;
         StartCoroutine("EMPDuration");
     }
     IEnumerator EMPDuration()
     {
         yield return new WaitForSeconds(EMPCoolDown);
         GetComponent<VehicleDrivingAimingLogic>().canAccel = true;
+        GetComponent<VehicleDrivingAimingLogic>().rollingFriction -= EMPStrength;
     }
 	
 	public void HackedEffect()

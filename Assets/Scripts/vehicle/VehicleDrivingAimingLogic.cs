@@ -44,8 +44,7 @@ public class VehicleDrivingAimingLogic : MonoBehaviour
 	private float friction = 1f;
 	[SerializeField]
 	private float driftFriction = 0.2f;
-	[SerializeField]
-	private float rollingFriction = 0.2f;
+	public float rollingFriction = 0.2f;
 	[SerializeField]
 	private float backTireFrictionMultiplier = 2f;
 
