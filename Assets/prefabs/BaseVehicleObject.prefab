@@ -474,6 +474,7 @@ MonoBehaviour:
   isShielded: 0
   engineSource: {fileID: 7253987909676672660}
   lastHitCheckpointTransform: {fileID: 0}
+  trails: {fileID: 7902218928275232163}
 --- !u!114 &4124154686109981263
 MonoBehaviour:
   m_ObjectHideFlags: 0

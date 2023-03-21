@@ -21,6 +21,8 @@ public class VehicleData : MonoBehaviour
 
 	public Transform lastHitCheckpointTransform;
 
+	public GameObject trails;
+
 	private float ignoreReadyUpTime;
 
 	//private void Start()
@@ -49,8 +51,16 @@ public class VehicleData : MonoBehaviour
     {
 		SceneManager.sceneLoaded -= OnGameStart;
 	}
+	IEnumerator EnableTrails()
+    {
+		yield return new WaitForSeconds(3f);
+		trails.SetActive(true);
+    }
     private void OnGameStart(Scene scene, LoadSceneMode mode)
     {
+		trails.SetActive(false);
+		StartCoroutine(nameof(EnableTrails));
+
 		if (scene.name == "Real_track 2")
         {
 			gameManager = GameObject.FindWithTag("Game Manager").GetComponent<GameManager>();
@@ -68,10 +78,12 @@ public class VehicleData : MonoBehaviour
 			else if (!gameManager.IsPaused)
 			{
 				gameManager.PauseGame();
+				engineSource.Stop();
 			}
 			else if (gameManager.IsPaused)
 			{
 				gameManager.UnpauseGame();
+				engineSource.Play();
 			}
 		}
 
