@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class PlayerJoinManager : MonoBehaviour
 {
@@ -40,6 +41,13 @@ public class PlayerJoinManager : MonoBehaviour
 
     public GameObject[] PlayerIconContainers;
     List<string> iconOrder = new List<string>() { "CannonBall", "EMP", "HackingDevice", "IceBeam", "SoundWave", "Mine", "Shield", "SpeedBoost", "Wall" };
+
+    GameObject spawnManager;
+
+    void Start()
+    {
+        spawnManager = GameObject.FindWithTag("Respawn");
+    }
 
     void Update()
     {
@@ -148,7 +156,7 @@ public class PlayerJoinManager : MonoBehaviour
         {
             for (int i = vehicles.Length; i < 4; i++)
             {
-                Instantiate(AIVehicle, GameObject.FindWithTag("Respawn").GetComponent<playerspawnmanager>().spawnLocations[i].position, GameObject.FindWithTag("Respawn").GetComponent<playerspawnmanager>().spawnLocations[i].rotation);
+                Instantiate(AIVehicle, spawnManager.GetComponent<playerspawnmanager>().spawnLocations[i].position, spawnManager.GetComponent<playerspawnmanager>().spawnLocations[i].rotation);
             }
             int j = vehicles.Length;
             foreach (GameObject AIVehicle in GameObject.FindGameObjectsWithTag("AIPlayer"))
@@ -157,7 +165,8 @@ public class PlayerJoinManager : MonoBehaviour
                 j++;
             }
         }
-        pauseMenu.SetActive(!pauseMenu.activeSelf);
+        spawnManager.GetComponent<PlayerInputManager>().DisableJoining();
+        pauseMenu.SetActive(false);
     }
 
     public void PauseGame()
@@ -177,10 +186,11 @@ public class PlayerJoinManager : MonoBehaviour
         {
             Destroy(AIVehicle);
         }
-        GameObject.FindWithTag("Respawn").GetComponent<playerspawnmanager>().index = 0;
-        GameObject.FindWithTag("Respawn").GetComponent<playerspawnmanager>().manager.playerPrefab = GameObject.FindWithTag("Respawn").GetComponent<playerspawnmanager>().vehicles[0];
+        spawnManager.GetComponent<PlayerInputManager>().EnableJoining();
+        spawnManager.GetComponent<playerspawnmanager>().index = 0;
+        spawnManager.GetComponent<playerspawnmanager>().manager.playerPrefab = spawnManager.GetComponent<playerspawnmanager>().vehicles[0];
         
-        pauseMenu.SetActive(!pauseMenu.activeSelf);
+        pauseMenu.SetActive(false);
     }
 
     public void ReturnToMainMenu()
