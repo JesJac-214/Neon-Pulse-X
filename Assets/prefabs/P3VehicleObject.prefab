@@ -136,6 +136,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: P3VehicleObject
       objectReference: {fileID: 0}
+    - target: {fileID: 3210850101020776396, guid: 57d4ce5dce9680045862129d3f73953a, type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 3210850101425450139, guid: 57d4ce5dce9680045862129d3f73953a, type: 3}
       propertyPath: m_Size.x
       value: 2

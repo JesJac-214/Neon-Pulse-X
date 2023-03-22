@@ -108,10 +108,10 @@ GameObject:
   - component: {fileID: 3484231644899251857}
   - component: {fileID: 3484231644899251862}
   - component: {fileID: 3484231644899251863}
-  - component: {fileID: 3484231644899251860}
   - component: {fileID: -3698163247982120200}
   - component: {fileID: -6336702825450402551}
   - component: {fileID: 1589400342771908394}
+  - component: {fileID: 7676472990087421706}
   m_Layer: 0
   m_Name: Cannonball
   m_TagString: Projectile
@@ -126,7 +126,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3484231644899251866}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.38268343, z: 0, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4.75545, y: 4.75545, z: 4.75545}
   m_ConstrainProportionsScale: 1
@@ -134,7 +134,7 @@ Transform:
   - {fileID: 4601860462263404175}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
 --- !u!33 &3484231644899251862
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -185,19 +185,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &3484231644899251860
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3484231644899251866}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &-3698163247982120200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,7 +213,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 4
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!136 &1589400342771908394
 CapsuleCollider:
@@ -237,11 +224,24 @@ CapsuleCollider:
   m_GameObject: {fileID: 3484231644899251866}
   m_Material: {fileID: 13400000, guid: 00a8ae51511736d499751034e086f60f, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.2
+  m_Enabled: 0
+  m_Radius: 0.5
   m_Height: 1.5
   m_Direction: 0
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.3, z: 0}
+--- !u!65 &7676472990087421706
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3484231644899251866}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!1 &4601860462131233227
 GameObject:
   m_ObjectHideFlags: 0

@@ -131,7 +131,7 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 
     public void SpawnCannonBall()
 	{
-        Instantiate(CannonBallPrefab, transform.position + anchor.transform.forward * 8, anchor.transform.rotation);
+        Instantiate(CannonBallPrefab, transform.position + anchor.transform.forward * 9, anchor.transform.rotation);
     }
 
     public void SpawnEMP()

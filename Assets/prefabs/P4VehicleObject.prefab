@@ -83,6 +83,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: P4VehicleObject
       objectReference: {fileID: 0}
+    - target: {fileID: 3210850101020776396, guid: 57d4ce5dce9680045862129d3f73953a, type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 3699990074056624840, guid: 57d4ce5dce9680045862129d3f73953a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
