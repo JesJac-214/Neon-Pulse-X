@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7821556814041031044}
   - component: {fileID: 1963644291055329008}
   - component: {fileID: 263751542860474065}
+  - component: {fileID: 6840996324315114209}
   m_Layer: 0
   m_Name: Checkpoint
   m_TagString: Untagged
@@ -94,7 +95,7 @@ MeshCollider:
   m_GameObject: {fileID: 7819970656665357168}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -113,3 +114,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collided: 00000000
   test: 0
+  RespawnPositionTrackerHit: 0
+--- !u!65 &6840996324315114209
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7819970656665357168}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
