@@ -136,7 +136,7 @@ public class VehicleWeaponItemLogic : MonoBehaviour
 
     public void SpawnEMP()
     {
-        Instantiate(EMPPrefab, transform.position + anchor.transform.forward * 8, anchor.transform.rotation);
+        Instantiate(EMPPrefab, transform.position + anchor.transform.forward * 8 + anchor.transform.up, anchor.transform.rotation);
     }
 
     public void SpawnIcebeamBullet()
