@@ -180,10 +180,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6831727497007333390, guid: 31d8ca842a301024c8f24b23c06c534b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d11e5e2bbc4563e4889fd24a3c2013b9, type: 2}
     - target: {fileID: 919132149155446097, guid: 31d8ca842a301024c8f24b23c06c534b, type: 3}
       propertyPath: m_Name
       value: SM_Drone_LightBeam
       objectReference: {fileID: 0}
+    - target: {fileID: 1262153230039423857, guid: 31d8ca842a301024c8f24b23c06c534b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d11e5e2bbc4563e4889fd24a3c2013b9, type: 2}
+    - target: {fileID: 3852052711968995706, guid: 31d8ca842a301024c8f24b23c06c534b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d11e5e2bbc4563e4889fd24a3c2013b9, type: 2}
+    - target: {fileID: 8373052096745784456, guid: 31d8ca842a301024c8f24b23c06c534b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d11e5e2bbc4563e4889fd24a3c2013b9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31d8ca842a301024c8f24b23c06c534b, type: 3}
 --- !u!4 &1285889244208335948 stripped
