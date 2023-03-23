@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using TMPro; //Debug
 
 public class Checkpoint : MonoBehaviour
 {
@@ -14,7 +15,11 @@ public class Checkpoint : MonoBehaviour
 
     private float[] PlayerCollisionPositionX = { 0, 0, 0, 0 };
 
-
+    public TMP_Text debugText;
+    private void Update()
+    {
+        debugText.text = RespawnPositionTrackerHit.ToString();
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Vehicle Body"))
@@ -35,13 +40,9 @@ public class Checkpoint : MonoBehaviour
             Transform player = other.transform.parent;
             int PlayerID = player.GetComponent<VehicleData>().playerID;
             Debug.Log(Mathf.Round(PlayerCollisionPositionX[PlayerID] * 100) * 0.01);
-            if (Mathf.Round(Vector3.Project((other.transform.position - transform.position), transform.up).normalized.x * 100) * 0.01 == Mathf.Round(PlayerCollisionPositionX[PlayerID] * 100) * 0.01)
+            if (Mathf.Round(Vector3.Project((other.transform.position - transform.position), transform.up).normalized.x * 100) * 0.01 == -1 * Mathf.Round(PlayerCollisionPositionX[PlayerID] * 100) * 0.01)
             {
-                Debug.Log("Did not drive through!\n" + Mathf.Round(Vector3.Project((other.transform.position - transform.position), transform.up).normalized.x * 100) * 0.01 + " == " + Mathf.Round(PlayerCollisionPositionX[PlayerID] * 100) * 0.01);
-            }
-            else
-            {
-                Debug.Log("Drove through!\n" + Vector3.Project((other.transform.position - transform.position), transform.up).normalized.x + " != " + PlayerCollisionPositionX[PlayerID]);
+                Debug.Log("Drove through!\n" + Mathf.Round(Vector3.Project((other.transform.position - transform.position), transform.up).normalized.x * 100) * 0.01 + " == -1 * " + Mathf.Round(PlayerCollisionPositionX[PlayerID] * 100) * 0.01);
                 if (other.gameObject.transform.parent.transform.parent.gameObject.CompareTag("AIPlayer"))
                 {
                     other.gameObject.transform.parent.GetComponent<AIPlayerLogic>().SteerAI(transform.rotation * Quaternion.Euler(-180, -90, -270));
@@ -58,6 +59,10 @@ public class Checkpoint : MonoBehaviour
                     player.BroadcastMessage("DecrementProgress");
                 }
                 collided[PlayerID] = !collided[PlayerID];
+            }
+            else
+            {
+                Debug.Log("Did not drive through!\n" + Mathf.Round(Vector3.Project((other.transform.position - transform.position), transform.up).normalized.x * 100) * 0.01 + " == " + Mathf.Round(PlayerCollisionPositionX[PlayerID] * 100) * 0.01);
             }
         }
         if (other.gameObject.CompareTag("RespawnPositionTrackerCube"))

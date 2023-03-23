@@ -20,7 +20,25 @@ public class CheckpointManager : MonoBehaviour
             checkpoint.collided[playerID] = checkpoint.RespawnPositionTrackerHit;
         }
     }
-
+    public void ResetCubeCheckpoints(GameObject resetCube)
+    {
+        int checkpointsCrossed = 0;
+        foreach (Checkpoint checkpoint in checkpoints)
+        {
+            if (checkpoint.RespawnPositionTrackerHit)
+            {
+                checkpointsCrossed++;
+            }
+        }
+        if (checkpointsCrossed > requiredLapCompletion * totalCheckpoints)
+        {
+            resetCube.GetComponent<RespawnPositionTracker>().courseProgress += (totalCheckpoints - checkpointsCrossed);
+            foreach (Checkpoint checkpoint in checkpoints)
+            {
+                checkpoint.RespawnPositionTrackerHit = false;
+            }
+        }
+    }
     public void ResetCheckpoints(int playerID)
     {
         int checkpointsCrossed = 0;
@@ -48,7 +66,6 @@ public class CheckpointManager : MonoBehaviour
             foreach (Checkpoint checkpoint in checkpoints)
             {
                 checkpoint.collided[playerID] = false;
-                checkpoint.RespawnPositionTrackerHit = false;
             }
         }
     }
