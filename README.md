@@ -3,6 +3,8 @@ Outrun, outgun, and outlive to outplay the competition
 
 [Neon Pulse X - Post Mortem.pdf](https://github.com/JesJac-214/Neon-Pulse-X/files/11063610/Neon.Pulse.X.-.Post.Mortem.pdf)
 
+[Neon Pulse X Design Document.docx](https://github.com/JesJac-214/Neon-Pulse-X/files/11063686/Rally.Shooter.Game.Design.Document.docx)
+
 [Game trailer](https://drive.google.com/file/d/1ddm0mGxiUEbLdG6X6AXnfVup071iyhjx/view?resourcekey)
 
 ## Download Instructions
