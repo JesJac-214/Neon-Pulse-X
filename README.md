@@ -57,7 +57,7 @@ Stay in view of the camera the longest. The camera tracks the lead car and if a 
   - [x] Mine
   - [ ] ~Ghost~
   - [x] Shield
-- [ ] Sound Effects
+- [x] Sound Effects
   - [x] Vehicle Sounds
-  - [ ] Weapons and Items Sounds
+  - [ ] ~Weapons and Items Sounds~
   - [x] Item and Weapon Box Sounds
