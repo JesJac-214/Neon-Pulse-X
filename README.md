@@ -3,6 +3,8 @@ Outrun, outgun, and outlive to outplay the competition
 
 [Neon Pulse X - Post Mortem.pdf](https://github.com/JesJac-214/Neon-Pulse-X/files/11063610/Neon.Pulse.X.-.Post.Mortem.pdf)
 
+[Game trailer](https://drive.google.com/file/d/1ddm0mGxiUEbLdG6X6AXnfVup071iyhjx/view?resourcekey)
+
 ## Download Instructions
 Download the latest [release](https://github.com/JesJac-214/Neon-Pulse-X/releases) for your operating system and unzip the file with 7-Zip or equivalent. Navigate into the folder and launch the executable file.
 
